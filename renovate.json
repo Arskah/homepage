@@ -1,0 +1,17 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:js-app"],
+  "labels": ["dependencies"],
+  "timezone": "Europe/Helsinki",
+  "automerge": true,
+  "automergeType": "pr",
+  "major": {
+    "automerge": false
+  },
+  "packageRules": [
+    {
+      "matchDatasources": ["npm"],
+      "minimumReleaseAge": "3 days"
+    }
+  ]
+}
