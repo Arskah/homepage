@@ -19,7 +19,8 @@
     "@types/react-dom": "18.2.14",
     "astro": "3.4.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "styled-components": "6.1.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "6.9.0",

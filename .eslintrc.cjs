@@ -1,5 +1,8 @@
 module.exports = {
   extends: [
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/stylistic",
     "plugin:import/recommended",
@@ -7,7 +10,12 @@ module.exports = {
     "plugin:prettier/recommended",
     "plugin:astro/jsx-a11y-recommended",
   ],
-  plugins: ["@typescript-eslint", "prettier"],
+  plugins: ["react", "@typescript-eslint", "prettier"],
+  settings: {
+    react: {
+        "version": "detect"
+    },
+  },
   overrides: [
     {
       // Define the configuration for `.astro` file.
