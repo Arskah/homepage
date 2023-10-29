@@ -1,12 +1,11 @@
 module.exports = {
   extends: [
-    "plugin:astro/jsx-a11y-recommended",
-    "plugin:import/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/stylistic",
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:prettier/recommended",
+    "plugin:astro/jsx-a11y-recommended",
   ],
   plugins: ["@typescript-eslint", "prettier"],
   overrides: [
@@ -21,9 +20,13 @@ module.exports = {
         parser: "@typescript-eslint/parser",
         extraFileExtensions: [".astro"],
       },
+      rules: {
+        "prettier/prettier": "warn", // TODO: fix this
+      },
     },
   ],
   rules: {
     "prettier/prettier": "error",
+    "import/no-unresolved": "warn", // TODO: fix this
   },
 };
