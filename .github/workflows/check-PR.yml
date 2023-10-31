@@ -3,6 +3,9 @@ name: PR check
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - ci-steps
 
 jobs:
   check-semantic-pr-title:
