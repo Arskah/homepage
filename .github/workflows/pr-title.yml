@@ -1,0 +1,23 @@
+name: Check PR title
+
+on:
+  workflow_call:
+  pull_request:
+    types: [opened, reopened, edited]
+
+jobs:
+  check-pull-request:
+    name: Check Pull Request
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Pull Request Title
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const acceptedRegexes = [/^(feat|fix|regfix|chore|revert|refactor)(\([a-zA-Z0-9_-]+\))?: .*$/]
+            const title = context.payload.pull_request.title
+            if (!acceptedRegexes.some(regex => title.match(regex))) {
+              core.setFailed(`Title "${context.payload.pull_request.title}" does not contain match any of accepted regex constraints: ${acceptedRegexes.join(', ')}`)
+            }

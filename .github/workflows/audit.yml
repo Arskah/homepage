@@ -1,0 +1,20 @@
+name: NPM audit
+
+on:
+  workflow_call:
+
+jobs:
+  audit:
+    name: Run dependency audit
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+      - run: pnpm install
+      - name: Run dependency audit
+        run: |
+          pnpm audit

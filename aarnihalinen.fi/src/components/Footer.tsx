@@ -1,4 +1,4 @@
-import react from "react"
+import react from "react";
 import styled from "styled-components";
 import { SocialLinks } from "./SocialLinks";
 
@@ -7,9 +7,7 @@ const FooterComponent = styled.footer`
   background: linear-gradient(var(--gray-gradient)) no-repeat;
   color: rgb(var(--gray));
   text-align: center;
-`
-
-
+`;
 
 export const Footer = () => {
   const today = new Date();
@@ -19,5 +17,5 @@ export const Footer = () => {
       &copy; {year} Aarni Halinen. All rights reserved.
       <SocialLinks />
     </FooterComponent>
-  )
-}
+  );
+};

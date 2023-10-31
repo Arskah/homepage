@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { HeaderLink } from './HeaderLink';
-import { SocialLinks } from './SocialLinks';
+import { HeaderLink } from "./HeaderLink";
+import { SocialLinks } from "./SocialLinks";
 
 const HeaderComponent = styled.header`
   margin: 0;
@@ -36,19 +36,21 @@ const HeaderComponent = styled.header`
 `;
 
 interface HeaderProps {
-  title: string
+  title: string;
 }
 
 export const Header = ({ title }: HeaderProps) => (
   <HeaderComponent>
-<nav>
-    <h2><a href="/">{title}</a></h2>
-    <div className="internal-links">
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-      <HeaderLink href="/about">About</HeaderLink>
-    </div>
-    <SocialLinks />
-  </nav>
+    <nav>
+      <h2>
+        <a href="/">{title}</a>
+      </h2>
+      <div className="internal-links">
+        <HeaderLink href="/">Home</HeaderLink>
+        <HeaderLink href="/blog">Blog</HeaderLink>
+        <HeaderLink href="/about">About</HeaderLink>
+      </div>
+      <SocialLinks />
+    </nav>
   </HeaderComponent>
-)
+);

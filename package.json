@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "lint": "turbo lint",
+    "dev": "turbo dev",
+    "start": "turbo dev",
+    "build": "turbo build",
+    "preview": "turbo preview"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "turbo": "^1.10.16"
+  }
+}
