@@ -1,6 +1,0 @@
-
-> aarnihalinen.fi@0.0.1 lint /Users/arska/Projects/homepage/aarnihalinen.fi
-> eslint 'src/**/*.{js,ts,tsx,astro}'
-
-sh: eslint: command not found
- ELIFECYCLE  Command failed.
