@@ -9,16 +9,16 @@ on:
 
 jobs:
   check-semantic-pr-title:
-    uses: ./.github/workflows/pr-title.yaml
+    uses: ./.github/workflows/pr-title.yml
 
   audit:
-    uses: ./.github/workflows/audit.yaml
+    uses: ./.github/workflows/audit.yml
 
   lint:
-    uses: ./.github/workflows/lint.yaml
+    uses: ./.github/workflows/lint.yml
 
   # build:
-  #   uses: ./.github/workflows/build.yaml
+  #   uses: ./.github/workflows/build.yml
 
   # test:
-  #   uses: ./.github/workflows/test.yaml
+  #   uses: ./.github/workflows/test.yml
