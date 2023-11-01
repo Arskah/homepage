@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from "styled-components";
 
 const Links = styled.div`
   display: flex;
@@ -17,9 +17,19 @@ const Links = styled.div`
 
 export const SocialLinks = () => (
   <Links>
-    <a href="https://github.com/withastro/astro" target="_blank">
-      <span className="sr-only">Go to Astro's GitHub repo</span>
-      <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github"
+    <a
+      href="https://github.com/withastro/astro"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <span className="sr-only">Go to Astro&apos;s GitHub repo</span>
+      <svg
+        viewBox="0 0 16 16"
+        aria-hidden="true"
+        width="32"
+        height="32"
+        // eslint-disable-next-line react/no-unknown-property
+        astro-icon="social/github"
       >
         <path
           fill="currentColor"
@@ -28,4 +38,4 @@ export const SocialLinks = () => (
       </svg>
     </a>
   </Links>
-)
+);

@@ -1,5 +1,4 @@
-import react from "react";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import { SocialLinks } from "./SocialLinks";
 
 const FooterComponent = styled.footer`
