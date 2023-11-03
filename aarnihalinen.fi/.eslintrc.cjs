@@ -25,9 +25,6 @@ module.exports = {
         parser: "@typescript-eslint/parser",
         extraFileExtensions: [".astro"],
       },
-      rules: {
-        "prettier/prettier": "warn", // TODO: fix this
-      },
     },
     {
       files: ["*.tsx"],
