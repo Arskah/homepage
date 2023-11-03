@@ -11,13 +11,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
       - name: Check Pull Request Title
         if: github.event_name == 'pull_request'
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const acceptedRegexes = [/^(feat|fix|regfix|chore|revert|refactor)(\([a-zA-Z0-9_-]+\))?: .*$/]
-            const title = context.payload.pull_request.title
-            if (!acceptedRegexes.some(regex => title.match(regex))) {
-              core.setFailed(`Title "${context.payload.pull_request.title}" does not contain match any of accepted regex constraints: ${acceptedRegexes.join(', ')}`)
-            }
+        run: |
+          echo ${{ github.event.pull_request.title }} | pnpm commitlint
