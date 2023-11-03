@@ -7,9 +7,9 @@
     "preview": "turbo preview"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.2.0",
-    "@commitlint/config-conventional": "^18.1.0",
-    "husky": "^8.0.3",
-    "turbo": "^1.10.16"
+    "@commitlint/cli": "18.2.0",
+    "@commitlint/config-conventional": "18.1.0",
+    "husky": "8.0.3",
+    "turbo": "1.10.16"
   }
 }
