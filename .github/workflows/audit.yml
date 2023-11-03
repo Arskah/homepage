@@ -20,4 +20,4 @@ jobs:
       - run: pnpm install
       - name: Run dependency audit
         run: |
-          pnpm audit
+          pnpm audit --audit-level high --prod
