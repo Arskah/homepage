@@ -7,7 +7,7 @@ on:
 
 jobs:
   check-pull-request:
-    name: Check Pull Request
+    name: Check PR title
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: '20'
           cache: 'pnpm'
-      - name: Check Pull Request Title
+      - name: Check PR title
         if: github.event_name == 'pull_request'
         run: |
           pnpm i @commitlint/cli @commitlint/config-conventional
