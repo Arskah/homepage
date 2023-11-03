@@ -23,4 +23,4 @@ jobs:
         if: github.event_name == 'pull_request'
         run: |
           pnpm i -w @commitlint/cli @commitlint/config-conventional
-          echo ${{ github.event.pull_request.title }} | pnpm commitlint --strict -V
+          echo "${{ github.event.pull_request.title }}" | pnpm commitlint --strict -V
