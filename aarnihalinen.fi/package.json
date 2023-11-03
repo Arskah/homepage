@@ -16,15 +16,14 @@
     "@astrojs/react": "3.0.4",
     "@astrojs/rss": "3.0.0",
     "@astrojs/sitemap": "3.0.2",
-    "@types/react": "18.2.33",
-    "@types/react-dom": "18.2.14",
     "astro": "3.4.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "styled-components": "6.1.0",
-    "typescript": "^5.2.2"
+    "styled-components": "6.1.0"
   },
   "devDependencies": {
+    "@types/react": "18.2.33",
+    "@types/react-dom": "18.2.14",
     "@typescript-eslint/eslint-plugin": "6.9.0",
     "@typescript-eslint/parser": "6.9.0",
     "eslint": "8.52.0",
@@ -35,6 +34,7 @@
     "eslint-plugin-prettier": "5.0.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "3.0.3"
+    "prettier": "3.0.3",
+    "typescript": "^5.2.2"
   }
 }
