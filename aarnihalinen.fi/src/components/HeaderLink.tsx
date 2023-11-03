@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-
+import { styled } from "styled-components";
 
 const Link = styled.a`
   display: inline-block;
@@ -8,16 +7,19 @@ const Link = styled.a`
     font-weight: bolder;
     text-decoration: underline;
   }
-`
+`;
 
-export const HeaderLink = ({ className, ...restProps }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+export const HeaderLink = ({
+  className,
+  ...restProps
+}: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
   // const { pathname } = window.location;
   // const isActive = restProps.href === pathname || restProps.href === pathname.replace(/\/$/, '');
   const isActive = false;
-  const classes = `${className ?? ""} ${isActive ? "active" : ""}`
+  const classes = `${className ?? ""} ${isActive ? "active" : ""}`;
   return (
     <Link className={classes} {...restProps}>
       <slot />
     </Link>
-  )
-}
+  );
+};

@@ -1,8 +1,5 @@
 module.exports = {
   extends: [
-    "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
-    "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/stylistic",
     "plugin:import/recommended",
@@ -13,7 +10,7 @@ module.exports = {
   plugins: ["react", "@typescript-eslint", "prettier"],
   settings: {
     react: {
-        "version": "detect"
+      version: "detect",
     },
   },
   overrides: [
@@ -31,6 +28,14 @@ module.exports = {
       rules: {
         "prettier/prettier": "warn", // TODO: fix this
       },
+    },
+    {
+      files: ["*.tsx"],
+      extends: [
+        "plugin:react/recommended",
+        "plugin:react/jsx-runtime",
+        "plugin:react-hooks/recommended",
+      ],
     },
   ],
   rules: {

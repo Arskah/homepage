@@ -1,0 +1,28 @@
+name: Lint
+
+on:
+  workflow_call:
+
+jobs:
+  lint:
+    name: Run linter
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Run Linter
+        run: |
+          pnpm lint
+      # - name: Validate Renovate config
+      #   uses: rinchsan/renovate-config-validator@v0.0.12
+      #   with:
+      #     pattern: 'renovate.json'
