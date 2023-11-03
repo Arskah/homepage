@@ -22,5 +22,6 @@ jobs:
       - name: Check PR title
         if: github.event_name == 'pull_request'
         run: |
+          set -x
           pnpm i -w @commitlint/cli @commitlint/config-conventional
           echo ${{ github.event.pull_request.title }} | pnpm commitlint
