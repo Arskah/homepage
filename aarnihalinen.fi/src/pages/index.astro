@@ -12,7 +12,7 @@ import { Page } from "../components/Page";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <Page client:only="react">
-    <Header title={SITE_TITLE} />
+    <Header title={SITE_TITLE} client:only="react" />
     <main>
       <h1>🧑‍🚀 Hello, Astronaut!</h1>
       <p>
@@ -60,6 +60,6 @@ import { Page } from "../components/Page";
         </a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
       </p>
     </main>
-    <Footer />
+    <Footer client:only="react" />
   </Page>
 </html>
