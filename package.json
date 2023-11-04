@@ -4,7 +4,8 @@
     "dev": "turbo dev",
     "start": "turbo dev",
     "build": "turbo build",
-    "preview": "turbo preview"
+    "preview": "turbo preview",
+    "test": "turbo test"
   },
   "devDependencies": {
     "@commitlint/cli": "18.2.0",
