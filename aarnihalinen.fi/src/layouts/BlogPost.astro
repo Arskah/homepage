@@ -3,7 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
-import FormattedDate from "../components/FormattedDate.astro";
+import { FormattedDate } from "../components/FormattedDate";
 import { SITE_TITLE } from "../consts";
 
 type Props = CollectionEntry<"blog">["data"];
