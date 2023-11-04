@@ -5,6 +5,7 @@ import { Footer } from "../../components/Footer";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
+import { Page } from "../../components/Page";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
@@ -85,8 +86,8 @@ const posts = (await getCollection("blog")).sort(
       }
     </style>
   </head>
-  <body>
-    <Header title={SITE_TITLE} />
+  <Page client:only="react">
+    <Header title={SITE_TITLE} client:only="react" />
     <main>
       <section>
         <ul>
@@ -111,6 +112,8 @@ const posts = (await getCollection("blog")).sort(
         </ul>
       </section>
     </main>
-    <Footer />
-  </body>
+    <Footer client:only="react" />
+  </Page>
+
+
 </html>
