@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { Page } from "../components/Page";
 ---
 
 <!doctype html>
@@ -10,7 +11,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body>
+  <Page client:only="react">
     <Header title={SITE_TITLE} />
     <main>
       <h1>🧑‍🚀 Hello, Astronaut!</h1>
@@ -60,5 +61,5 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
       </p>
     </main>
     <Footer />
-  </body>
+  </Page>
 </html>
