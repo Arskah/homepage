@@ -23,7 +23,7 @@
     "styled-components": "6.1.8"
   },
   "devDependencies": {
-    "@astrojs/ts-plugin": "1.4.0",
+    "@astrojs/ts-plugin": "1.6.1",
     "@playwright/test": "1.41.0",
     "@types/node": "20.11.4",
     "@types/react": "18.2.79",
