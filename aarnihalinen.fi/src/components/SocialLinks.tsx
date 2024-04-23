@@ -1,28 +1,14 @@
-import { styled } from "styled-components";
-
-const Links = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 1em;
-  margin-top: 1em;
-
-  a {
-    text-decoration: none;
-    color: rgb(var(--gray));
-  }
-  a:hover {
-    color: rgb(var(--gray-dark));
-  }
-`;
+import { anchorStyles, container, srOnly } from "./SocialLinks.css";
 
 export const SocialLinks = () => (
-  <Links>
+  <div className={container}>
     <a
+      className={anchorStyles}
       href="https://github.com/withastro/astro"
       target="_blank"
       rel="noreferrer"
     >
-      <span className="sr-only">Go to Astro&apos;s GitHub repo</span>
+      <span className={srOnly}>Go to Astro&apos;s GitHub repo</span>
       <svg
         viewBox="0 0 16 16"
         aria-hidden="true"
@@ -37,5 +23,5 @@ export const SocialLinks = () => (
         />
       </svg>
     </a>
-  </Links>
+  </div>
 );

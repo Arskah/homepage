@@ -1,13 +1,4 @@
-import { styled } from "styled-components";
-
-const Link = styled.a`
-  display: inline-block;
-  text-decoration: none;
-  &.active {
-    font-weight: bolder;
-    text-decoration: underline;
-  }
-`;
+import { styles } from "./HeaderLink.css";
 
 export const HeaderLink = ({
   className,
@@ -16,10 +7,10 @@ export const HeaderLink = ({
   // const { pathname } = window.location;
   // const isActive = restProps.href === pathname || restProps.href === pathname.replace(/\/$/, '');
   const isActive = false;
-  const classes = `${className ?? ""} ${isActive ? "active" : ""}`;
+  const classes = `${styles} ${className ?? ""} ${isActive ? "active" : ""}`;
   return (
-    <Link className={classes} {...restProps}>
+    <a className={classes} {...restProps}>
       <slot />
-    </Link>
+    </a>
   );
 };
