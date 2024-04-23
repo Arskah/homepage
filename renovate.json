@@ -1,17 +1,40 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:js-app"],
+  "extends": [
+    "config:js-app",
+    "docker:enableMajor",
+    "docker:pinDigests",
+    "helpers:pinGitHubActionDigests",
+    ":automergeRequireAllStatusChecks",
+    ":dependencyDashboard",
+    ":label(dependencies)",
+    ":maintainLockFilesWeekly",
+    "npm:unpublishSafe",
+    ":prConcurrentLimit10",
+    ":prHourlyLimit4"
+  ],
   "labels": ["dependencies"],
   "timezone": "Europe/Helsinki",
   "automerge": true,
   "automergeType": "pr",
-  "major": {
-    "automerge": false
+  "digest": {
+    "masterIssueApproval": true
   },
+  "major": {
+    "automerge": false,
+    "masterIssueApproval": true
+  },
+  "postUpdateOptions": [
+    "pnpmDedupe"
+  ],
   "packageRules": [
     {
-      "matchDatasources": ["npm"],
-      "minimumReleaseAge": "3 days"
+      "groupName": "playwright",
+      "groupSlug": "playwright",
+      "matchPackagePatterns": [
+        "^mcr.microsoft.com/playwright",
+        "@playwright/test"
+      ]
     }
   ]
 }
