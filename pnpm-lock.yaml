@@ -10,7 +10,7 @@ importers:
     devDependencies:
       '@commitlint/cli':
         specifier: 18.6.1
-        version: 18.6.1(@types/node@20.12.7)(typescript@5.4.5)
+        version: 18.6.1(@types/node@20.12.8)(typescript@5.4.5)
       '@commitlint/config-conventional':
         specifier: 18.6.3
         version: 18.6.3
@@ -28,10 +28,10 @@ importers:
         version: 0.5.10(prettier-plugin-astro@0.12.2)(prettier@3.2.5)(typescript@5.4.5)
       '@astrojs/mdx':
         specifier: 1.1.5
-        version: 1.1.5(astro@3.6.5(@types/node@20.12.7)(typescript@5.4.5))
+        version: 1.1.5(astro@3.6.5(@types/node@20.12.8)(typescript@5.4.5))
       '@astrojs/react':
         specifier: 3.3.1
-        version: 3.3.1(@types/react-dom@18.3.0)(@types/react@18.3.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@4.5.0(@types/node@20.12.7))
+        version: 3.3.1(@types/react-dom@18.3.0)(@types/react@18.3.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@4.5.0(@types/node@20.12.8))
       '@astrojs/rss':
         specifier: 3.0.0
         version: 3.0.0
@@ -40,7 +40,7 @@ importers:
         version: 3.1.4
       astro:
         specifier: 3.6.5
-        version: 3.6.5(@types/node@20.12.7)(typescript@5.4.5)
+        version: 3.6.5(@types/node@20.12.8)(typescript@5.4.5)
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -58,8 +58,8 @@ importers:
         specifier: 1.43.1
         version: 1.43.1
       '@types/node':
-        specifier: 20.12.7
-        version: 20.12.7
+        specifier: 20.12.8
+        version: 20.12.8
       '@types/react':
         specifier: 18.3.1
         version: 18.3.1
@@ -782,8 +782,8 @@ packages:
   '@types/node@17.0.45':
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
 
-  '@types/node@20.12.7':
-    resolution: {integrity: sha512-wq0cICSkRLVaf3UGLMGItu/PtdY7oaXaI/RVU+xliKVOtRna3PRY57ZDfztpDL0n11vfymMUnXv8QwYCO7L1wg==}
+  '@types/node@20.12.8':
+    resolution: {integrity: sha512-NU0rJLJnshZWdE/097cdCBbyW1h4hEg0xpovcoAQYHl8dnEyp/NAOiE45pvc+Bd1Dt+2r94v2eGFpQJ4R7g+2w==}
 
   '@types/normalize-package-data@2.4.3':
     resolution: {integrity: sha512-ehPtgRgaULsFG8x0NeYJvmyH1hmlfsNLujHe9dQEia/7MAJYdzMSi19JtchUHjmBA6XC/75dK55mzZH+RyieSg==}
@@ -3780,10 +3780,10 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@astrojs/markdown-remark@3.5.0(astro@3.6.5(@types/node@20.12.7)(typescript@5.4.5))':
+  '@astrojs/markdown-remark@3.5.0(astro@3.6.5(@types/node@20.12.8)(typescript@5.4.5))':
     dependencies:
       '@astrojs/prism': 3.0.0
-      astro: 3.6.5(@types/node@20.12.7)(typescript@5.4.5)
+      astro: 3.6.5(@types/node@20.12.8)(typescript@5.4.5)
       github-slugger: 2.0.0
       import-meta-resolve: 3.0.0
       mdast-util-definitions: 6.0.0
@@ -3800,12 +3800,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@1.1.5(astro@3.6.5(@types/node@20.12.7)(typescript@5.4.5))':
+  '@astrojs/mdx@1.1.5(astro@3.6.5(@types/node@20.12.8)(typescript@5.4.5))':
     dependencies:
-      '@astrojs/markdown-remark': 3.5.0(astro@3.6.5(@types/node@20.12.7)(typescript@5.4.5))
+      '@astrojs/markdown-remark': 3.5.0(astro@3.6.5(@types/node@20.12.8)(typescript@5.4.5))
       '@mdx-js/mdx': 2.3.0
       acorn: 8.11.2
-      astro: 3.6.5(@types/node@20.12.7)(typescript@5.4.5)
+      astro: 3.6.5(@types/node@20.12.8)(typescript@5.4.5)
       es-module-lexer: 1.3.1
       estree-util-visit: 1.2.1
       github-slugger: 2.0.0
@@ -3825,11 +3825,11 @@ snapshots:
     dependencies:
       prismjs: 1.29.0
 
-  '@astrojs/react@3.3.1(@types/react-dom@18.3.0)(@types/react@18.3.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@4.5.0(@types/node@20.12.7))':
+  '@astrojs/react@3.3.1(@types/react-dom@18.3.0)(@types/react@18.3.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@4.5.0(@types/node@20.12.8))':
     dependencies:
       '@types/react': 18.3.1
       '@types/react-dom': 18.3.0
-      '@vitejs/plugin-react': 4.2.1(vite@4.5.0(@types/node@20.12.7))
+      '@vitejs/plugin-react': 4.2.1(vite@4.5.0(@types/node@20.12.8))
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       ultrahtml: 1.5.3
@@ -4028,11 +4028,11 @@ snapshots:
       '@babel/helper-validator-identifier': 7.22.20
       to-fast-properties: 2.0.0
 
-  '@commitlint/cli@18.6.1(@types/node@20.12.7)(typescript@5.4.5)':
+  '@commitlint/cli@18.6.1(@types/node@20.12.8)(typescript@5.4.5)':
     dependencies:
       '@commitlint/format': 18.6.1
       '@commitlint/lint': 18.6.1
-      '@commitlint/load': 18.6.1(@types/node@20.12.7)(typescript@5.4.5)
+      '@commitlint/load': 18.6.1(@types/node@20.12.8)(typescript@5.4.5)
       '@commitlint/read': 18.6.1
       '@commitlint/types': 18.6.1
       execa: 5.1.1
@@ -4082,7 +4082,7 @@ snapshots:
       '@commitlint/rules': 18.6.1
       '@commitlint/types': 18.6.1
 
-  '@commitlint/load@18.6.1(@types/node@20.12.7)(typescript@5.4.5)':
+  '@commitlint/load@18.6.1(@types/node@20.12.8)(typescript@5.4.5)':
     dependencies:
       '@commitlint/config-validator': 18.6.1
       '@commitlint/execute-rule': 18.6.1
@@ -4090,7 +4090,7 @@ snapshots:
       '@commitlint/types': 18.6.1
       chalk: 4.1.2
       cosmiconfig: 8.3.6(typescript@5.4.5)
-      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.12.7)(cosmiconfig@8.3.6(typescript@5.4.5))(typescript@5.4.5)
+      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.12.8)(cosmiconfig@8.3.6(typescript@5.4.5))(typescript@5.4.5)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -4450,7 +4450,7 @@ snapshots:
 
   '@types/node@17.0.45': {}
 
-  '@types/node@20.12.7':
+  '@types/node@20.12.8':
     dependencies:
       undici-types: 5.26.5
 
@@ -4471,7 +4471,7 @@ snapshots:
 
   '@types/sax@1.2.6':
     dependencies:
-      '@types/node': 20.12.7
+      '@types/node': 20.12.8
 
   '@types/semver@7.5.4': {}
 
@@ -4595,14 +4595,14 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-react@4.2.1(vite@4.5.0(@types/node@20.12.7))':
+  '@vitejs/plugin-react@4.2.1(vite@4.5.0(@types/node@20.12.8))':
     dependencies:
       '@babel/core': 7.23.5
       '@babel/plugin-transform-react-jsx-self': 7.23.3(@babel/core@7.23.5)
       '@babel/plugin-transform-react-jsx-source': 7.23.3(@babel/core@7.23.5)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.0
-      vite: 4.5.0(@types/node@20.12.7)
+      vite: 4.5.0(@types/node@20.12.8)
     transitivePeerDependencies:
       - supports-color
 
@@ -4826,11 +4826,11 @@ snapshots:
       - supports-color
       - typescript
 
-  astro@3.6.5(@types/node@20.12.7)(typescript@5.4.5):
+  astro@3.6.5(@types/node@20.12.8)(typescript@5.4.5):
     dependencies:
       '@astrojs/compiler': 2.7.1
       '@astrojs/internal-helpers': 0.2.1
-      '@astrojs/markdown-remark': 3.5.0(astro@3.6.5(@types/node@20.12.7)(typescript@5.4.5))
+      '@astrojs/markdown-remark': 3.5.0(astro@3.6.5(@types/node@20.12.8)(typescript@5.4.5))
       '@astrojs/telemetry': 3.0.4
       '@babel/core': 7.23.5
       '@babel/generator': 7.23.5
@@ -4881,8 +4881,8 @@ snapshots:
       tsconfck: 3.0.0(typescript@5.4.5)
       unist-util-visit: 4.1.2
       vfile: 5.3.7
-      vite: 4.5.0(@types/node@20.12.7)
-      vitefu: 0.2.5(vite@4.5.0(@types/node@20.12.7))
+      vite: 4.5.0(@types/node@20.12.8)
+      vitefu: 0.2.5(vite@4.5.0(@types/node@20.12.8))
       which-pm: 2.1.1
       yargs-parser: 21.1.1
       zod: 3.22.4
@@ -5114,9 +5114,9 @@ snapshots:
 
   cookie@0.5.0: {}
 
-  cosmiconfig-typescript-loader@5.0.0(@types/node@20.12.7)(cosmiconfig@8.3.6(typescript@5.4.5))(typescript@5.4.5):
+  cosmiconfig-typescript-loader@5.0.0(@types/node@20.12.8)(cosmiconfig@8.3.6(typescript@5.4.5))(typescript@5.4.5):
     dependencies:
-      '@types/node': 20.12.7
+      '@types/node': 20.12.8
       cosmiconfig: 8.3.6(typescript@5.4.5)
       jiti: 1.21.0
       typescript: 5.4.5
@@ -8026,18 +8026,18 @@ snapshots:
       unist-util-stringify-position: 4.0.0
       vfile-message: 4.0.2
 
-  vite@4.5.0(@types/node@20.12.7):
+  vite@4.5.0(@types/node@20.12.8):
     dependencies:
       esbuild: 0.18.20
       postcss: 8.4.31
       rollup: 3.29.4
     optionalDependencies:
-      '@types/node': 20.12.7
+      '@types/node': 20.12.8
       fsevents: 2.3.3
 
-  vitefu@0.2.5(vite@4.5.0(@types/node@20.12.7)):
+  vitefu@0.2.5(vite@4.5.0(@types/node@20.12.8)):
     optionalDependencies:
-      vite: 4.5.0(@types/node@20.12.7)
+      vite: 4.5.0(@types/node@20.12.8)
 
   volar-service-css@0.0.34(@volar/language-service@2.1.6):
     dependencies:
