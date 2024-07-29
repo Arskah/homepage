@@ -24,8 +24,8 @@ importers:
   aarnihalinen.fi:
     dependencies:
       '@astrojs/check':
-        specifier: 0.8.2
-        version: 0.8.2(prettier-plugin-astro@0.12.2)(prettier@3.3.3)(typescript@5.5.4)
+        specifier: 0.8.3
+        version: 0.8.3(prettier-plugin-astro@0.12.2)(prettier@3.3.3)(typescript@5.5.4)
       '@astrojs/mdx':
         specifier: 1.1.5
         version: 1.1.5(astro@3.6.5(@types/node@20.14.12)(typescript@5.5.4))
@@ -112,8 +112,8 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@astrojs/check@0.8.2':
-    resolution: {integrity: sha512-L0V9dGb2PGvK9Mf3kby99Y+qm7EqxaC9tN1MVCvaqp/3pPPZBadR4XAySHipxXqQsxwJS25WQow8/1kMl1e25g==}
+  '@astrojs/check@0.8.3':
+    resolution: {integrity: sha512-ajcSe+ezX5jCc3dreQlWzbknzXgSGnDETNe3C1mawUOtGpO4t5z2YGaD0y+wzB84lmgPWaWZa0fKSPwLq/wUHw==}
     hasBin: true
     peerDependencies:
       typescript: ^5.0.0
@@ -3789,7 +3789,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@astrojs/check@0.8.2(prettier-plugin-astro@0.12.2)(prettier@3.3.3)(typescript@5.5.4)':
+  '@astrojs/check@0.8.3(prettier-plugin-astro@0.12.2)(prettier@3.3.3)(typescript@5.5.4)':
     dependencies:
       '@astrojs/language-server': 2.12.8(prettier-plugin-astro@0.12.2)(prettier@3.3.3)(typescript@5.5.4)
       chokidar: 3.6.0
