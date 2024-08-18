@@ -52,8 +52,8 @@ importers:
         version: 6.1.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@astrojs/ts-plugin':
-        specifier: 1.9.3
-        version: 1.9.3
+        specifier: 1.10.0
+        version: 1.10.0
       '@playwright/test':
         specifier: 1.46.0
         version: 1.46.0
@@ -173,8 +173,11 @@ packages:
     resolution: {integrity: sha512-A+0c7k/Xy293xx6odsYZuXiaHO0PL+bnDoXOc47sGDF5ffIKdKQGRPFl2NMlCF4L0NqN4Ynbgnaip+pPF0s7pQ==}
     engines: {node: '>=18.14.1'}
 
-  '@astrojs/ts-plugin@1.9.3':
-    resolution: {integrity: sha512-1q/rkIa6roB+C7PpmBh246kuURtms4hKon+dO14RKcsqE/3YEbi+R9L3K9A7pgJhHGyxRs9nxJPpwC5atMfHrA==}
+  '@astrojs/ts-plugin@1.10.0':
+    resolution: {integrity: sha512-BPGtNXBogGs5g1Ys+EjQ4EsB6tWuG7WZ1yZ8wxNG34SdqUQFfI/IJPCo1r7Ss2hJ6SzF77MJEZo2qLv+K6mL9Q==}
+
+  '@astrojs/yaml2ts@0.2.0':
+    resolution: {integrity: sha512-xyJ2JpenXis5V2yk4OExNyHXyRlCKrJcPfNPLK0rqf24grqpRZ4bYD/ztesYicYlaXehH9aUJXG0mVu8P02G9A==}
 
   '@babel/code-frame@7.24.7':
     resolution: {integrity: sha512-BcYH1CVJBO9tvyIZ2jVeXgSIMvGZ2FDRvDdOIVQyuklNKSsx+eppDEBq/g47Ayw+RqNFE+URvOShmf+f/qwAlA==}
@@ -3756,6 +3759,11 @@ packages:
   yallist@4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
 
+  yaml@2.5.0:
+    resolution: {integrity: sha512-2wWLbGbYDiSqqIKoPjar3MPgB94ErzCtrNE1FdqGuaO0pi2JGjmE8aW8TDZwzU7vuxcGRdL/4gPQwQ7hD5AMSw==}
+    engines: {node: '>= 14'}
+    hasBin: true
+
   yargs-parser@20.2.9:
     resolution: {integrity: sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==}
     engines: {node: '>=10'}
@@ -3912,14 +3920,19 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/ts-plugin@1.9.3':
+  '@astrojs/ts-plugin@1.10.0':
     dependencies:
       '@astrojs/compiler': 2.10.3
+      '@astrojs/yaml2ts': 0.2.0
       '@jridgewell/sourcemap-codec': 1.5.0
       '@volar/language-core': 2.4.0-alpha.18
       '@volar/typescript': 2.4.0-alpha.18
       semver: 7.6.3
       vscode-languageserver-textdocument: 1.0.12
+
+  '@astrojs/yaml2ts@0.2.0':
+    dependencies:
+      yaml: 2.5.0
 
   '@babel/code-frame@7.24.7':
     dependencies:
@@ -8345,6 +8358,8 @@ snapshots:
   yallist@3.1.1: {}
 
   yallist@4.0.0: {}
+
+  yaml@2.5.0: {}
 
   yargs-parser@20.2.9: {}
 
