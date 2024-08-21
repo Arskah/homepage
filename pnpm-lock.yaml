@@ -52,8 +52,8 @@ importers:
         version: 6.1.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@astrojs/ts-plugin':
-        specifier: 1.10.0
-        version: 1.10.0
+        specifier: 1.10.1
+        version: 1.10.1
       '@playwright/test':
         specifier: 1.46.1
         version: 1.46.1
@@ -173,8 +173,8 @@ packages:
     resolution: {integrity: sha512-A+0c7k/Xy293xx6odsYZuXiaHO0PL+bnDoXOc47sGDF5ffIKdKQGRPFl2NMlCF4L0NqN4Ynbgnaip+pPF0s7pQ==}
     engines: {node: '>=18.14.1'}
 
-  '@astrojs/ts-plugin@1.10.0':
-    resolution: {integrity: sha512-BPGtNXBogGs5g1Ys+EjQ4EsB6tWuG7WZ1yZ8wxNG34SdqUQFfI/IJPCo1r7Ss2hJ6SzF77MJEZo2qLv+K6mL9Q==}
+  '@astrojs/ts-plugin@1.10.1':
+    resolution: {integrity: sha512-T7Z8fob6bkgLlcYiJSsn84wF5XelS0VJSEC4BRPnEHZj3eeOrmmMl8uZqBTJ+zArGMOfyhhA7X+SUGRIAZApHQ==}
 
   '@astrojs/yaml2ts@0.2.1':
     resolution: {integrity: sha512-CBaNwDQJz20E5WxzQh4thLVfhB3JEEGz72wRA+oJp6fQR37QLAqXZJU0mHC+yqMOQ6oj0GfRPJrz6hjf+zm6zA==}
@@ -3964,7 +3964,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/ts-plugin@1.10.0':
+  '@astrojs/ts-plugin@1.10.1':
     dependencies:
       '@astrojs/compiler': 2.10.3
       '@astrojs/yaml2ts': 0.2.1
