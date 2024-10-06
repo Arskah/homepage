@@ -2,11 +2,9 @@ name: Check PR title
 
 on:
   workflow_call:
-  pull_request:
-    types: [opened, reopened, edited]
 
 jobs:
-  check-pull-request:
+  check-pr-title:
     name: Check PR title
     runs-on: ubuntu-latest
 
@@ -17,10 +15,10 @@ jobs:
           version: 8
       - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         with:
-          node-version: '20'
-          cache: 'pnpm'
+          node-version: "20"
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install
       - name: Check PR title
-        if: github.event_name == 'pull_request'
         run: |
-          pnpm i -w @commitlint/cli @commitlint/config-conventional
-          echo "${{ github.event.pull_request.title }}" | pnpm commitlint --strict -V
+          pnpm commitlint <<< '${{ github.event.pull_request.title }}'

@@ -24,9 +24,7 @@
     "automerge": false,
     "masterIssueApproval": true
   },
-  "postUpdateOptions": [
-    "pnpmDedupe"
-  ],
+  "postUpdateOptions": ["pnpmDedupe"],
   "packageRules": [
     {
       "groupName": "playwright",

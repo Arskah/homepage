@@ -1,0 +1,10 @@
+CHANGELOG.md
+.astro/
+.gitattributes
+.husky/
+.prettierignore
+pnpm-lock.yaml
+coverage/
+dist/
+playwright-report/
+test-results/
