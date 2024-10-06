@@ -1,0 +1,19 @@
+name: Deploy to production
+
+on:
+  push:
+    tags:
+      - aarnihalinen.fi-v**
+
+jobs:
+  tag-latest-image:
+    # TODO: tag only
+    uses: ./.github/workflows/docker-build.yml
+    with:
+      environment: production
+      image_name: aarnihalinen.fi
+      tags: |
+        registry.aarnihalinen.fi/aarnihalinen.fi:${{ github.ref_name }}
+        registry.aarnihalinen.fi/aarnihalinen.fi:latest
+    secrets: inherit
+  # deploy # TODO

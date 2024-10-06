@@ -1,0 +1,20 @@
+name: Deploy to staging
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+    paths:
+      - ".release-please-manifest.json"
+
+jobs:
+  build-image:
+    uses: ./.github/workflows/docker-build.yml
+    with:
+      environment: staging
+      tags: |
+        registry.aarnihalinen.fi/aarnihalinen.fi:${{ github.sha }}
+        registry.aarnihalinen.fi/aarnihalinen.fi:next
+    secrets: inherit
+  # deploy # TODO
