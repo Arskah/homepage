@@ -5,7 +5,10 @@
     "docker:enableMajor",
     "docker:pinDigests",
     "helpers:pinGitHubActionDigests",
+    ":automergeDigest",
+    ":automergeMinor",
     ":automergeRequireAllStatusChecks",
+    ":automergePr",
     ":dependencyDashboard",
     ":label(dependencies)",
     ":maintainLockFilesWeekly",
@@ -13,20 +16,8 @@
     ":prConcurrentLimit10",
     ":prHourlyLimit4"
   ],
-  "labels": ["dependencies"],
   "timezone": "Europe/Helsinki",
-  "automerge": true,
-  "automergeType": "pr",
-  "digest": {
-    "masterIssueApproval": true
-  },
-  "major": {
-    "automerge": false,
-    "masterIssueApproval": true
-  },
-  "postUpdateOptions": [
-    "pnpmDedupe"
-  ],
+  "postUpdateOptions": ["pnpmDedupe"],
   "packageRules": [
     {
       "groupName": "playwright",

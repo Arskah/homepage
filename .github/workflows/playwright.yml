@@ -16,17 +16,17 @@ jobs:
           version: 8
       - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         with:
-          node-version: '20'
-          cache: 'pnpm'
+          node-version: "20"
+          cache: "pnpm"
       - name: Install dependencies
         run: pnpm install
       - name: Install Playwright Browsers
-        run: pnpm --filter aarnihalinen.fi exec playwright install --with-deps
+        run: pnpm exec playwright install --with-deps
       - name: Run Build
         run: |
           pnpm build
       - name: Run Playwright tests
-        run: pnpm --filter aarnihalinen.fi exec playwright test
+        run: pnpm test
       - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3
         if: always()
         with:
