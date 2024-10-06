@@ -6,7 +6,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "playwright test",
+    "test": "playwright test --config e2e-tests/playwright.config.ts",
     "prepare": "husky"
   },
   "dependencies": {

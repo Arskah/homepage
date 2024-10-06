@@ -9,8 +9,8 @@ services:
     image: e2e-tests:latest
     ipc: host # Using --ipc=host is recommended when using Chrome (Docker docs). Chrome can run out of memory without this flag.
     volumes:
-      - .:/test-runner/tests:rw
+      - ./tests:/test-runner/tests:rw
       # Volumes for results
-      - ../playwright-report:/test-runner/playwright-report:rw
+      - ./playwright-report:/test-runner/playwright-report:rw
       - ../test-results:/test-runner/test-results:rw
     command: ["pnpm", "test", "--", "--update-snapshots"]
