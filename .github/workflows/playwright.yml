@@ -6,7 +6,7 @@ on:
 jobs:
   test:
     name: Playwright E2E tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 60
 
     steps:
