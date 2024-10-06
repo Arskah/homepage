@@ -21,6 +21,6 @@ jobs:
           pnpm lint
 
       - name: Validate Renovate config
-        uses: rinchsan/renovate-config-validator@v0.0.12
+        uses: rinchsan/renovate-config-validator@a12a2b98cd4db923c33d1ce407c57afb43f3ff59 # v0.2.0
         with:
           pattern: "renovate.json"
