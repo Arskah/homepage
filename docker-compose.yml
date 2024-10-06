@@ -1,0 +1,8 @@
+services:
+  aarnihalinen.fi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: aarnihalinen.fi:latest
+    ports:
+      - 3000:80

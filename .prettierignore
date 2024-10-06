@@ -1,5 +1,6 @@
 CHANGELOG.md
 .astro/
+.dockerignore
 .gitattributes
 .husky/
 .prettierignore
