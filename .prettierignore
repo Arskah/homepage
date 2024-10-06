@@ -3,6 +3,7 @@ CHANGELOG.md
 .gitattributes
 .husky/
 .prettierignore
+*Dockerfile
 *.png
 pnpm-lock.yaml
 coverage/
