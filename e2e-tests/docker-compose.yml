@@ -1,5 +1,3 @@
-version: "3.7"
-
 # https://playwright.dev/docs/docker
 services:
   e2e:
@@ -11,6 +9,6 @@ services:
     volumes:
       - ./tests:/test-runner/tests:rw
       # Volumes for results
-      - ./playwright-report:/test-runner/playwright-report:rw
+      - ../playwright-report:/test-runner/playwright-report:rw
       - ../test-results:/test-runner/test-results:rw
     command: ["pnpm", "test", "--", "--update-snapshots"]
