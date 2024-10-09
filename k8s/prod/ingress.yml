@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress
+  namespace: homepage
+  annotations:
+    cert-manager.io/cluster-issuer: cert-issuer
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+    nginx.org/client-max-body-size: "10m"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - aarnihalinen.fi
+        - www.aarnihalinen.fi
+      secretName: tls-secret-prod
+  rules:
+    - host: aarnihalinen.fi
+      http: &prod-backend
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: production-svc
+                port:
+                  number: 80
+    - host: www.aarnihalinen.fi
+      http: *prod-backend

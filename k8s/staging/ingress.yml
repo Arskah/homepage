@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress
+  namespace: homepage
+  annotations:
+    cert-manager.io/cluster-issuer: cert-issuer
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+    nginx.org/client-max-body-size: "10m"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - staging.aarnihalinen.fi
+      secretName: tls-secret-staging
+  rules:
+    - host: staging.aarnihalinen.fi
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: staging-svc
+                port:
+                  number: 80

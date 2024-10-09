@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: tls-secret-staging
+  namespace: homepage
+spec:
+  secretName: tls-secret-staging
+  dnsNames:
+    - staging.aarnihalinen.fi
+  issuerRef:
+    name: cert-issuer
+    kind: ClusterIssuer
+    group: cert-manager.io
