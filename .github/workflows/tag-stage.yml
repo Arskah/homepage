@@ -14,6 +14,6 @@ jobs:
     with:
       environment: staging
       tags: |
-        registry.aarnihalinen.fi/aarnihalinen.fi:${{ github.sha }}
-        registry.aarnihalinen.fi/aarnihalinen.fi:next
+        registry.aarnihalinen.fi/homepage:${{ github.sha }}
+        registry.aarnihalinen.fi/homepage:next
     secrets: inherit
