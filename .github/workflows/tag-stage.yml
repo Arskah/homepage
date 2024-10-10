@@ -1,4 +1,4 @@
-name: Deploy to staging
+name: Tag staging image
 
 on:
   pull_request:
@@ -7,9 +7,10 @@ on:
       - main
     paths:
       - ".release-please-manifest.json"
+  workflow_call:
 
 jobs:
-  build-image:
+  build-and-tag:
     uses: ./.github/workflows/docker-build.yml
     with:
       environment: staging
@@ -17,4 +18,3 @@ jobs:
         registry.aarnihalinen.fi/aarnihalinen.fi:${{ github.sha }}
         registry.aarnihalinen.fi/aarnihalinen.fi:next
     secrets: inherit
-  # deploy # TODO
