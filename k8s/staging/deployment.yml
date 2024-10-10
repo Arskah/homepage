@@ -15,11 +15,10 @@ spec:
     spec:
       automountServiceAccountToken: false
       imagePullSecrets:
-        - name: regcred
+        - name: regcred-homepage
       containers:
         - name: staging
           image: registry.aarnihalinen.fi/homepage:next
-          imagePullPolicy: Always
           ports:
             - containerPort: 80
       securityContext: {}
