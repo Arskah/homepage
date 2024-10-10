@@ -9,7 +9,11 @@ on:
       - ".release-please-manifest.json"
 
 jobs:
+  jobs:
+    uses: ./.github/workflows/check-PR.yml
+
   build-and-tag:
+    if: ${{ github.head_ref == 'release-please--branches--main' }}
     uses: ./.github/workflows/docker-build.yml
     with:
       environment: staging
