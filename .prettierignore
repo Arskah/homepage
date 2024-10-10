@@ -4,6 +4,7 @@ CHANGELOG.md
 .gitattributes
 .husky/
 .prettierignore
+.release-please-manifest.json
 *Dockerfile
 *.png
 pnpm-lock.yaml
