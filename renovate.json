@@ -13,11 +13,11 @@
     ":label(dependencies)",
     ":maintainLockFilesWeekly",
     "npm:unpublishSafe",
-    ":prConcurrentLimit10",
-    ":prHourlyLimit4"
+    ":disableRateLimiting"
   ],
   "kubernetes": {
-    "fileMatch": ["k8s/*"]
+    "fileMatch": ["k8s/*"],
+    "pinDigests": false
   },
   "timezone": "Europe/Helsinki",
   "postUpdateOptions": ["pnpmDedupe"],
