@@ -18,7 +18,7 @@ spec:
         - name: regcred-homepage
       containers:
         - name: production
-          image: registry.aarnihalinen.fi/homepage:latest
+          image: registry.aarnihalinen.fi/homepage
           ports:
             - containerPort: 80
       securityContext: {}
