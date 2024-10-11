@@ -16,14 +16,15 @@
     ":disableRateLimiting"
   ],
   "kubernetes": {
-    "fileMatch": ["k8s/*"],
-    "digest": {
-      "enabled": false
-    }
+    "fileMatch": ["k8s/*"]
   },
   "timezone": "Europe/Helsinki",
   "postUpdateOptions": ["pnpmDedupe"],
   "packageRules": [
+    {
+      "matchPackagePatterns": ["^registry.aarnihalinen.fi/homepage"],
+      "pinDigests": false
+    },
     {
       "groupName": "playwright",
       "groupSlug": "playwright",
