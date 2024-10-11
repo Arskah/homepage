@@ -18,7 +18,7 @@ spec:
         - name: regcred-homepage
       containers:
         - name: staging
-          image: registry.aarnihalinen.fi/homepage:next
+          image: registry.aarnihalinen.fi/homepage:next@sha256:e0f1f04e1c2fb05a4bebd3152997d40d0076691c13a19f925c105cfdd4cf380a
           ports:
             - containerPort: 80
       securityContext: {}
