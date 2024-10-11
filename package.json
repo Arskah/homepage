@@ -11,11 +11,11 @@
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",
-    "@astrojs/mdx": "3.1.7",
+    "@astrojs/mdx": "3.1.8",
     "@astrojs/react": "3.6.2",
-    "@astrojs/rss": "4.0.7",
+    "@astrojs/rss": "4.0.8",
     "@astrojs/sitemap": "3.2.0",
-    "astro": "4.15.12",
+    "astro": "4.16.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "styled-components": "6.1.13"
