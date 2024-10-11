@@ -1,17 +1,16 @@
-// eslint-disable-next-line import-x/no-unresolved
 import { defineCollection, z } from "astro:content";
 
 const blog = defineCollection({
-  type: "content",
   // Type-check frontmatter using a schema
   schema: z.object({
-    title: z.string(),
     description: z.string(),
+    heroImage: z.string().optional(),
     // Transform string to Date object
     pubDate: z.coerce.date(),
+    title: z.string(),
     updatedDate: z.coerce.date().optional(),
-    heroImage: z.string().optional(),
   }),
+  type: "content",
 });
 
 export const collections = { blog };
