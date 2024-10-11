@@ -1,6 +1,5 @@
 // @ts-check
 
-import { fixupPluginRules } from "@eslint/compat";
 import pluginJs from "@eslint/js";
 import astro from "eslint-plugin-astro";
 import importPlugin from "eslint-plugin-import-x";
@@ -38,22 +37,13 @@ const reactConfigs = tseslint.config(
     files: ["**/*.{jsx,tsx}"],
     ...react.configs.flat.recommended,
     ...react.configs.flat["jsx-runtime"],
-    // @ts-expect-error some type error
+    ...reactHooks.configs.recommended,
     rules: {
       ...react.configs.flat.recommended.rules,
       ...react.configs.flat["jsx-runtime"].rules,
       "react/prop-types": "off",
       "react/display-name": "off",
       "react/no-unstable-nested-components": "warn",
-    },
-  },
-  {
-    files: ["**/*.{jsx,tsx}"],
-    plugins: {
-      "react-hooks": fixupPluginRules(reactHooks),
-    },
-    rules: {
-      ...reactHooks.configs.recommended.rules,
     },
   },
 );
