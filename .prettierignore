@@ -11,4 +11,5 @@ pnpm-lock.yaml
 coverage/
 dist/
 playwright-report/
+public/
 test-results/

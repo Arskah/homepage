@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/arskah
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://aarnihalinen.fi
+  * I am arskah (https://keybase.io/arskah) on keybase.
+  * I have a public key ASDiYyMNoCzuBWwSsZZb658cVErVPU6_I4zoGLwju8zKUgo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120774d0b3a711f5c416be3d63de9e02e1933cda9fe5186fcab4a649497b618c1f80a",
+      "host": "keybase.io",
+      "kid": "0120e263230da02cee056c12b1965beb9f1c544ad53d4ebf238ce818bc23bbccca520a",
+      "uid": "5d735cb0b2690462e006abeed4fa0b19",
+      "username": "arskah"
+    },
+    "merkle_root": {
+      "ctime": 1612215662,
+      "hash": "6cf126a3c732d2f1f0918a7269dd7c724c95252d6694b9a50c4fce87e782136c146439c59e6baf0e5b85ac996e14a8f97154123630ffeba690a598019dd7cea6",
+      "hash_meta": "2fe9a997bdb1e7ab0be8655b1119944f9eb3d306bc69fe6a8175e68acda23401",
+      "seqno": 18979965
+    },
+    "service": {
+      "entropy": "h/gwMo1RxSVp56OIlHTrlHRO",
+      "hostname": "aarnihalinen.fi",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.6.0"
+  },
+  "ctime": 1612215676,
+  "expire_in": 504576000,
+  "prev": "b6a125b1ca26f7b03421ca1ffa0da4d1123741d20f5edd9553921eb5a4a86f73",
+  "seqno": 30,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg4mMjDaAs7gVsErGWW+ufHFRK1T1OvyOM6Bi8I7vMylIKp3BheWxvYWTESpcCHsQgtqElscom97A0Icof+g2k0RI3QdIPXt2VU5IetaSob3PEIEa78D4fbTogtkXjark6xbocZOmcgWmkYDavFYJb1miRAgHCo3NpZ8RAGTb3LMUba54zYRnB93Ol1Xecq3ZQ+PAQpMHOityhFbySwM2r2mAkVNQ6syplYtUfsuO0wyu0ONapyhMCFyGyBKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIAMMA1SG7ZRlJnJzw1J1cyKLIXbgbjoeK7kXt6FVWVoHo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/arskah
+
+==================================================================
