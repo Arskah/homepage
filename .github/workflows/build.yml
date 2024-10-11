@@ -15,7 +15,11 @@ jobs:
       - name: Run Build
         run: |
           pnpm build
-      # - name: Validate Renovate config
-      #   uses: rinchsan/renovate-config-validator@v0.0.12
-      #   with:
-      #     pattern: 'renovate.json'
+      - uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4
+        if: always()
+        with:
+          name: build-artifact
+          path: |
+            dist/
+          retention-days: 30
+          if-no-files-found: "error"
