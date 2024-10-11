@@ -2,34 +2,37 @@
 
 import pluginJs from "@eslint/js";
 import astro from "eslint-plugin-astro";
-import importPlugin from "eslint-plugin-import-x";
 import jsdoc from "eslint-plugin-jsdoc";
 // @ts-expect-error missing types
 import jsxA11y from "eslint-plugin-jsx-a11y";
+// @ts-expect-error missing types
+import markdown from "eslint-plugin-markdown";
+import perfectionist from "eslint-plugin-perfectionist";
 import playwright from "eslint-plugin-playwright";
 import react from "eslint-plugin-react";
 // @ts-expect-error missing types
 import reactHooks from "eslint-plugin-react-hooks";
+import regexp from "eslint-plugin-regexp";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
 const reactConfigs = tseslint.config(
   {
     files: ["**/*.{jsx,tsx}"],
-    settings: {
-      react: {
-        version: "detect",
-      },
-    },
     languageOptions: {
+      globals: {
+        ...globals.serviceworker,
+        ...globals.browser,
+      },
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
         },
       },
-      globals: {
-        ...globals.serviceworker,
-        ...globals.browser,
+    },
+    settings: {
+      react: {
+        version: "detect",
       },
     },
   },
@@ -41,9 +44,9 @@ const reactConfigs = tseslint.config(
     rules: {
       ...react.configs.flat.recommended.rules,
       ...react.configs.flat["jsx-runtime"].rules,
-      "react/prop-types": "off",
       "react/display-name": "off",
       "react/no-unstable-nested-components": "warn",
+      "react/prop-types": "off",
     },
   },
 );
@@ -58,56 +61,6 @@ const playwrightConfigs = tseslint.config({
   },
 });
 
-const importConfigs = tseslint.config({
-  files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
-  plugins: {
-    "import-x": importPlugin,
-  },
-  settings: {
-    ...importPlugin.configs.typescript.settings,
-    "import-x/parsers": {
-      ...importPlugin.configs.typescript.settings["import-x/parsers"],
-      espree: [".js", ".cjs", ".mjs", ".jsx"],
-    },
-  },
-  rules: {
-    ...importPlugin.configs.recommended.rules,
-    ...importPlugin.configs.typescript.rules,
-    "sort-imports": [
-      "error",
-      {
-        ignoreCase: false,
-        ignoreDeclarationSort: true,
-        ignoreMemberSort: false,
-        memberSyntaxSortOrder: ["none", "all", "multiple", "single"],
-        allowSeparatedGroups: false,
-      },
-    ],
-    "import-x/order": [
-      "error",
-      {
-        groups: [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index",
-          "object",
-          "type",
-        ],
-        "newlines-between": "always",
-        alphabetize: {
-          order: "asc",
-          caseInsensitive: true,
-        },
-      },
-    ],
-    "import-x/no-named-as-default-member": "off",
-    "import-x/no-relative-packages": "error",
-  },
-});
-
 export default tseslint.config(
   {
     ignores: [".astro/", "coverage/", "dist/"],
@@ -116,12 +69,15 @@ export default tseslint.config(
     languageOptions: {
       parserOptions: {
         ecmaVersion: "latest",
-        sourceType: "module",
         project: true,
+        sourceType: "module",
       },
     },
   },
   pluginJs.configs.recommended,
+  perfectionist.configs["recommended-natural"],
+  regexp.configs["flat/recommended"],
+  ...markdown.configs.recommended,
   ...tseslint.configs.recommended,
   ...tseslint.configs.stylistic,
   ...astro.configs["flat/recommended"],
@@ -131,7 +87,6 @@ export default tseslint.config(
       "jsdoc/require-jsdoc": "off", // Recommended
     },
   },
-  ...importConfigs,
   ...reactConfigs,
   jsxA11y.flatConfigs.strict,
   ...playwrightConfigs,
