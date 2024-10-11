@@ -17,7 +17,9 @@
   ],
   "kubernetes": {
     "fileMatch": ["k8s/*"],
-    "pinDigests": false
+    "digest": {
+      "enabled": false
+    }
   },
   "timezone": "Europe/Helsinki",
   "postUpdateOptions": ["pnpmDedupe"],
