@@ -1,4 +1,5 @@
 {
+  "name": "homepage",
   "scripts": {
     "astro": "astro",
     "build": "astro check && astro build",
