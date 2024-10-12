@@ -1,10 +1,4 @@
-import {
-  dateContainer,
-  h1,
-  hr,
-  lastUpdatedOn,
-  titleContainer,
-} from "./BlogTitle.css";
+import { titleContainer } from "./BlogTitle.css";
 import { FormattedDate } from "./FormattedDate";
 
 interface BlogTitleProps {
@@ -15,15 +9,15 @@ interface BlogTitleProps {
 
 export const BlogTitle = ({ pubDate, title, updatedDate }: BlogTitleProps) => (
   <div className={titleContainer}>
-    <div className={dateContainer}>
+    <div>
       <FormattedDate date={pubDate} />
       {updatedDate && (
-        <div className={lastUpdatedOn}>
+        <i>
           Last updated on <FormattedDate date={updatedDate} />
-        </div>
+        </i>
       )}
     </div>
-    <h1 className={h1}>{title}</h1>
-    <hr className={hr} />
+    <h1>{title}</h1>
+    <hr />
   </div>
 );
