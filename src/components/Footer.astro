@@ -1,4 +1,6 @@
 ---
+import { srOnly } from "../styles/theme.css";
+
 const today = new Date();
 ---
 
@@ -6,7 +8,7 @@ const today = new Date();
   &copy; {today.getFullYear()} Your name here. All rights reserved.
   <div class="social-links">
     <a href="https://m.webtoo.ls/@astro" target="_blank">
-      <span class="sr-only">Follow Astro on Mastodon</span>
+      <span class={srOnly}>Follow Astro on Mastodon</span>
       <svg
         aria-hidden="true"
         astro-icon="social/mastodon"
@@ -19,7 +21,7 @@ const today = new Date();
       >
     </a>
     <a href="https://twitter.com/astrodotbuild" target="_blank">
-      <span class="sr-only">Follow Astro on Twitter</span>
+      <span class={srOnly}>Follow Astro on Twitter</span>
       <svg
         aria-hidden="true"
         astro-icon="social/twitter"
@@ -32,7 +34,7 @@ const today = new Date();
       >
     </a>
     <a href="https://github.com/withastro/astro" target="_blank">
-      <span class="sr-only">Go to Astro's GitHub repo</span>
+      <span class={srOnly}>Go to Astro's GitHub repo</span>
       <svg
         aria-hidden="true"
         astro-icon="social/github"
