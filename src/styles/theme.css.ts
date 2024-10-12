@@ -3,7 +3,6 @@ import {
   createGlobalThemeContract,
   globalFontFace,
   globalStyle,
-  style,
 } from "@vanilla-extract/css";
 
 export const vars = createGlobalThemeContract({
@@ -148,20 +147,4 @@ globalStyle("blockquote", {
   fontSize: "1.333em",
   margin: 0,
   padding: "0 0 0 20px",
-});
-
-export const srOnly = style({
-  border: 0,
-  /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-  clip: "rect(1px 1px 1px 1px)",
-  /* modern browsers, clip-path works inwards from each corner */
-  clipPath: "inset(50%)",
-  height: 1,
-  margin: 0,
-  overflow: "hidden",
-  padding: 0,
-  position: "absolute",
-  /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
-  whiteSpace: "nowrap",
-  width: 1,
 });

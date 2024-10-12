@@ -1,17 +1,32 @@
 ---
 import { Icon } from "astro-icon/components";
 
-import { container, link } from "./SocialLinks.css";
+import { container, link, type LinkVariant } from "./SocialLinks.css";
+
+interface Props {
+  collapsing?: boolean | undefined;
+  linkColor: LinkVariant;
+}
+
+const { collapsing, linkColor } = Astro.props;
 ---
 
-<div class={container}>
-  <a class={link} href="https://m.webtoo.ls/@astro" target="_blank">
+<div class:list={[container, { collapsing }]}>
+  <a class={link[linkColor]} href="https://m.webtoo.ls/@astro" target="_blank">
     <Icon height={32} name="mastodon" width={32} />
   </a>
-  <a class={link} href="https://twitter.com/astrodotbuild" target="_blank">
+  <a
+    class={link[linkColor]}
+    href="https://twitter.com/astrodotbuild"
+    target="_blank"
+  >
     <Icon height={32} name="twitter" width={32} />
   </a>
-  <a class={link} href="https://github.com/withastro/astro" target="_blank">
+  <a
+    class={link[linkColor]}
+    href="https://github.com/withastro/astro"
+    target="_blank"
+  >
     <Icon height={32} name="github" width={32} />
   </a>
 </div>

@@ -1,73 +1,18 @@
 ---
-import { Icon } from "astro-icon/components";
-
 import { SITE_TITLE } from "../consts";
-import { srOnly } from "../styles/theme.css";
+import { h2, header, links, nav } from "./Header.css";
 import HeaderLink from "./HeaderLink.astro";
+import SocialLinks from "./SocialLinks.astro";
 ---
 
-<header>
-  <nav>
-    <h2><a href="/">{SITE_TITLE}</a></h2>
-    <div class="internal-links">
+<header class={header}>
+  <nav class={nav}>
+    <h2 class={h2}><a href="/">{SITE_TITLE}</a></h2>
+    <div class={links}>
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/blog">Blog</HeaderLink>
       <HeaderLink href="/about">About</HeaderLink>
     </div>
-    <div class="social-links">
-      <a href="https://m.webtoo.ls/@astro" target="_blank">
-        <span class={srOnly}>Follow Astro on Mastodon</span>
-        <Icon height={32} name="mastodon" width={32} />
-      </a>
-      <a href="https://twitter.com/astrodotbuild" target="_blank">
-        <span class={srOnly}>Follow Astro on Twitter</span>
-        <Icon height={32} name="twitter" width={32} />
-      </a>
-      <a href="https://github.com/withastro/astro" target="_blank">
-        <span class={srOnly}>Go to Astro's GitHub repo</span>
-        <Icon height={32} name="github" width={32} />
-      </a>
-    </div>
+    <SocialLinks collapsing linkColor="black" />
   </nav>
 </header>
-<style>
-  header {
-    margin: 0;
-    padding: 0 1em;
-    background: white;
-    box-shadow: 0 2px 8px color-mix(in srgb, var(--black), transparent 95%);
-  }
-  h2 {
-    margin: 0;
-    font-size: 1em;
-  }
-
-  h2 a,
-  h2 a.active {
-    text-decoration: none;
-  }
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  nav a {
-    padding: 1em 0.5em;
-    color: var(--black);
-    border-bottom: 4px solid transparent;
-    text-decoration: none;
-  }
-  nav a.active {
-    text-decoration: none;
-    border-bottom-color: var(--accent);
-  }
-  .social-links,
-  .social-links a {
-    display: flex;
-  }
-  @media (max-width: 760px) {
-    .social-links {
-      display: none;
-    }
-  }
-</style>
