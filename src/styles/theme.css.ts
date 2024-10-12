@@ -17,6 +17,7 @@ export const vars = createGlobalThemeContract({
     grayLight: "gray-light",
     white: "white",
   },
+  pageBg: "page-bg",
 });
 
 createGlobalTheme(":root", vars, {
@@ -30,6 +31,11 @@ createGlobalTheme(":root", vars, {
     grayLight: "#e5e9f0",
     white: "#fff",
   },
+  pageBg: `linear-gradient(
+        color-mix(in srgb, ${vars.color.grayLight}, transparent 50%),
+        ${vars.color.white}
+      )
+      no-repeat`,
 });
 
 globalFontFace("Atkinson", {
@@ -52,11 +58,7 @@ globalStyle("body", {
       fontSize: 18,
     },
   },
-  background: `linear-gradient(
-      color-mix(in srgb, ${vars.color.grayLight}, transparent 50%),
-      ${vars.color.white}
-    )
-    no-repeat`,
+  background: vars.pageBg,
   backgroundSize: "100% 600px",
   color: vars.color.grayDark,
   fontFamily: '"Atkinson", sans-serif',

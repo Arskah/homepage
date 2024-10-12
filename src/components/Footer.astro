@@ -1,51 +1,13 @@
 ---
-import { Icon } from "astro-icon/components";
+import { OWNER_NAME } from "../consts";
+import { footer } from "./Footer.css";
+import SocialLinks from "./SocialLinks.astro";
 
-import { srOnly } from "../styles/theme.css";
-
-const today = new Date();
+const year = new Date().getFullYear();
+const copyRightText = `${year} ${OWNER_NAME}. All rights reserved.`;
 ---
 
-<footer>
-  &copy; {today.getFullYear()} Your name here. All rights reserved.
-  <div class="social-links">
-    <a href="https://m.webtoo.ls/@astro" target="_blank">
-      <span class={srOnly}>Follow Astro on Mastodon</span>
-      <Icon height={32} name="mastodon" width={32} />
-    </a>
-    <a href="https://twitter.com/astrodotbuild" target="_blank">
-      <span class={srOnly}>Follow Astro on Twitter</span>
-      <Icon height={32} name="twitter" width={32} />
-    </a>
-    <a href="https://github.com/withastro/astro" target="_blank">
-      <span class={srOnly}>Go to Astro's GitHub repo</span>
-      <Icon height={32} name="github" width={32} />
-    </a>
-  </div>
+<footer class={footer}>
+  &copy; {copyRightText}
+  <SocialLinks />
 </footer>
-<style>
-  footer {
-    padding: 2em 1em 6em 1em;
-
-    background: linear-gradient(
-        color-mix(in srgb, var(--gray-light), transparent 50%),
-        var(--white)
-      )
-      no-repeat;
-    color: var(--gray);
-    text-align: center;
-  }
-  .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-    margin-top: 1em;
-  }
-  .social-links a {
-    text-decoration: none;
-    color: var(--gray);
-  }
-  .social-links a:hover {
-    color: var(--gray-dark);
-  }
-</style>
