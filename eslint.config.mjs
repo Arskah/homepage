@@ -19,17 +19,6 @@ import tseslint from "typescript-eslint";
 const reactConfigs = tseslint.config(
   {
     files: ["**/*.{jsx,tsx}"],
-    languageOptions: {
-      globals: {
-        ...globals.serviceworker,
-        ...globals.browser,
-      },
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-    },
     settings: {
       react: {
         version: "detect",
@@ -40,13 +29,22 @@ const reactConfigs = tseslint.config(
     files: ["**/*.{jsx,tsx}"],
     ...react.configs.flat.recommended,
     ...react.configs.flat["jsx-runtime"],
-    ...reactHooks.configs.recommended,
+    // @ts-expect-error missing types some bs on string literal types...
     rules: {
       ...react.configs.flat.recommended.rules,
       ...react.configs.flat["jsx-runtime"].rules,
       "react/display-name": "off",
       "react/no-unstable-nested-components": "warn",
       "react/prop-types": "off",
+    },
+  },
+  {
+    files: ["**/*.{jsx,tsx}"],
+    plugins: {
+      "react-hooks": reactHooks,
+    },
+    rules: {
+      ...reactHooks.configs.recommended.rules,
     },
   },
 );
@@ -67,6 +65,10 @@ export default tseslint.config(
   },
   {
     languageOptions: {
+      globals: {
+        ...globals.serviceworker,
+        ...globals.browser,
+      },
       parserOptions: {
         ecmaVersion: "latest",
         project: true,
