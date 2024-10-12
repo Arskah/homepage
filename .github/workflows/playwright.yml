@@ -20,7 +20,6 @@ jobs:
             ~/.cache/ms-playwright
           key: playwright-${{ hashFiles('pnpm-lock.yaml') }}-${{ runner.os }}
       - name: Install Playwright Browsers
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: pnpm exec playwright install --with-deps
 
       - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4
