@@ -1,4 +1,4 @@
-import { globalStyle, style, styleVariants } from "@vanilla-extract/css";
+import { style, styleVariants } from "@vanilla-extract/css";
 
 import { vars } from "../styles/theme.css";
 
@@ -8,7 +8,8 @@ export const container = style({
   justifyContent: "center",
 });
 
-globalStyle(`${container}.collapsing`, {
+// TODO: more like a utility class, move somewhere
+export const mobileHidden = style({
   "@media": {
     "screen and (max-width: 760px)": {
       display: "none",

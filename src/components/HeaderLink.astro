@@ -1,7 +1,7 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-import { link } from "./HeaderLink.css";
+import { active, link } from "./HeaderLink.css";
 
 type Props = HTMLAttributes<"a">;
 
@@ -13,6 +13,6 @@ const subpath = pathname.match(/[^/]+/g);
 const isActive = href === pathname || href === "/" + subpath?.[0];
 ---
 
-<a class:list={[link, { active: isActive }]} href={href} {...props}>
+<a class:list={[link, { [active]: isActive }]} href={href} {...props}>
   <slot />
 </a>

@@ -4,8 +4,7 @@ import { vars } from "../styles/theme.css";
 
 export const titleContainer = style({
   lineHeight: "100%",
-  marginBottom: "1rem",
-  padding: "1rem 0",
+  paddingBottom: "1rem",
   textAlign: "center",
 });
 

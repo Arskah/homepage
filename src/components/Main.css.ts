@@ -9,7 +9,7 @@ export const main = style({
     },
   },
   margin: "0 auto",
-  padding: "3rem 1rem",
+  padding: "2rem 1rem",
   width: "100%",
 });
 

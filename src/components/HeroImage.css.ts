@@ -10,5 +10,5 @@ export const heroImage = style({
   borderRadius: 12,
   boxShadow: vars.boxShadow,
   display: "block",
-  margin: "0 auto",
+  margin: "1rem auto",
 });
