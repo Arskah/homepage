@@ -9,19 +9,10 @@ export const header = style({
   padding: "0 1.5rem",
 });
 
-globalStyle(`${header} a`, {
-  color: vars.color.black,
-  textDecoration: "none",
-});
-
 export const nav = style({
   alignItems: "center",
   display: "flex",
   justifyContent: "space-between",
-});
-
-globalStyle(`${nav} a`, {
-  borderBottom: "4px solid transparent",
 });
 
 export const h2 = style({
@@ -29,8 +20,14 @@ export const h2 = style({
   margin: 0,
 });
 
+globalStyle(`${h2} a`, {
+  color: "inherit",
+  textDecoration: "none",
+});
+
 export const links = style({
   display: "flex",
   flexDirection: "row",
+  flexWrap: "wrap",
   gap: "0.3rem",
 });
