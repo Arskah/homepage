@@ -7,7 +7,7 @@ export const footer = style({
   color: vars.color.gray,
   display: "flex",
   flexDirection: "column",
-  gap: "1em",
-  padding: "2em 1em 6em 1em",
+  gap: "1rem",
+  padding: "2rem 1rem 6rem 1rem",
   textAlign: "center",
 });

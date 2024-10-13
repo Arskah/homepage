@@ -51,6 +51,8 @@ globalFontFace("Atkinson", {
   src: 'url("/fonts/atkinson-bold.woff") format("woff")',
 });
 
+globalStyle("body, html", { fontSize: "20px" });
+
 globalStyle("body", {
   "@media": {
     "screen and (max-width: 760px)": {
@@ -77,23 +79,23 @@ globalStyle("h1, h2, h3, h4, h5, h6", {
 });
 
 globalStyle("h1", {
-  fontSize: "3.052em",
+  fontSize: "3.052rem",
 });
 
 globalStyle("h2", {
-  fontSize: "2.441em",
+  fontSize: "2.441rem",
 });
 
 globalStyle("h3", {
-  fontSize: "1.953em",
+  fontSize: "1.953rem",
 });
 
 globalStyle("h4", {
-  fontSize: "1.563em",
+  fontSize: "1.563rem",
 });
 
 globalStyle("h5", {
-  fontSize: "1.25em",
+  fontSize: "1.25rem",
 });
 
 // globalStyle("h6", {
@@ -105,7 +107,7 @@ globalStyle("a, a:hover", {
 });
 
 globalStyle("p", {
-  marginBottom: "1em",
+  marginBottom: "1rem",
 });
 
 globalStyle("textarea", {
@@ -135,7 +137,7 @@ globalStyle("code", {
 
 globalStyle("pre", {
   borderRadius: 8,
-  padding: "1.5em",
+  padding: "1.5rem",
 });
 
 globalStyle("pre > code", {
@@ -144,7 +146,7 @@ globalStyle("pre > code", {
 
 globalStyle("blockquote", {
   borderLeft: `4px solid ${vars.color.accent}`,
-  fontSize: "1.333em",
+  fontSize: "1.333rem",
   margin: 0,
-  padding: "0 0 0 20px",
+  padding: "0 0 0 1rem",
 });

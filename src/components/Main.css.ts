@@ -5,11 +5,11 @@ import { vars } from "../styles/theme.css";
 export const main = style({
   "@media": {
     "screen and (max-width: 760px)": {
-      padding: "1em",
+      padding: "1rem",
     },
   },
   margin: "0 auto",
-  padding: "3em 1em",
+  padding: "3rem 1rem",
   width: "100%",
 });
 
@@ -17,10 +17,10 @@ export const prose = style({
   color: vars.color.grayDark,
   margin: "auto",
   maxWidth: "100%",
-  padding: "1em",
+  padding: "1rem",
   width: 760,
 });
 
 globalStyle(`${prose} p`, {
-  marginBottom: "2em",
+  marginBottom: "2rem",
 });
