@@ -7,7 +7,9 @@ import SocialLinks from "./SocialLinks.astro";
 
 <header class={header}>
   <nav class={nav}>
-    <h2 class={h2}><a href="/">{SITE_TITLE}</a></h2>
+    <a href="/">
+      <h2 class={h2}>{SITE_TITLE}</h2>
+    </a>
     <div class={links}>
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/blog">Blog</HeaderLink>
