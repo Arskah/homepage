@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+
+import { anchor, date, img, item, list, title } from "./BlogList.css";
+import { FormattedDate } from "./FormattedDate";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<ul class={list}>
+  {
+    posts.map((post) => (
+      <li class={item}>
+        <a class={anchor} href={`/blog/${post.slug}/`}>
+          <img
+            alt=""
+            class={img}
+            height={360}
+            src={post.data.heroImage}
+            width={760}
+          />
+          <h4 class={title}>{post.data.title}</h4>
+          <p class={date}>
+            <FormattedDate date={post.data.pubDate} />
+          </p>
+        </a>
+      </li>
+    ))
+  }
+</ul>
