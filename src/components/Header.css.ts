@@ -6,7 +6,7 @@ export const header = style({
   backgroundColor: vars.color.white,
   boxShadow: "0 2px 8px color-mix(in srgb, var(--black), transparent 95%)",
   margin: 0,
-  padding: "0 1.5em",
+  padding: "0 1.5rem",
 });
 
 globalStyle(`${header} a`, {
@@ -25,12 +25,12 @@ globalStyle(`${nav} a`, {
 });
 
 export const h2 = style({
-  fontSize: "1em",
+  fontSize: "1rem",
   margin: 0,
 });
 
 export const links = style({
   display: "flex",
   flexDirection: "row",
-  gap: "0.3em",
+  gap: "0.3rem",
 });

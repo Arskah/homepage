@@ -4,7 +4,7 @@ import { vars } from "../styles/theme.css";
 
 export const container = style({
   display: "flex",
-  gap: "1em",
+  gap: "1rem",
   justifyContent: "center",
 });
 

@@ -4,14 +4,14 @@ import { vars } from "../styles/theme.css";
 
 export const titleContainer = style({
   lineHeight: "100%",
-  marginBottom: "1em",
-  padding: "1em 0",
+  marginBottom: "1rem",
+  padding: "1rem 0",
   textAlign: "center",
 });
 
 globalStyle(`${titleContainer} > div`, {
   color: vars.color.gray,
-  marginBottom: "0.5em",
+  marginBottom: "0.5rem",
 });
 
 globalStyle(`${titleContainer} > h1`, {
