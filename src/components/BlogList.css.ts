@@ -1,6 +1,8 @@
-import { globalStyle, style } from "@vanilla-extract/css";
+import { style } from "@vanilla-extract/css";
 
 import { vars } from "../styles/theme.css";
+
+const animationType = "0.2s ease";
 
 export const list = style({
   "@media": {
@@ -8,40 +10,35 @@ export const list = style({
       gap: "0.5rem",
     },
   },
-  display: "flex",
-  flexWrap: "wrap",
+  display: "grid",
   gap: "1.6rem",
+  gridTemplateColumns: "1fr 1fr",
   listStyleType: "none",
   margin: 0,
-
   padding: 0,
 });
 
 export const item = style({
   ":first-child": {
+    gridColumn: "1 / -1",
     marginBottom: "0.8rem",
     textAlign: "center",
-    width: "100%",
   },
+
   "@media": {
     "screen and (max-width: 760px)": {
       ":first-child": {
         marginBottom: 0,
       },
+      gridColumn: "1 / -1",
       textAlign: "center",
-      width: "100%",
     },
   },
-  width: "calc(50% - 0.8rem)",
-});
-
-globalStyle(`${item} *`, {
-  textDecoration: "none",
-  transition: "0.2s ease",
 });
 
 export const anchor = style({
   display: "block",
+  textDecoration: "none",
 });
 
 export const title = style({
@@ -51,6 +48,7 @@ export const title = style({
   selectors: {
     [`${anchor}:hover &`]: {
       color: vars.color.accent,
+      transition: `color ${animationType}`,
     },
     [`${item}:first-child &`]: {
       "@media": {
@@ -69,6 +67,7 @@ export const img = style({
   selectors: {
     [`${anchor}:hover &`]: {
       boxShadow: vars.boxShadow,
+      transition: `box-shadow ${animationType}`,
     },
     [`${item}:first-child &`]: {
       marginTop: "1rem",
@@ -84,6 +83,7 @@ export const date = style({
   selectors: {
     [`${anchor}:hover &`]: {
       color: vars.color.accent,
+      transition: `color ${animationType}`,
     },
   },
 });
