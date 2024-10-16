@@ -28,6 +28,7 @@
     {
       "groupName": "playwright",
       "groupSlug": "playwright",
+      "minimumReleaseAge": "3 days",
       "matchPackagePatterns": [
         "^mcr.microsoft.com/playwright",
         "@playwright/test"
