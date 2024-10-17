@@ -8,6 +8,6 @@ RUN corepack enable
 RUN pnpm install
 RUN pnpm run build
 
-FROM --platform=${PLATFORM} httpd:2.4@sha256:d85a95917514069fe598c31bab55dcc221a14a6dc261c452a8b2d51e8cd9e95a AS runtime
+FROM --platform=${PLATFORM} httpd:2.4@sha256:bbea29057f25d9543e6a96a8e3cc7c7c937206d20eab2323f478fdb2469d536d AS runtime
 COPY --from=build /app/dist /usr/local/apache2/htdocs/
 EXPOSE 80
