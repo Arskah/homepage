@@ -27,11 +27,16 @@ const reactConfigs = tseslint.config(
   },
   {
     files: ["**/*.{jsx,tsx}"],
-    ...react.configs.flat.recommended,
-    ...react.configs.flat["jsx-runtime"],
-    // @ts-expect-error missing types some bs on string literal types...
+    languageOptions: {
+      parserOptions: react.configs["jsx-runtime"].parserOptions,
+    },
+    plugins: {
+      react: /** @type {import('eslint').ESLint.Plugin} */ (react),
+    },
     rules: {
+      // @ts-expect-error bad type with undefineds
       ...react.configs.flat.recommended.rules,
+      // @ts-expect-error bad type with undefineds
       ...react.configs.flat["jsx-runtime"].rules,
       "react/display-name": "off",
       "react/no-unstable-nested-components": "warn",
