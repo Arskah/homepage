@@ -97,8 +97,8 @@ importers:
         specifier: 3.9.1
         version: 3.9.1(astro-eslint-parser@1.0.3(typescript@5.7.2))(eslint@9.15.0(jiti@1.21.6))(typescript@5.7.2)
       eslint-plugin-playwright:
-        specifier: 2.0.1
-        version: 2.0.1(eslint@9.15.0(jiti@1.21.6))
+        specifier: 2.1.0
+        version: 2.1.0(eslint@9.15.0(jiti@1.21.6))
       eslint-plugin-react:
         specifier: 7.37.2
         version: 7.37.2(eslint@9.15.0(jiti@1.21.6))
@@ -1893,8 +1893,8 @@ packages:
       vue-eslint-parser:
         optional: true
 
-  eslint-plugin-playwright@2.0.1:
-    resolution: {integrity: sha512-f4a73xgCOK5Ug/5dtC82BVvND62lLqlMqgGkZn42teyvk6ccSyybHZXRHkpE7vKZSCjV57bnbR+3ucwItOhXlA==}
+  eslint-plugin-playwright@2.1.0:
+    resolution: {integrity: sha512-wMbHOehofSB1cBdzz2CLaCYaKNLeTQ0YnOW+7AHa281TJqlpEJUBgTHbRUYOUxiXphfWwOyTPvgr6vvEmArbSA==}
     engines: {node: '>=16.6.0'}
     peerDependencies:
       eslint: '>=8.40.0'
@@ -6184,7 +6184,7 @@ snapshots:
       - supports-color
       - typescript
 
-  eslint-plugin-playwright@2.0.1(eslint@9.15.0(jiti@1.21.6)):
+  eslint-plugin-playwright@2.1.0(eslint@9.15.0(jiti@1.21.6)):
     dependencies:
       eslint: 9.15.0(jiti@1.21.6)
       globals: 13.24.0
