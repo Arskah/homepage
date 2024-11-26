@@ -13,10 +13,10 @@ importers:
         version: 0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.7.2)
       '@astrojs/mdx':
         specifier: 3.1.9
-        version: 3.1.9(astro@4.16.13(@types/node@22.9.3)(rollup@4.25.0)(typescript@5.7.2))
+        version: 3.1.9(astro@4.16.14(@types/node@22.9.3)(rollup@4.25.0)(typescript@5.7.2))
       '@astrojs/react':
-        specifier: 3.6.2
-        version: 3.6.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.4.11(@types/node@22.9.3))
+        specifier: 3.6.3
+        version: 3.6.3(@types/node@22.9.3)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@astrojs/rss':
         specifier: 4.0.9
         version: 4.0.9
@@ -27,8 +27,8 @@ importers:
         specifier: 1.16.0
         version: 1.16.0
       astro:
-        specifier: 4.16.13
-        version: 4.16.13(@types/node@22.9.3)(rollup@4.25.0)(typescript@5.7.2)
+        specifier: 4.16.14
+        version: 4.16.14(@types/node@22.9.3)(rollup@4.25.0)(typescript@5.7.2)
       astro-icon:
         specifier: 1.1.2
         version: 1.1.2
@@ -182,8 +182,8 @@ packages:
     resolution: {integrity: sha512-Z9IYjuXSArkAUx3N6xj6+Bnvx8OdUSHA8YoOgyepp3+zJmtVYJIl/I18GozdJVW1p5u/CNpl3Km7/gwTJK85cw==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
 
-  '@astrojs/react@3.6.2':
-    resolution: {integrity: sha512-fK29lYI7zK/KG4ZBy956x4dmauZcZ18osFkuyGa8r3gmmCQa2NZ9XNu9WaVYEUm0j89f4Gii4tbxLoyM8nk2MA==}
+  '@astrojs/react@3.6.3':
+    resolution: {integrity: sha512-5ihLQDH5Runddug5AZYlnp/Q5T81QxhwnWJXA9rchBAdh11c6UhBbv9Kdk7b2PkXoEU70CGWBP9hSh0VCR58eA==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
     peerDependencies:
       '@types/react': ^17.0.50 || ^18.0.21
@@ -1347,8 +1347,8 @@ packages:
   astro-icon@1.1.2:
     resolution: {integrity: sha512-2qAHBtZLYuFEIMP0Ck0edyLi5fQmJjwP2Qbv41f8L4KAJ2sra/dH7q5lCOn4q0DHVtS0w3tPG8UKQRits3UPcg==}
 
-  astro@4.16.13:
-    resolution: {integrity: sha512-Mtd76+BC0zLWqoXpf9xc731AhdH4MNh5JFHYdLRvSH0Nqn48hA64dPGh/cWsJvh/DZFmC0NTZusM1Qq2gyNaVg==}
+  astro@4.16.14:
+    resolution: {integrity: sha512-2IuLkIp4idyspugq+F52rHZyNqHHi2AdQzuKp3SGytg/YAm50dNeWhP/7l+enjgWZLloLq5xsH5gVQpoDFoyFg==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -4154,12 +4154,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@3.1.9(astro@4.16.13(@types/node@22.9.3)(rollup@4.25.0)(typescript@5.7.2))':
+  '@astrojs/mdx@3.1.9(astro@4.16.14(@types/node@22.9.3)(rollup@4.25.0)(typescript@5.7.2))':
     dependencies:
       '@astrojs/markdown-remark': 5.3.0
       '@mdx-js/mdx': 3.1.0(acorn@8.14.0)
       acorn: 8.14.0
-      astro: 4.16.13(@types/node@22.9.3)(rollup@4.25.0)(typescript@5.7.2)
+      astro: 4.16.14(@types/node@22.9.3)(rollup@4.25.0)(typescript@5.7.2)
       es-module-lexer: 1.5.4
       estree-util-visit: 2.0.0
       gray-matter: 4.0.3
@@ -4178,7 +4178,7 @@ snapshots:
     dependencies:
       prismjs: 1.29.0
 
-  '@astrojs/react@3.6.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.4.11(@types/node@22.9.3))':
+  '@astrojs/react@3.6.3(@types/node@22.9.3)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@types/react': 18.3.12
       '@types/react-dom': 18.3.1
@@ -4186,9 +4186,17 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       ultrahtml: 1.5.3
+      vite: 5.4.11(@types/node@22.9.3)
     transitivePeerDependencies:
+      - '@types/node'
+      - less
+      - lightningcss
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
       - supports-color
-      - vite
+      - terser
 
   '@astrojs/rss@4.0.9':
     dependencies:
@@ -5441,7 +5449,7 @@ snapshots:
       - debug
       - supports-color
 
-  astro@4.16.13(@types/node@22.9.3)(rollup@4.25.0)(typescript@5.7.2):
+  astro@4.16.14(@types/node@22.9.3)(rollup@4.25.0)(typescript@5.7.2):
     dependencies:
       '@astrojs/compiler': 2.10.3
       '@astrojs/internal-helpers': 0.4.1
