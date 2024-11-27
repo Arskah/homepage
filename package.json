@@ -23,7 +23,7 @@
     "@astrojs/react": "3.6.3",
     "@astrojs/rss": "4.0.9",
     "@astrojs/sitemap": "3.2.1",
-    "@vanilla-extract/css": "1.16.0",
+    "@vanilla-extract/css": "1.16.1",
     "astro": "4.16.14",
     "astro-icon": "1.1.4",
     "modern-normalize": "3.0.1",
