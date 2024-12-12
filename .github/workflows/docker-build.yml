@@ -5,6 +5,11 @@ on:
       tags:
         required: true
         type: string
+      # newline separated string
+      build_args:
+        required: false
+        type: string
+        default: ""
     secrets:
       REGISTRY_USER:
         required: true
@@ -37,6 +42,7 @@ jobs:
           file: Dockerfile
           push: true
           tags: ${{ inputs.tags }}
+          build-args: ${{ inputs.build-args }}
           builder: ${{ steps.buildx.outputs.name }}
           platforms: linux/amd64
           cache-from: type=gha
