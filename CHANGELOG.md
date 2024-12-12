@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.3](https://github.com/Arskah/homepage/compare/v1.0.2...v1.0.3) (2024-12-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @vanilla-extract/css to v1.16.1 ([#454](https://github.com/Arskah/homepage/issues/454)) ([a3f485a](https://github.com/Arskah/homepage/commit/a3f485a4767fe88e0702a426434209c85f35e2b7))
+* **deps:** update react monorepo to v19 ([f5ef312](https://github.com/Arskah/homepage/commit/f5ef31230013297b88ee93c757cfb05870b8b45e))
+* **deps:** update react monorepo to v19 (major) ([#472](https://github.com/Arskah/homepage/issues/472)) ([f5ef312](https://github.com/Arskah/homepage/commit/f5ef31230013297b88ee93c757cfb05870b8b45e))
+
 ## [1.0.2](https://github.com/Arskah/homepage/compare/v1.0.1...v1.0.2) (2024-12-12)
 
 
