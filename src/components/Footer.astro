@@ -5,9 +5,10 @@ import SocialLinks from "./SocialLinks.astro";
 
 const year = new Date().getFullYear();
 const copyRightText = `${year} ${OWNER_NAME}. All rights reserved.`;
+const version = import.meta.env.PUBLIC_VERSION;
 ---
 
 <footer class={footer}>
-  &copy; {copyRightText}
+  {version} &copy; {copyRightText}
   <SocialLinks linkColor="gray" />
 </footer>

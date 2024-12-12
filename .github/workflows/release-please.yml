@@ -41,6 +41,8 @@ jobs:
       tags: |
         registry.aarnihalinen.fi/homepage:${{ github.sha }}
         registry.aarnihalinen.fi/homepage:next
+      build-args: |
+        VERSION=${{ needs.release-please.outputs.release_tag || github.sha }}
     secrets: inherit
 
   promote-prod:
