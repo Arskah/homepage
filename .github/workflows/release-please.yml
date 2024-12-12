@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-24.04
     outputs:
       release_created: ${{ steps.release-please.outputs.release_created }}
-      release_tag: ${{ steps.release-please.outputs.release_tag }}
+      release_tag: ${{ steps.release-please.outputs.tag_name }}
     steps:
       - name: Generate custom token
         uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2
