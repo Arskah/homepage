@@ -20,15 +20,15 @@
   "minimumReleaseAge": "3 days",
   "packageRules": [
     {
-      "matchPackagePatterns": ["^registry.aarnihalinen.fi/homepage"],
-      "pinDigests": false
+      "pinDigests": false,
+      "matchPackageNames": ["/^registry.aarnihalinen.fi/homepage/"]
     },
     {
       "groupName": "playwright",
       "groupSlug": "playwright",
-      "matchPackagePatterns": [
-        "^mcr.microsoft.com/playwright",
-        "@playwright/test"
+      "matchPackageNames": [
+        "/^mcr.microsoft.com/playwright/",
+        "/@playwright/test/"
       ]
     }
   ]
