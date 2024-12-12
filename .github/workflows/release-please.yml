@@ -21,9 +21,32 @@ jobs:
           private_key: ${{ secrets.CUSTOM_TOKEN_APP_PRIVATE_KEY }}
 
       - uses: googleapis/release-please-action@7987652d64b4581673a76e33ad5e98e3dd56832f # v4
+        id: release-please
         with:
           # Use Personal Access Token to by pass GH restrictions on bots
           # https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow#triggering-a-workflow-from-a-workflow
           token: ${{ steps.token.outputs.token }}
           release-type: simple
           include-component-in-tag: true
+
+      - name: Generate image tags
+        id: tags
+        run: |
+          if [[ "${{ steps.release.outputs.release_created }}" == "true" ]]; then
+            echo "tags='[
+              registry.aarnihalinen.fi/homepage:${{ github.sha }}
+              registry.aarnihalinen.fi/homepage:next
+              registry.aarnihalinen.fi/homepage:${{ steps.release.outputs.tag_name }}
+              registry.aarnihalinen.fi/homepage:latest
+            ]'" >> $GITHUB_OUTPUT
+          else
+            echo "tags='[
+              registry.aarnihalinen.fi/homepage:${{ github.sha }}
+              registry.aarnihalinen.fi/homepage:next
+            ]'" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Build and tag Docker image
+        uses: ./.github/workflows/docker-build.yml
+        with:
+          tags: ${{ fromJSON(steps.tags.outputs.tags) }}
