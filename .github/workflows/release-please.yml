@@ -11,7 +11,11 @@ permissions:
 
 jobs:
   release-please:
+    name: Release Please
     runs-on: ubuntu-24.04
+    outputs:
+      release_created: ${{ steps.release-please.outputs.release_created }}
+      release_tag: ${{ steps.release-please.outputs.release_tag }}
     steps:
       - name: Generate custom token
         uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2
@@ -21,9 +25,46 @@ jobs:
           private_key: ${{ secrets.CUSTOM_TOKEN_APP_PRIVATE_KEY }}
 
       - uses: googleapis/release-please-action@7987652d64b4581673a76e33ad5e98e3dd56832f # v4
+        id: release-please
         with:
           # Use Personal Access Token to by pass GH restrictions on bots
           # https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow#triggering-a-workflow-from-a-workflow
           token: ${{ steps.token.outputs.token }}
           release-type: simple
           include-component-in-tag: true
+
+  docker-build:
+    name: Build and tag Docker image
+    needs: [release-please]
+    uses: ./.github/workflows/docker-build.yml
+    with:
+      tags: |
+        registry.aarnihalinen.fi/homepage:${{ github.sha }}
+        registry.aarnihalinen.fi/homepage:next
+    secrets: inherit
+
+  promote-prod:
+    name: Promote to production
+    needs: [release-please, docker-build]
+    if: ${{ needs.release-please.outputs.release_created }}
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Login to Docker registry
+        uses: docker/login-action@v3
+        with:
+          registry: registry.aarnihalinen.fi
+          username: ${{ secrets.REGISTRY_USER }}
+          password: ${{ secrets.REGISTRY_PWD }}
+          logout: true
+
+      - name: Tag image with latest
+        env:
+          IMAGE: registry.aarnihalinen.fi/homepage
+          SHA: ${{ github.sha }}
+          RELEASE_TAG: ${{ needs.release-please.outputs.release_tag }}
+        run: |
+          docker pull $IMAGE:$SHA
+          docker tag $IMAGE:$SHA $IMAGE:latest
+          docker push $IMAGE:latest
+          docker tag $IMAGE:$SHA $IMAGE:$RELEASE_TAG
+          docker push $IMAGE:$RELEASE_TAG
