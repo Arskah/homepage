@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.0.1](https://github.com/Arskah/homepage/compare/v1.0.0...v1.0.1) (2024-12-12)
+
+
+### Bug Fixes
+
+* **deps:** update astro monorepo ([#381](https://github.com/Arskah/homepage/issues/381)) ([754213e](https://github.com/Arskah/homepage/commit/754213e9bc76cbc7f7408e4306c0da522cbc34e8))
+* **deps:** update astro monorepo ([#382](https://github.com/Arskah/homepage/issues/382)) ([588bac3](https://github.com/Arskah/homepage/commit/588bac31329e4758257f8eafe30b6c4a0cf3b3c5))
+* **deps:** update astro monorepo ([#422](https://github.com/Arskah/homepage/issues/422)) ([a37d236](https://github.com/Arskah/homepage/commit/a37d236d6ec086a45490134e18505d7241d2d5e7))
+* **deps:** update astro monorepo ([#448](https://github.com/Arskah/homepage/issues/448)) ([83c835d](https://github.com/Arskah/homepage/commit/83c835d0b71eea3e4b4199babf7044ea062c5759))
+* **deps:** update dependency astro to v4.16.13 ([#434](https://github.com/Arskah/homepage/issues/434)) ([d86743a](https://github.com/Arskah/homepage/commit/d86743a1e1d1402f07eeb3dede7912df63c559e3))
+* **deps:** update dependency astro to v4.16.2 ([#368](https://github.com/Arskah/homepage/issues/368)) ([b75cce2](https://github.com/Arskah/homepage/commit/b75cce2f41b46d058724250318e9c1e23c4b6611))
+* **deps:** update dependency astro to v4.16.3 ([#374](https://github.com/Arskah/homepage/issues/374)) ([ecb4476](https://github.com/Arskah/homepage/commit/ecb44767d33b83719b39003db316ba915149b8aa))
+* **deps:** update dependency astro to v4.16.6 ([#391](https://github.com/Arskah/homepage/issues/391)) ([9f0b202](https://github.com/Arskah/homepage/commit/9f0b202b513392b664d40a44a1b988ba7d2ada03))
+* **deps:** update dependency astro to v4.16.7 ([#405](https://github.com/Arskah/homepage/issues/405)) ([11fd058](https://github.com/Arskah/homepage/commit/11fd0580722059ef12d6aebc15e0d77ed36a4db8))
+* **deps:** update dependency astro-icon to v1.1.2 ([#427](https://github.com/Arskah/homepage/issues/427)) ([ae8d591](https://github.com/Arskah/homepage/commit/ae8d59152ce4d8cec144a883906bfb440f18eab0))
+* **deps:** update dependency astro-icon to v1.1.4 ([#451](https://github.com/Arskah/homepage/issues/451)) ([a7b025f](https://github.com/Arskah/homepage/commit/a7b025f0b1a3d8402cd798a97c2eda18b50ad72b))
+
+
+### Reverts
+
+* "chore(deps): update mcr.microsoft.com/playwright docker tag to v1.48.1 ([#370](https://github.com/Arskah/homepage/issues/370))" ([9fe5f91](https://github.com/Arskah/homepage/commit/9fe5f919bf0c7bbc00a687f68db082e90f88fe9f))
+
 ## 1.0.0 (2024-10-11)
 
 
