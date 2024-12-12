@@ -13,10 +13,17 @@ jobs:
   release-please:
     runs-on: ubuntu-24.04
     steps:
+      - name: Generate custom token
+        uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2
+        id: token
+        with:
+          app_id: ${{ secrets.CUSTOM_TOKEN_APP_ID }}
+          private_key: ${{ secrets.CUSTOM_TOKEN_APP_PRIVATE_KEY }}
+
       - uses: googleapis/release-please-action@7987652d64b4581673a76e33ad5e98e3dd56832f # v4
         with:
           # Use Personal Access Token to by pass GH restrictions on bots
           # https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow#triggering-a-workflow-from-a-workflow
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          token: ${{ steps.token.outputs.token }}
           release-type: simple
           include-component-in-tag: true
