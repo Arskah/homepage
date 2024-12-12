@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - release-please-streamline
 
 permissions:
   contents: write
@@ -12,6 +13,8 @@ permissions:
 jobs:
   release-please:
     runs-on: ubuntu-24.04
+    outputs:
+      tags: ${{ steps.tags.outputs.tags }}
     steps:
       - name: Generate custom token
         uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2
@@ -21,9 +24,44 @@ jobs:
           private_key: ${{ secrets.CUSTOM_TOKEN_APP_PRIVATE_KEY }}
 
       - uses: googleapis/release-please-action@7987652d64b4581673a76e33ad5e98e3dd56832f # v4
+        id: release-please
         with:
           # Use Personal Access Token to by pass GH restrictions on bots
           # https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow#triggering-a-workflow-from-a-workflow
           token: ${{ steps.token.outputs.token }}
           release-type: simple
           include-component-in-tag: true
+
+      - name: Generate image tags
+        id: tags
+        env:
+          RELEASE_TAG: ${{ steps.release-please.outputs.release_tag }}
+          SHA: ${{ github.sha }}
+        run: |
+          if [[ ! -z "$RELEASE_TAG" ]]; then
+            tags=(
+              registry.aarnihalinen.fi/homepage:$SHA
+              registry.aarnihalinen.fi/homepage:next
+              registry.aarnihalinen.fi/homepage:$RELEASE_TAG
+              registry.aarnihalinen.fi/homepage:latest
+            )
+          else
+            tags=(
+              registry.aarnihalinen.fi/homepage:$SHA
+              registry.aarnihalinen.fi/homepage:next
+            )
+          fi
+
+          JSON="$(jq --compact-output --null-input '$ARGS.positional' --args -- "${tags[@]}")"
+          echo $JSON
+          echo "tags='$JSON'" >> $GITHUB_OUTPUT
+
+  deploy:
+    needs: [release-please]
+    name: Build and tag Docker image
+    uses: ./.github/workflows/docker-build.yml
+    with:
+      tags: |-
+        ${{ join(fromJson(needs.release-please.outputs.tags), '
+        ') }}
+    secrets: inherit
