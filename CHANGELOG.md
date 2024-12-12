@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/Arskah/homepage/compare/v1.0.1...v1.0.2) (2024-12-12)
+
+
+### Bug Fixes
+
+* release tag for production promotion ([386f281](https://github.com/Arskah/homepage/commit/386f281e8353bb332812bcf2b2aeb400f873708d))
+
 ## [1.0.1](https://github.com/Arskah/homepage/compare/v1.0.0...v1.0.1) (2024-12-12)
 
 
