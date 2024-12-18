@@ -27,11 +27,7 @@ jobs:
       - uses: googleapis/release-please-action@7987652d64b4581673a76e33ad5e98e3dd56832f # v4
         id: release-please
         with:
-          # Use Personal Access Token to by pass GH restrictions on bots
-          # https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow#triggering-a-workflow-from-a-workflow
           token: ${{ steps.token.outputs.token }}
-          release-type: simple
-          include-component-in-tag: true
 
   docker-build:
     name: Build and tag Docker image
