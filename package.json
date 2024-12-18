@@ -22,7 +22,7 @@
     "@astrojs/check": "0.9.4",
     "@astrojs/mdx": "3.1.9",
     "@astrojs/react": "3.6.3",
-    "@astrojs/rss": "4.0.9",
+    "@astrojs/rss": "4.0.10",
     "@astrojs/sitemap": "3.2.1",
     "@vanilla-extract/css": "1.16.1",
     "astro": "4.16.17",
