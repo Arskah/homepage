@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.3](https://github.com/Arskah/homepage/compare/v1.0.2...v1.0.3) (2024-12-31)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @astrojs/rss to v4.0.10 ([#460](https://github.com/Arskah/homepage/issues/460)) ([78a679f](https://github.com/Arskah/homepage/commit/78a679fcabd361219c35df2066540bf42b8d5e1d))
+* **deps:** update dependency @vanilla-extract/css to v1.16.1 ([#454](https://github.com/Arskah/homepage/issues/454)) ([a3f485a](https://github.com/Arskah/homepage/commit/a3f485a4767fe88e0702a426434209c85f35e2b7))
+* **deps:** update dependency astro to v4.16.17 [security] ([#494](https://github.com/Arskah/homepage/issues/494)) ([099260a](https://github.com/Arskah/homepage/commit/099260a7f6baa392e049d97c60a691a009f21c55))
+* **deps:** update dependency astro to v4.16.18 [security] ([#496](https://github.com/Arskah/homepage/issues/496)) ([68da214](https://github.com/Arskah/homepage/commit/68da214dfe32bf26e76880fa8c96d28d1415efee))
+* **deps:** update react monorepo to v19 ([f5ef312](https://github.com/Arskah/homepage/commit/f5ef31230013297b88ee93c757cfb05870b8b45e))
+* **deps:** update react monorepo to v19 (major) ([#472](https://github.com/Arskah/homepage/issues/472)) ([f5ef312](https://github.com/Arskah/homepage/commit/f5ef31230013297b88ee93c757cfb05870b8b45e))
+
 ## [1.0.2](https://github.com/Arskah/homepage/compare/v1.0.1...v1.0.2) (2024-12-12)
 
 
