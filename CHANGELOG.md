@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.4](https://github.com/Arskah/homepage/compare/v1.0.3...v1.0.4) (2025-01-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @vanilla-extract/css to v1.17.0 ([#503](https://github.com/Arskah/homepage/issues/503)) ([6f048a4](https://github.com/Arskah/homepage/commit/6f048a4af425186ca1b43a781959eee1b58f271c))
+* **deps:** update dependency astro-icon to v1.1.5 ([#508](https://github.com/Arskah/homepage/issues/508)) ([71e2022](https://github.com/Arskah/homepage/commit/71e2022d61d55feef34a4e5b22ff84f42624d795))
+
 ## [1.0.3](https://github.com/Arskah/homepage/compare/v1.0.2...v1.0.3) (2024-12-31)
 
 
