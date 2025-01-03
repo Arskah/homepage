@@ -24,8 +24,8 @@ importers:
         specifier: 3.2.1
         version: 3.2.1
       '@vanilla-extract/css':
-        specifier: 1.16.1
-        version: 1.16.1
+        specifier: 1.17.0
+        version: 1.17.0
       astro:
         specifier: 4.16.18
         version: 4.16.18(@types/node@22.10.2)(rollup@4.28.1)(typescript@5.7.2)
@@ -1178,8 +1178,8 @@ packages:
   '@vanilla-extract/babel-plugin-debug-ids@1.1.0':
     resolution: {integrity: sha512-Zy9bKjaL2P5zsrFYQJ8IjWGlFODmZrpvFmjFE0Zv8om55Pz1JtpJtL6DvlxlWUxbVaP1HKCqsmEfFOZN8fX/ZQ==}
 
-  '@vanilla-extract/css@1.16.1':
-    resolution: {integrity: sha512-3jKxH5ty/ZjmGoLAx8liY7e87FRCIJfnuufX/K9fQklu0YHP3ClrNisU++LkZuD+GZleqMSAQMF0r8Otln+OPQ==}
+  '@vanilla-extract/css@1.17.0':
+    resolution: {integrity: sha512-W6FqVFDD+C71ZlKsuj0MxOXSvHb1tvQ9h/+79aYfi097wLsALrnnBzd0by8C///iurrpQ3S+SH74lXd7Lr9MvA==}
 
   '@vanilla-extract/integration@7.1.11':
     resolution: {integrity: sha512-IGRaLrpkjyVHTHDZQBQvFBl399yRfSMJoVI2KaocEZB33aP+H4Qup83od2hc6R5IxGWdvbiiCOJCYsnmFiy85Q==}
@@ -5198,7 +5198,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vanilla-extract/css@1.16.1':
+  '@vanilla-extract/css@1.17.0':
     dependencies:
       '@emotion/hash': 0.9.2
       '@vanilla-extract/private': 1.0.6
@@ -5220,7 +5220,7 @@ snapshots:
       '@babel/core': 7.26.0
       '@babel/plugin-syntax-typescript': 7.25.9(@babel/core@7.26.0)
       '@vanilla-extract/babel-plugin-debug-ids': 1.1.0
-      '@vanilla-extract/css': 1.16.1
+      '@vanilla-extract/css': 1.17.0
       dedent: 1.5.3
       esbuild: 0.23.1
       eval: 0.1.8
