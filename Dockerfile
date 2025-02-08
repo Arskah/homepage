@@ -5,8 +5,8 @@ ARG VERSION
 WORKDIR /app
 COPY . .
 
-RUN corepack enable && \
-    pnpm install && \
+RUN npm install -g corepack@latest && corepack enable
+RUN pnpm install && \
     pnpm astro check && \
     PUBLIC_VERSION=${VERSION} pnpm astro build
 
