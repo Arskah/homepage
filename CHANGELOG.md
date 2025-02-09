@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.0.4](https://github.com/Arskah/homepage/compare/v1.0.3...v1.0.4) (2025-02-09)
+
+
+### Bug Fixes
+
+* **deps:** update astro monorepo ([d40a166](https://github.com/Arskah/homepage/commit/d40a166d97612434c632674a81b25c1a00f98fff))
+* **deps:** update astro monorepo ([#538](https://github.com/Arskah/homepage/issues/538)) ([5d51370](https://github.com/Arskah/homepage/commit/5d513701bed24b6d61e9b7f3109dc6ff29ea9a1c))
+* **deps:** update astro monorepo (major) ([#469](https://github.com/Arskah/homepage/issues/469)) ([d40a166](https://github.com/Arskah/homepage/commit/d40a166d97612434c632674a81b25c1a00f98fff))
+* **deps:** update dependency @astrojs/rss to v4.0.11 ([#515](https://github.com/Arskah/homepage/issues/515)) ([bb960a5](https://github.com/Arskah/homepage/commit/bb960a554ddc1c415fc4a15196a0a3b30607b6e1))
+* **deps:** update dependency @vanilla-extract/css to v1.17.0 ([#503](https://github.com/Arskah/homepage/issues/503)) ([6f048a4](https://github.com/Arskah/homepage/commit/6f048a4af425186ca1b43a781959eee1b58f271c))
+* **deps:** update dependency @vanilla-extract/css to v1.17.1 ([#537](https://github.com/Arskah/homepage/issues/537)) ([573fb60](https://github.com/Arskah/homepage/commit/573fb600d1f160bc4f9664befc9af3365120dc97))
+* **deps:** update dependency astro to v5.2.5 ([#553](https://github.com/Arskah/homepage/issues/553)) ([9ac644b](https://github.com/Arskah/homepage/commit/9ac644b65e4911dd9e38d5b1ac85b000c61ffaef))
+* **deps:** update dependency astro-icon to v1.1.5 ([#508](https://github.com/Arskah/homepage/issues/508)) ([71e2022](https://github.com/Arskah/homepage/commit/71e2022d61d55feef34a4e5b22ff84f42624d795))
+
 ## [1.0.3](https://github.com/Arskah/homepage/compare/v1.0.2...v1.0.3) (2024-12-31)
 
 
