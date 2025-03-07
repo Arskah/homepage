@@ -24,7 +24,7 @@ jobs:
           app_id: ${{ secrets.CUSTOM_TOKEN_APP_ID }}
           private_key: ${{ secrets.CUSTOM_TOKEN_APP_PRIVATE_KEY }}
 
-      - uses: googleapis/release-please-action@7987652d64b4581673a76e33ad5e98e3dd56832f # v4
+      - uses: googleapis/release-please-action@a02a34c4d625f9be7cb89156071d8567266a2445 # v4
         id: release-please
         with:
           token: ${{ steps.token.outputs.token }}
