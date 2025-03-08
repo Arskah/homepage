@@ -10,7 +10,6 @@ import markdown from "eslint-plugin-markdown";
 import perfectionist from "eslint-plugin-perfectionist";
 import playwright from "eslint-plugin-playwright";
 import react from "eslint-plugin-react";
-// @ts-expect-error missing types
 import reactHooks from "eslint-plugin-react-hooks";
 import regexp from "eslint-plugin-regexp";
 import globals from "globals";
@@ -43,15 +42,7 @@ const reactConfigs = tseslint.config(
       "react/prop-types": "off",
     },
   },
-  {
-    files: ["**/*.{jsx,tsx}"],
-    plugins: {
-      "react-hooks": reactHooks,
-    },
-    rules: {
-      ...reactHooks.configs.recommended.rules,
-    },
-  },
+  reactHooks.configs["recommended-latest"],
 );
 
 const playwrightConfigs = tseslint.config({
