@@ -70,8 +70,8 @@ importers:
         specifier: 19.0.4
         version: 19.0.4(@types/react@19.0.10)
       '@vanilla-extract/vite-plugin':
-        specifier: 5.0.0
-        version: 5.0.0(@types/node@22.13.10)(jiti@2.4.2)(vite@6.2.1(@types/node@22.13.10)(jiti@2.4.2)(yaml@2.7.0))(yaml@2.7.0)
+        specifier: 5.0.1
+        version: 5.0.1(@types/node@22.13.10)(jiti@2.4.2)(vite@6.2.1(@types/node@22.13.10)(jiti@2.4.2)(yaml@2.7.0))(yaml@2.7.0)
       eslint:
         specifier: 9.22.0
         version: 9.22.0(jiti@2.4.2)
@@ -1035,8 +1035,8 @@ packages:
   '@vanilla-extract/private@1.0.6':
     resolution: {integrity: sha512-ytsG/JLweEjw7DBuZ/0JCN4WAQgM9erfSTdS1NQY778hFQSZ6cfCDEZZ0sgVm4k54uNz6ImKB33AYvSR//fjxw==}
 
-  '@vanilla-extract/vite-plugin@5.0.0':
-    resolution: {integrity: sha512-ZbdxalIUZicTjXcFFcZV56aCixvkPZE8M9mUwa2nDCdpVo/BKuCPt08LvU5aNwZRDkuPOiaaPHcmw/+xxdM15A==}
+  '@vanilla-extract/vite-plugin@5.0.1':
+    resolution: {integrity: sha512-65IhqaNEAv/KjO1jJ52hSXiKUJqeFPlyY/hpRT71Y6bFoasHhzOcZKIQ/ze4fQovjjDL4US565rEiIn1I2qhFA==}
     peerDependencies:
       vite: ^5.0.0 || ^6.0.0
 
@@ -5048,7 +5048,7 @@ snapshots:
 
   '@vanilla-extract/private@1.0.6': {}
 
-  '@vanilla-extract/vite-plugin@5.0.0(@types/node@22.13.10)(jiti@2.4.2)(vite@6.2.1(@types/node@22.13.10)(jiti@2.4.2)(yaml@2.7.0))(yaml@2.7.0)':
+  '@vanilla-extract/vite-plugin@5.0.1(@types/node@22.13.10)(jiti@2.4.2)(vite@6.2.1(@types/node@22.13.10)(jiti@2.4.2)(yaml@2.7.0))(yaml@2.7.0)':
     dependencies:
       '@vanilla-extract/compiler': 0.1.2(@types/node@22.13.10)(jiti@2.4.2)(yaml@2.7.0)
       '@vanilla-extract/integration': 8.0.1
