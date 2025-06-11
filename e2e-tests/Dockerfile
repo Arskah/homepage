@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/playwright:v1.51.1-jammy@sha256:79da45705a7c3f147c435ac6d0beeddf2e132f53263cb27bed90beafbb2e552b AS deps
+FROM mcr.microsoft.com/playwright:v1.53.0-jammy@sha256:a499633eaf3ac5aefef9c8d6932440f62b5967ef5229c4f1777b80ccb53d573d AS deps
 WORKDIR /test-runner
 
 # Install dependencies
