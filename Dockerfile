@@ -1,5 +1,5 @@
 ARG PLATFORM=linux/amd64
-FROM --platform=${PLATFORM} node:22.17.0@sha256:0c0734eb7051babbb3e95cd74e684f940552b31472152edf0bb23e54ab44a0d7 AS build
+FROM --platform=${PLATFORM} node:22.17.0@sha256:2fa6c977460b56d4d8278947ab56faeb312bc4cc6c4cf78920c6de27812f51c5 AS build
 
 ARG VERSION
 WORKDIR /app
