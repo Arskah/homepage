@@ -13,7 +13,7 @@
     ":disableRateLimiting"
   ],
   "kubernetes": {
-    "fileMatch": ["k8s/*"]
+    "managerFilePatterns": ["/k8s/*/"]
   },
   "timezone": "Europe/Helsinki",
   "postUpdateOptions": ["pnpmDedupe"],
