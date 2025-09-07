@@ -38,7 +38,7 @@
     "@commitlint/types": "19.8.1",
     "@eslint/js": "9.34.0",
     "@playwright/test": "1.55.0",
-    "@types/node": "22.17.2",
+    "@types/node": "22.18.1",
     "@types/react": "19.1.11",
     "@types/react-dom": "19.1.7",
     "@vanilla-extract/vite-plugin": "5.1.1",
