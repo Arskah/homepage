@@ -2,10 +2,9 @@
 // @ts-check
 
 import pluginJs from "@eslint/js";
+import markdown from "@eslint/markdown";
 import astro from "eslint-plugin-astro";
 import jsdoc from "eslint-plugin-jsdoc";
-// @ts-expect-error missing types
-import markdown from "eslint-plugin-markdown";
 import perfectionist from "eslint-plugin-perfectionist";
 import playwright from "eslint-plugin-playwright";
 import react from "eslint-plugin-react";
@@ -33,7 +32,6 @@ export default defineConfig([
   pluginJs.configs.recommended,
   perfectionist.configs["recommended-natural"],
   regexp.configs["flat/recommended"],
-  markdown.configs.recommended,
   tseslint.configs.recommended,
   tseslint.configs.stylistic,
   astro.configs["recommended"],
@@ -77,5 +75,12 @@ export default defineConfig([
     rules: {
       ...playwright.configs.recommended.rules,
     },
+  },
+  {
+    files: ["**/*.md"],
+    plugins: {
+      markdown,
+    },
+    extends: ["markdown/recommended"],
   },
 ]);
