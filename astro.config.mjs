@@ -11,6 +11,7 @@ export default defineConfig({
   integrations: [mdx(), react(), sitemap(), icon()],
   site: "https://aarnihalinen.fi",
   vite: {
+    // @ts-expect-error bad typing for vanillaExtractPlugin
     plugins: [vanillaExtractPlugin()],
   },
 });
