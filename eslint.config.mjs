@@ -67,12 +67,7 @@ export default defineConfig([
   },
   {
     files: ["tests/**"],
-    plugins: {
-      playwright: playwright,
-    },
-    rules: {
-      ...playwright.configs.recommended.rules,
-    },
+    extends: [playwright.configs["flat/recommended"]],
   },
   {
     files: ["**/*.md"],
