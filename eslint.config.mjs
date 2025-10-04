@@ -42,7 +42,8 @@ const reactConfigs = tseslint.config(
       "react/prop-types": "off",
     },
   },
-  reactHooks.configs["recommended-latest"],
+  // @ts-expect-error no types
+  reactHooks.configs["recommended"],
 );
 
 const playwrightConfigs = tseslint.config({
