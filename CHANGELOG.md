@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.8](https://github.com/Arskah/homepage/compare/v1.0.7...v1.0.8) (2025-10-04)
+
+
+### Bug Fixes
+
+* **deps:** update astro monorepo ([#723](https://github.com/Arskah/homepage/issues/723)) ([cd6203e](https://github.com/Arskah/homepage/commit/cd6203e5e841d28a065480d11e724e54ef145ef5))
+
 ## [1.0.7](https://github.com/Arskah/homepage/compare/v1.0.6...v1.0.7) (2025-10-02)
 
 
