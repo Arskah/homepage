@@ -12,7 +12,7 @@ import playwright from "eslint-plugin-playwright";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import regexp from "eslint-plugin-regexp";
-import { defineConfig } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
@@ -58,9 +58,7 @@ const playwrightConfigs = defineConfig({
 });
 
 export default defineConfig([
-  {
-    ignores: [".astro/", "coverage/", "dist/"],
-  },
+  globalIgnores([".astro/", "coverage/", "dist/"]),
   {
     languageOptions: {
       globals: {
