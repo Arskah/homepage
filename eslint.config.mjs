@@ -12,10 +12,11 @@ import playwright from "eslint-plugin-playwright";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import regexp from "eslint-plugin-regexp";
+import { defineConfig } from "eslint/config";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
-const reactConfigs = tseslint.config(
+const reactConfigs = defineConfig(
   {
     files: ["**/*.{jsx,tsx}"],
     settings: {
@@ -46,7 +47,7 @@ const reactConfigs = tseslint.config(
   reactHooks.configs["recommended"],
 );
 
-const playwrightConfigs = tseslint.config({
+const playwrightConfigs = defineConfig({
   files: ["tests/**"],
   plugins: {
     playwright: playwright,
@@ -56,7 +57,7 @@ const playwrightConfigs = tseslint.config({
   },
 });
 
-export default tseslint.config(
+export default defineConfig([
   {
     ignores: [".astro/", "coverage/", "dist/"],
   },
@@ -95,4 +96,4 @@ export default tseslint.config(
       "jsdoc/check-tag-names": "off",
     },
   },
-);
+]);
