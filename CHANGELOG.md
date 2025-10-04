@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.0.7](https://github.com/Arskah/homepage/compare/v1.0.6...v1.0.7) (2025-10-02)
+
+
+### Bug Fixes
+
+* add temp ts bypass for vanillaExtractPlugin type ([23718a2](https://github.com/Arskah/homepage/commit/23718a27f8c706e93645417d9af1114ecfdfa0c4))
+* **deps:** update astro monorepo ([#627](https://github.com/Arskah/homepage/issues/627)) ([cf29562](https://github.com/Arskah/homepage/commit/cf295626cc3ffe97556c609f2b5cb2751ed9366e))
+* **deps:** update astro monorepo ([#658](https://github.com/Arskah/homepage/issues/658)) ([11c53c2](https://github.com/Arskah/homepage/commit/11c53c284a5c96c575df74845bfbce5b7f5b08b3))
+* **deps:** update astro monorepo ([#710](https://github.com/Arskah/homepage/issues/710)) ([37ed793](https://github.com/Arskah/homepage/commit/37ed7935b8edeb5eb1eeadb3b71b0c9837a92b54))
+* **deps:** update astro monorepo ([#720](https://github.com/Arskah/homepage/issues/720)) ([bdd52e3](https://github.com/Arskah/homepage/commit/bdd52e3e590f9e02c73df3d71a7d3b85d6059666))
+* **deps:** update dependency @astrojs/sitemap to v3.4.0 ([#644](https://github.com/Arskah/homepage/issues/644)) ([bc98f1e](https://github.com/Arskah/homepage/commit/bc98f1e49137c2ccac8f21bd41aff90e638e9ce4))
+* **deps:** update dependency @vanilla-extract/css to v1.17.2 ([#646](https://github.com/Arskah/homepage/issues/646)) ([919b7dd](https://github.com/Arskah/homepage/commit/919b7ddac0ccf7ca604aa08fc0f54ec50e61ba82))
+* **deps:** update dependency astro to v5.12.8 [security] ([#695](https://github.com/Arskah/homepage/issues/695)) ([d6adfd7](https://github.com/Arskah/homepage/commit/d6adfd7f23e815a7b94d995a0afc05147924db61))
+* **deps:** update dependency astro to v5.13.2 [security] ([#712](https://github.com/Arskah/homepage/issues/712)) ([a0a5353](https://github.com/Arskah/homepage/commit/a0a53532a9431ef37fe2cdef54a050626f0f81b4))
+* **deps:** update devalue to v5.3.2 ([350517c](https://github.com/Arskah/homepage/commit/350517c6554a3a5139b8444b98ce149c0f764104))
+* **deps:** update react monorepo ([#691](https://github.com/Arskah/homepage/issues/691)) ([3b54897](https://github.com/Arskah/homepage/commit/3b5489750861e3800d589faadbdf9fee11b4bd2e))
+* **deps:** update vanilla-extract monorepo ([#668](https://github.com/Arskah/homepage/issues/668)) ([5f2088b](https://github.com/Arskah/homepage/commit/5f2088bbfcf650d886fb557a46f9615246e12d04))
+
 ## [1.0.6](https://github.com/Arskah/homepage/compare/v1.0.5...v1.0.6) (2025-04-22)
 
 
