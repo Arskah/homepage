@@ -56,9 +56,13 @@ export default defineConfig([
     extends: [
       react.configs.flat.recommended,
       react.configs.flat["jsx-runtime"],
-      // @ts-expect-error no types
-      reactHooks.configs["recommended"],
     ],
+    plugins: {
+      "react-hooks": reactHooks,
+    },
+    rules: {
+      ...reactHooks.configs["recommended-latest"].rules,
+    },
   },
   {
     settings: {
