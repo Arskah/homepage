@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.9](https://github.com/Arskah/homepage/compare/v1.0.8...v1.0.9) (2025-10-30)
+
+
+### Bug Fixes
+
+* **deps:** update astro monorepo ([#767](https://github.com/Arskah/homepage/issues/767)) ([05fa522](https://github.com/Arskah/homepage/commit/05fa522e4d7c9df204676276577529b71272faf4))
+* **deps:** update dependency @astrojs/check to v0.9.5 ([#775](https://github.com/Arskah/homepage/issues/775)) ([c978ff7](https://github.com/Arskah/homepage/commit/c978ff7db101ee87e9de3357982ccb7bcc192dd3))
+* **deps:** update dependency astro to v5.14.3 [security] ([#763](https://github.com/Arskah/homepage/issues/763)) ([63eebbe](https://github.com/Arskah/homepage/commit/63eebbe9955d969bb67c5733e689151f43c3237e))
+* **deps:** update react monorepo ([#760](https://github.com/Arskah/homepage/issues/760)) ([b4304a3](https://github.com/Arskah/homepage/commit/b4304a3abf2805582514570a7f1993ad87ededdf))
+
 ## [1.0.8](https://github.com/Arskah/homepage/compare/v1.0.7...v1.0.8) (2025-10-04)
 
 
