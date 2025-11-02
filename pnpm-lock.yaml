@@ -12,11 +12,11 @@ importers:
         specifier: 0.9.5
         version: 0.9.5(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.3)
       '@astrojs/mdx':
-        specifier: 4.3.8
-        version: 4.3.8(astro@5.15.1(@types/node@24.9.2)(jiti@2.6.1)(rollup@4.52.5)(typescript@5.9.3)(yaml@2.8.1))
+        specifier: 4.3.9
+        version: 4.3.9(astro@5.15.3(@types/node@24.9.2)(jiti@2.6.1)(rollup@4.52.5)(typescript@5.9.3)(yaml@2.8.1))
       '@astrojs/react':
-        specifier: 4.4.0
-        version: 4.4.0(@types/node@24.9.2)(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(jiti@2.6.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(yaml@2.8.1)
+        specifier: 4.4.1
+        version: 4.4.1(@types/node@24.9.2)(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(jiti@2.6.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(yaml@2.8.1)
       '@astrojs/rss':
         specifier: 4.0.13
         version: 4.0.13
@@ -27,8 +27,8 @@ importers:
         specifier: 1.17.4
         version: 1.17.4
       astro:
-        specifier: 5.15.1
-        version: 5.15.1(@types/node@24.9.2)(jiti@2.6.1)(rollup@4.52.5)(typescript@5.9.3)(yaml@2.8.1)
+        specifier: 5.15.3
+        version: 5.15.3(@types/node@24.9.2)(jiti@2.6.1)(rollup@4.52.5)(typescript@5.9.3)(yaml@2.8.1)
       astro-icon:
         specifier: 1.1.5
         version: 1.1.5
@@ -165,8 +165,8 @@ packages:
   '@astrojs/markdown-remark@6.3.8':
     resolution: {integrity: sha512-uFNyFWadnULWK2cOw4n0hLKeu+xaVWeuECdP10cQ3K2fkybtTlhb7J7TcScdjmS8Yps7oje9S/ehYMfZrhrgCg==}
 
-  '@astrojs/mdx@4.3.8':
-    resolution: {integrity: sha512-PXT0n2FfZAWEmQi4u4AZ0OPDDrDIF+aXPZGT5HCf52dex5EV3htMByeJUqYIoXdmazAFTASub0vRZLWBqJhJ9w==}
+  '@astrojs/mdx@4.3.9':
+    resolution: {integrity: sha512-80LHiM4z3FxAjATHNgFpa8nlTNSprAWB4UUKnr/QG56Pwk7uRnJWrXlok4wSCi/3fg8kTZ98A408Q91M+iqJdw==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0}
     peerDependencies:
       astro: ^5.0.0
@@ -175,8 +175,8 @@ packages:
     resolution: {integrity: sha512-q8VwfU/fDZNoDOf+r7jUnMC2//H2l0TuQ6FkGJL8vD8nw/q5KiL3DS1KKBI3QhI9UQhpJ5dc7AtqfbXWuOgLCQ==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0}
 
-  '@astrojs/react@4.4.0':
-    resolution: {integrity: sha512-RzblkVImAFdV1C0AWsSWzS70Z0FMtW2p0XXkNYu3QePfyVJta3JIy8m8jY8271etaCZtpFjsE2UaiHGZIBm6nw==}
+  '@astrojs/react@4.4.1':
+    resolution: {integrity: sha512-3M3RE+KYlbvov+uvn7SzgcO/zoMiK16Glwo9Ic0ZOJ0B+4PSULMeniwtyQg1m1Eq5k4BbqpIuC18lA2uzQSflQ==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0}
     peerDependencies:
       '@types/react': ^17.0.50 || ^18.0.21 || ^19.0.0
@@ -1248,8 +1248,8 @@ packages:
   astro-icon@1.1.5:
     resolution: {integrity: sha512-CJYS5nWOw9jz4RpGWmzNQY7D0y2ZZacH7atL2K9DeJXJVaz7/5WrxeyIxO8KASk1jCM96Q4LjRx/F3R+InjJrw==}
 
-  astro@5.15.1:
-    resolution: {integrity: sha512-VM679M1qxOjGo6q3vKYDNDddkALGgMopG93IwbEXd3Buc2xVLuuPj4HNziNugSbPQx5S6UReMp5uzw10EJN81A==}
+  astro@5.15.3:
+    resolution: {integrity: sha512-wUO/isJrcUoduRoKacKB9jpO6TxTlPV1zw8UqQx39jSNY7z9IxusJAiib3AiNvqK+dCWhqXx+OnExCCwELmcUw==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -4190,12 +4190,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@4.3.8(astro@5.15.1(@types/node@24.9.2)(jiti@2.6.1)(rollup@4.52.5)(typescript@5.9.3)(yaml@2.8.1))':
+  '@astrojs/mdx@4.3.9(astro@5.15.3(@types/node@24.9.2)(jiti@2.6.1)(rollup@4.52.5)(typescript@5.9.3)(yaml@2.8.1))':
     dependencies:
       '@astrojs/markdown-remark': 6.3.8
       '@mdx-js/mdx': 3.1.1
       acorn: 8.15.0
-      astro: 5.15.1(@types/node@24.9.2)(jiti@2.6.1)(rollup@4.52.5)(typescript@5.9.3)(yaml@2.8.1)
+      astro: 5.15.3(@types/node@24.9.2)(jiti@2.6.1)(rollup@4.52.5)(typescript@5.9.3)(yaml@2.8.1)
       es-module-lexer: 1.7.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -4213,7 +4213,7 @@ snapshots:
     dependencies:
       prismjs: 1.30.0
 
-  '@astrojs/react@4.4.0(@types/node@24.9.2)(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(jiti@2.6.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(yaml@2.8.1)':
+  '@astrojs/react@4.4.1(@types/node@24.9.2)(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(jiti@2.6.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(yaml@2.8.1)':
     dependencies:
       '@types/react': 19.2.2
       '@types/react-dom': 19.2.2(@types/react@19.2.2)
@@ -5471,7 +5471,7 @@ snapshots:
       - debug
       - supports-color
 
-  astro@5.15.1(@types/node@24.9.2)(jiti@2.6.1)(rollup@4.52.5)(typescript@5.9.3)(yaml@2.8.1):
+  astro@5.15.3(@types/node@24.9.2)(jiti@2.6.1)(rollup@4.52.5)(typescript@5.9.3)(yaml@2.8.1):
     dependencies:
       '@astrojs/compiler': 2.13.0
       '@astrojs/internal-helpers': 0.7.4
