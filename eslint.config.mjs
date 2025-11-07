@@ -60,19 +60,17 @@ export default defineConfig([
     plugins: {
       "react-hooks": reactHooks,
     },
-    rules: {
-      ...reactHooks.configs["recommended-latest"].rules,
-    },
-  },
-  {
     settings: {
       react: {
         version: "detect",
       },
     },
+    rules: {
+      ...reactHooks.configs["recommended-latest"].rules,
+    },
   },
   {
-    files: ["tests/**"],
+    files: ["e2e-tests/tests/**/*.ts"],
     plugins: {
       playwright: playwright,
     },
