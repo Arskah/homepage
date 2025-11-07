@@ -6225,7 +6225,7 @@ snapshots:
   eslint-plugin-playwright@2.3.0(eslint@9.39.1(jiti@2.6.1)):
     dependencies:
       eslint: 9.39.1(jiti@2.6.1)
-      globals: 16.4.0
+      globals: 16.5.0
 
   eslint-plugin-react-hooks@7.0.1(eslint@9.39.1(jiti@2.6.1)):
     dependencies:
