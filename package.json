@@ -1,6 +1,6 @@
 {
   "name": "homepage",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "scripts": {
     "astro": "astro",
     "build": "astro check && astro build",
