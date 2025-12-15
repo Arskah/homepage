@@ -28,8 +28,8 @@
     "astro": "5.16.5",
     "astro-icon": "1.1.5",
     "modern-normalize": "3.0.1",
-    "react": "19.2.1",
-    "react-dom": "19.2.1"
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "1.10.6",
