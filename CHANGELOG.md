@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.11](https://github.com/Arskah/homepage/compare/v1.0.10...v1.0.11) (2025-12-15)
+
+
+### Bug Fixes
+
+* **deps:** update astro monorepo ([#830](https://github.com/Arskah/homepage/issues/830)) ([24ace9e](https://github.com/Arskah/homepage/commit/24ace9ef06ee528325fc7400a25c8a9da527d058))
+* **deps:** update react monorepo to v19.2.3 ([#831](https://github.com/Arskah/homepage/issues/831)) ([a92da09](https://github.com/Arskah/homepage/commit/a92da09f6a291ceaf394bcd04976060e946976fb))
+
 ## [1.0.10](https://github.com/Arskah/homepage/compare/v1.0.9...v1.0.10) (2025-12-07)
 
 
