@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.12](https://github.com/Arskah/homepage/compare/v1.0.11...v1.0.12) (2026-01-21)
+
+
+### Bug Fixes
+
+* **deps:** update astro monorepo ([#851](https://github.com/Arskah/homepage/issues/851)) ([ac7ecd8](https://github.com/Arskah/homepage/commit/ac7ecd8ccf2e9731ee3cddc916fe273026566915))
+* **deps:** update some vulnerable versions ([aa8b48c](https://github.com/Arskah/homepage/commit/aa8b48ca4c7bf7df2daa5bc9eafde0598076f4ff))
+* **deps:** update tar ([a9f82a9](https://github.com/Arskah/homepage/commit/a9f82a95802694b413c8a5907c6e5b9fd5f1ecd1))
+* **deps:** update ufo ([7d1e1c2](https://github.com/Arskah/homepage/commit/7d1e1c2660a600d6b34d2f0a483e65c1c26f76eb))
+
 ## [1.0.11](https://github.com/Arskah/homepage/compare/v1.0.10...v1.0.11) (2026-01-04)
 
 
