@@ -1,4 +1,8 @@
-minimumReleaseAge: 4320 # 3 days
+minimumReleaseAge: 4320
+
 minimumReleaseAgeExclude:
   - tar
   - fast-xml-parser
+
+overrides:
+  lodash@>=4.0.0 <=4.17.22: ">=4.17.23"
