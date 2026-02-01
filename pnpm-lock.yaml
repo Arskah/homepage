@@ -16,7 +16,7 @@ importers:
         version: 0.9.6(prettier-plugin-astro@0.14.1)(prettier@3.8.1)(typescript@5.9.3)
       '@astrojs/mdx':
         specifier: 4.3.13
-        version: 4.3.13(astro@5.16.11(@types/node@24.10.9)(jiti@2.6.1)(rollup@4.57.0)(typescript@5.9.3)(yaml@2.8.2))
+        version: 4.3.13(astro@5.16.16(@types/node@24.10.9)(jiti@2.6.1)(rollup@4.57.0)(typescript@5.9.3)(yaml@2.8.2))
       '@astrojs/react':
         specifier: 4.4.2
         version: 4.4.2(@types/node@24.10.9)(@types/react-dom@19.2.3(@types/react@19.2.9))(@types/react@19.2.9)(jiti@2.6.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(yaml@2.8.2)
@@ -30,8 +30,8 @@ importers:
         specifier: 1.18.0
         version: 1.18.0
       astro:
-        specifier: 5.16.11
-        version: 5.16.11(@types/node@24.10.9)(jiti@2.6.1)(rollup@4.57.0)(typescript@5.9.3)(yaml@2.8.2)
+        specifier: 5.16.16
+        version: 5.16.16(@types/node@24.10.9)(jiti@2.6.1)(rollup@4.57.0)(typescript@5.9.3)(yaml@2.8.2)
       astro-icon:
         specifier: 1.1.5
         version: 1.1.5
@@ -1460,8 +1460,8 @@ packages:
   astro-icon@1.1.5:
     resolution: {integrity: sha512-CJYS5nWOw9jz4RpGWmzNQY7D0y2ZZacH7atL2K9DeJXJVaz7/5WrxeyIxO8KASk1jCM96Q4LjRx/F3R+InjJrw==}
 
-  astro@5.16.11:
-    resolution: {integrity: sha512-Z7kvkTTT5n6Hn5lCm6T3WU6pkxx84Hn25dtQ6dR7ATrBGq9eVa8EuB/h1S8xvaoVyCMZnIESu99Z9RJfdLRLDA==}
+  astro@5.16.16:
+    resolution: {integrity: sha512-MFlFvQ84ixaHyqB3uGwMhNHdBLZ3vHawyq3PqzQS2TNWiNfQrxp5ag6S3lX+Cvnh0MUcXX+UnJBPMBHjP1/1ZQ==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -4329,12 +4329,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@4.3.13(astro@5.16.11(@types/node@24.10.9)(jiti@2.6.1)(rollup@4.57.0)(typescript@5.9.3)(yaml@2.8.2))':
+  '@astrojs/mdx@4.3.13(astro@5.16.16(@types/node@24.10.9)(jiti@2.6.1)(rollup@4.57.0)(typescript@5.9.3)(yaml@2.8.2))':
     dependencies:
       '@astrojs/markdown-remark': 6.3.10
       '@mdx-js/mdx': 3.1.1
       acorn: 8.15.0
-      astro: 5.16.11(@types/node@24.10.9)(jiti@2.6.1)(rollup@4.57.0)(typescript@5.9.3)(yaml@2.8.2)
+      astro: 5.16.16(@types/node@24.10.9)(jiti@2.6.1)(rollup@4.57.0)(typescript@5.9.3)(yaml@2.8.2)
       es-module-lexer: 1.7.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -5690,7 +5690,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  astro@5.16.11(@types/node@24.10.9)(jiti@2.6.1)(rollup@4.57.0)(typescript@5.9.3)(yaml@2.8.2):
+  astro@5.16.16(@types/node@24.10.9)(jiti@2.6.1)(rollup@4.57.0)(typescript@5.9.3)(yaml@2.8.2):
     dependencies:
       '@astrojs/compiler': 2.13.0
       '@astrojs/internal-helpers': 0.7.5
