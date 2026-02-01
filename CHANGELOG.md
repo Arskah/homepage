@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.13](https://github.com/Arskah/homepage/compare/v1.0.12...v1.0.13) (2026-02-01)
+
+
+### Bug Fixes
+
+* **deps:** update dependency astro to v5.16.16 ([#871](https://github.com/Arskah/homepage/issues/871)) ([5b431fe](https://github.com/Arskah/homepage/commit/5b431feae7edaedb1a479413ebb459e01eed4c4b))
+* **deps:** update fast-xml-parser to v5.3.4 ([9ab825b](https://github.com/Arskah/homepage/commit/9ab825b3b87af06bf8c4b971b90ffac561e330ec))
+* **deps:** update react monorepo ([#881](https://github.com/Arskah/homepage/issues/881)) ([9660259](https://github.com/Arskah/homepage/commit/9660259f866a25292cd97608da171feba97d92d6))
+* update lodash with audit fix ([d64f8f3](https://github.com/Arskah/homepage/commit/d64f8f3c5cd2d4ac8b9715f7a135a454bc8b5a03))
+
 ## [1.0.12](https://github.com/Arskah/homepage/compare/v1.0.11...v1.0.12) (2026-01-21)
 
 
