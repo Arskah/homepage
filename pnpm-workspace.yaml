@@ -1,3 +1,4 @@
 minimumReleaseAge: 4320 # 3 days
 minimumReleaseAgeExclude:
   - tar
+  - fast-xml-parser
