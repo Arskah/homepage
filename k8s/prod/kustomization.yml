@@ -6,6 +6,6 @@ resources:
   - ingress.yml
 namePrefix: production-
 images:
-  - name: homepage
+  - name: homepage-production
     newName: registry.aarnihalinen.fi/homepage
     newTag: v1.0.13
