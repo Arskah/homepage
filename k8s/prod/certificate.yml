@@ -1,10 +1,10 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: tls-secret-prod
+  name: cert
   namespace: homepage
 spec:
-  secretName: tls-secret-prod
+  secretName: production-tls-secret
   dnsNames:
     - aarnihalinen.fi
     - www.aarnihalinen.fi

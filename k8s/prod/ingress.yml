@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-prod
+  name: ingress
   namespace: homepage
   annotations:
     cert-manager.io/cluster-issuer: cert-issuer
@@ -13,17 +13,17 @@ spec:
     - hosts:
         - aarnihalinen.fi
         - www.aarnihalinen.fi
-      secretName: tls-secret-prod
+      secretName: production-cert
   rules:
     - host: aarnihalinen.fi
-      http: &prod-backend
+      http: &backend
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: production-svc
+                name: svc
                 port:
                   number: 80
     - host: www.aarnihalinen.fi
-      http: *prod-backend
+      http: *backend
