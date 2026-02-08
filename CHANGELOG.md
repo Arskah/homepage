@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.14](https://github.com/Arskah/homepage/compare/v1.0.13...v1.0.14) (2026-02-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency astro to v5.17.1 ([#887](https://github.com/Arskah/homepage/issues/887)) ([9a0ae8c](https://github.com/Arskah/homepage/commit/9a0ae8c1256a8d4d50b938c8f0f610b6a57b2925))
+
 ## [1.0.13](https://github.com/Arskah/homepage/compare/v1.0.12...v1.0.13) (2026-02-01)
 
 
