@@ -4,7 +4,7 @@ metadata:
   name: cert
   namespace: homepage
 spec:
-  secretName: production-tls-secret
+  secretName: production-cert
   dnsNames:
     - aarnihalinen.fi
     - www.aarnihalinen.fi

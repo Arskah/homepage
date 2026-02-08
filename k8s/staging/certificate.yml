@@ -4,7 +4,7 @@ metadata:
   name: cert
   namespace: homepage
 spec:
-  secretName: staging-tls-secret
+  secretName: staging-cert
   dnsNames:
     - staging.aarnihalinen.fi
   issuerRef:
