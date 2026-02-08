@@ -36,7 +36,7 @@ jobs:
     with:
       tags: |
         registry.aarnihalinen.fi/homepage:${{ github.sha }}
-        registry.aarnihalinen.fi/homepage:next
+        registry.aarnihalinen.fi/homepage:staging
       build-args: |
         VERSION=${{ needs.release-please.outputs.release_tag || github.sha }}
     secrets: inherit
