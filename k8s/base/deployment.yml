@@ -17,7 +17,7 @@ spec:
         - name: regcred-homepage
       containers:
         - name: homepage
-          image: homepage
+          image: homepage-image
           ports:
             - containerPort: 80
       securityContext: {}

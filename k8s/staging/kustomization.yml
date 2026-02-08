@@ -6,6 +6,6 @@ resources:
   - ingress.yml
 namePrefix: staging-
 images:
-  - name: homepage-staging
+  - name: homepage-image
     newName: registry.aarnihalinen.fi/homepage
     newTag: staging
