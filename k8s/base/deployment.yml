@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: staging
+  name: homepage
   namespace: homepage
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: staging
+      run: homepage
   template:
     metadata:
       labels:
-        app: staging
+        run: homepage
     spec:
       automountServiceAccountToken: false
       imagePullSecrets:
         - name: regcred-homepage
       containers:
-        - name: staging
-          image: registry.aarnihalinen.fi/homepage
+        - name: homepage
+          image: homepage
           ports:
             - containerPort: 80
       securityContext: {}

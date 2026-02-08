@@ -1,10 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+  - ../base
   - certificate.yml
-  - deployment.yml
   - ingress.yml
-  - service.yml
+namePrefix: production-
 images:
-  - name: registry.aarnihalinen.fi/homepage
+  - name: homepage
+    newName: registry.aarnihalinen.fi/homepage
     newTag: latest

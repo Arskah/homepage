@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-staging
+  name: ingress
   namespace: homepage
   annotations:
     cert-manager.io/cluster-issuer: cert-issuer
@@ -12,7 +12,7 @@ spec:
   tls:
     - hosts:
         - staging.aarnihalinen.fi
-      secretName: tls-secret-staging
+      secretName: staging-cert
   rules:
     - host: staging.aarnihalinen.fi
       http:
@@ -21,6 +21,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: staging-svc
+                name: svc
                 port:
                   number: 80
