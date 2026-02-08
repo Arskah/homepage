@@ -3,4 +3,4 @@
 
 export const SITE_TITLE = "Astro Blog";
 export const SITE_DESCRIPTION = "Welcome to my website!";
-export const OWNER_NAME = "Your name here";
+export const OWNER_NAME = "Aarni Halinen";
