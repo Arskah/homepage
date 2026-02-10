@@ -21,6 +21,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: svc
+                name: staging-svc
                 port:
                   number: 80

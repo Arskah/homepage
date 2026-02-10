@@ -22,7 +22,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: svc
+                name: production-svc
                 port:
                   number: 80
     - host: www.aarnihalinen.fi
