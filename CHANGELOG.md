@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/Arskah/homepage/compare/v1.0.14...v1.1.0) (2026-02-10)
+
+
+### Features
+
+* add name to footer ([10e9664](https://github.com/Arskah/homepage/commit/10e966484a104954c8cc6e6e99b454be59b83826))
+
 ## [1.0.14](https://github.com/Arskah/homepage/compare/v1.0.13...v1.0.14) (2026-02-08)
 
 
