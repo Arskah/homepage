@@ -41,7 +41,7 @@
     "@types/node": "24.10.11",
     "@types/react": "19.2.13",
     "@types/react-dom": "19.2.3",
-    "@typescript-eslint/parser": "8.54.0",
+    "@typescript-eslint/parser": "8.56.0",
     "@vanilla-extract/vite-plugin": "5.1.4",
     "eslint": "9.39.2",
     "eslint-plugin-astro": "1.6.0",
@@ -60,7 +60,7 @@
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-packagejson": "3.0.0",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.54.0"
+    "typescript-eslint": "8.56.0"
   },
   "packageManager": "pnpm@10.30.0+sha512.2b5753de015d480eeb88f5b5b61e0051f05b4301808a82ec8b840c9d2adf7748eb352c83f5c1593ca703ff1017295bc3fdd3119abb9686efc96b9fcb18200937"
 }
