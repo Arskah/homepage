@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/Arskah/homepage/compare/v1.1.0...v1.1.1) (2026-02-24)
+
+
+### Reverts
+
+* audit fix ([b4fd1a5](https://github.com/Arskah/homepage/commit/b4fd1a59afe329a3027e97d9b77b725d6fdd18fa))
+
 ## [1.1.0](https://github.com/Arskah/homepage/compare/v1.0.14...v1.1.0) (2026-02-10)
 
 
