@@ -62,7 +62,7 @@ export default defineConfig([
     },
     settings: {
       react: {
-        version: "detect",
+        version: "19.2", // detect replaced with version to support ESLint v10
       },
     },
     rules: {
