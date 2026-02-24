@@ -2,10 +2,9 @@
 // @ts-check
 
 import pluginJs from "@eslint/js";
+import markdown from "@eslint/markdown";
 import astro from "eslint-plugin-astro";
 import jsdoc from "eslint-plugin-jsdoc";
-// @ts-expect-error missing types
-import markdown from "eslint-plugin-markdown";
 import perfectionist from "eslint-plugin-perfectionist";
 import playwright from "eslint-plugin-playwright";
 import react from "eslint-plugin-react";
@@ -16,8 +15,10 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default defineConfig([
-  globalIgnores([".astro/", "coverage/", "dist/"]),
+  globalIgnores([".astro/", "coverage/", "dist/", "CHANGELOG.md"]),
   {
+    // "Globals", ignore md files
+    ignores: ["**/*.md"],
     languageOptions: {
       globals: {
         ...globals.serviceworker,
@@ -29,29 +30,41 @@ export default defineConfig([
         sourceType: "module",
       },
     },
-  },
-  pluginJs.configs.recommended,
-  perfectionist.configs["recommended-natural"],
-  regexp.configs["flat/recommended"],
-  markdown.configs.recommended,
-  tseslint.configs.recommended,
-  tseslint.configs.stylistic,
-  astro.configs["recommended"],
-  astro.configs["jsx-a11y-strict"],
-  {
-    extends: [jsdoc.configs["flat/recommended-typescript-error"]],
+    extends: [
+      pluginJs.configs.recommended,
+      perfectionist.configs["recommended-natural"],
+      regexp.configs["flat/recommended"],
+      tseslint.configs.recommended,
+      tseslint.configs.stylistic,
+      astro.configs["recommended"],
+      astro.configs["jsx-a11y-strict"],
+      jsdoc.configs["flat/recommended-typescript-error"],
+    ],
     rules: {
       "jsdoc/require-jsdoc": "off", // Recommended
     },
   },
   {
-    // Allow type in JSDoc, except on TS files
-    ignores: ["**/*.{astro,ts,tsx}"],
+    // JS specific overrides
+    files: ["**/*.{js,mjs}"],
+    plugins: {
+      jsdoc,
+    },
     rules: {
+      // Allow @type JSDocs
       "jsdoc/check-tag-names": ["error", { typed: false }],
     },
   },
   {
+    // Markdown linting
+    files: ["**/*.md"],
+    extends: [markdown.configs.recommended, markdown.configs.processor],
+    rules: {
+      "markdown/no-missing-label-refs": "off",
+    },
+  },
+  {
+    // React (JSX/TSX files) configs
     files: ["**/*.{jsx,tsx}"],
     extends: [
       react.configs.flat.recommended,
@@ -70,6 +83,7 @@ export default defineConfig([
     },
   },
   {
+    // E2E configs
     files: ["e2e-tests/tests/**/*.ts"],
     plugins: {
       playwright: playwright,
