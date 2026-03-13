@@ -19,20 +19,20 @@
     "!(*.ts)": "prettier --write"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.6",
-    "@astrojs/mdx": "4.3.13",
+    "@astrojs/check": "0.9.7",
+    "@astrojs/mdx": "4.3.14",
     "@astrojs/react": "4.4.2",
-    "@astrojs/rss": "4.0.15",
-    "@astrojs/sitemap": "3.7.0",
+    "@astrojs/rss": "4.0.17",
+    "@astrojs/sitemap": "3.7.1",
     "@vanilla-extract/css": "1.18.0",
-    "astro": "5.17.1",
+    "astro": "5.18.1",
     "astro-icon": "1.1.5",
     "modern-normalize": "3.0.1",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
-    "@astrojs/ts-plugin": "1.10.6",
+    "@astrojs/ts-plugin": "1.10.7",
     "@commitlint/cli": "20.4.2",
     "@commitlint/config-conventional": "20.4.2",
     "@commitlint/types": "20.4.0",
