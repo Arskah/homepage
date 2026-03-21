@@ -1,4 +1,3 @@
-// @ts-check
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
@@ -11,7 +10,6 @@ export default defineConfig({
   integrations: [mdx(), react(), sitemap(), icon()],
   site: "https://aarnihalinen.fi",
   vite: {
-    // @ts-expect-error bad typing for vanillaExtractPlugin
     plugins: [vanillaExtractPlugin()],
   },
 });

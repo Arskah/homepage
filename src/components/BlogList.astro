@@ -13,7 +13,7 @@ const posts = (await getCollection("blog")).sort(
   {
     posts.map((post) => (
       <li class={item}>
-        <a class={anchor} href={`/blog/${post.slug}/`}>
+        <a class={anchor} href={`/blog/${post.id}/`}>
           <img
             alt=""
             class={img}
