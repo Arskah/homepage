@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.1](https://github.com/Arskah/homepage/compare/v1.1.0...v1.1.1) (2026-03-21)
+
+
+### Bug Fixes
+
+* **deps:** update astro monorepo ([#909](https://github.com/Arskah/homepage/issues/909)) ([ee9631f](https://github.com/Arskah/homepage/commit/ee9631f4c5f85ddb54e3af1c148133cb4027dc9f))
+* **deps:** update astro monorepo (major) ([#947](https://github.com/Arskah/homepage/issues/947)) ([7d016c8](https://github.com/Arskah/homepage/commit/7d016c80da8cbe4e0f54515e6a39921068e7c405))
+* **deps:** update vanilla-extract monorepo ([#954](https://github.com/Arskah/homepage/issues/954)) ([76f5b49](https://github.com/Arskah/homepage/commit/76f5b49c895047101f762fd7135c710e08f2d5c4))
+
 ## [1.1.0](https://github.com/Arskah/homepage/compare/v1.0.14...v1.1.0) (2026-02-10)
 
 
