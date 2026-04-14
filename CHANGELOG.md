@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.2](https://github.com/Arskah/homepage/compare/v1.1.1...v1.1.2) (2026-04-14)
+
+
+### Bug Fixes
+
+* **deps:** update astro monorepo ([#960](https://github.com/Arskah/homepage/issues/960)) ([354c5d6](https://github.com/Arskah/homepage/commit/354c5d605c5a8320c0753ab687ba889638eb75d6))
+* **deps:** update react monorepo to v19.2.5 ([#974](https://github.com/Arskah/homepage/issues/974)) ([a740181](https://github.com/Arskah/homepage/commit/a7401816218ce149f1f16ee9d2834cc05c157973))
+* **deps:** update vanilla-extract monorepo ([#962](https://github.com/Arskah/homepage/issues/962)) ([10eedc1](https://github.com/Arskah/homepage/commit/10eedc140a37877370b36e98977858eb576a13ec))
+* modern-normalize init ([#982](https://github.com/Arskah/homepage/issues/982)) ([a75dc0c](https://github.com/Arskah/homepage/commit/a75dc0c330db8cc03dedbd9e5ddfcb029639c0e8))
+
 ## [1.1.1](https://github.com/Arskah/homepage/compare/v1.1.0...v1.1.1) (2026-03-21)
 
 
