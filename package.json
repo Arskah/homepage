@@ -8,6 +8,7 @@
     "lint": "eslint",
     "prepare": "husky",
     "preview": "astro preview",
+    "snapshots:linux": "tsx e2e-tests/linux-update.ts",
     "start": "astro dev",
     "test": "playwright test --config e2e-tests/playwright.config.ts"
   },
@@ -53,12 +54,14 @@
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "7.0.1",
     "eslint-plugin-regexp": "3.1.0",
+    "glob": "13.0.6",
     "globals": "17.4.0",
     "husky": "9.1.7",
     "lint-staged": "16.4.0",
     "prettier": "3.8.2",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-packagejson": "3.0.2",
+    "tsx": "4.21.0",
     "typescript": "6.0.2",
     "typescript-eslint": "8.58.1"
   },
