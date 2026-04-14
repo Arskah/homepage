@@ -1,7 +1,4 @@
 ---
-// Import the global CSS files here so that they get included in all pages
-import "modern-normalize";
-
 import "../styles/theme.css";
 
 interface Props {
@@ -15,6 +12,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { description, image = "/blog-placeholder-1.jpg", title } = Astro.props;
 ---
 
+<link
+  href="node_modules/modern-normalize/modern-normalize.css"
+  rel="stylesheet"
+/>
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta content="width=device-width,initial-scale=1" name="viewport" />
