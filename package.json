@@ -34,9 +34,9 @@
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "1.10.7",
-    "@commitlint/cli": "20.5.3",
-    "@commitlint/config-conventional": "20.5.3",
-    "@commitlint/types": "20.5.0",
+    "@commitlint/cli": "21.0.0",
+    "@commitlint/config-conventional": "21.0.0",
+    "@commitlint/types": "21.0.0",
     "@eslint/js": "10.0.1",
     "@playwright/test": "1.59.1",
     "@types/node": "24.12.2",
