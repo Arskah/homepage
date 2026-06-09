@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/Arskah/homepage/compare/v1.1.3...v1.1.4) (2026-06-09)
+
+
+### Bug Fixes
+
+* **deps:** update react monorepo ([#1056](https://github.com/Arskah/homepage/issues/1056)) ([10295e0](https://github.com/Arskah/homepage/commit/10295e07bae870d544a9cf76164070b6df2a4907))
+
 ## [1.1.3](https://github.com/Arskah/homepage/compare/v1.1.2...v1.1.3) (2026-05-17)
 
 
