@@ -2,6 +2,7 @@
 // @ts-check
 
 import pluginJs from "@eslint/js";
+import stylex from "@stylexjs/eslint-plugin";
 import astro from "eslint-plugin-astro";
 import jsdoc from "eslint-plugin-jsdoc";
 // @ts-expect-error missing types
@@ -76,6 +77,18 @@ export default defineConfig([
     },
     rules: {
       ...playwright.configs.recommended.rules,
+    },
+  },
+  {
+    // StyleX correctness: flags invalid props/values and shorthands that
+    // StyleX silently drops (e.g. background, border) before they hit prod.
+    files: ["**/*.{ts,tsx}"],
+    plugins: {
+      "@stylexjs": stylex,
+    },
+    rules: {
+      "@stylexjs/valid-shorthands": "error",
+      "@stylexjs/valid-styles": "error",
     },
   },
 ]);
