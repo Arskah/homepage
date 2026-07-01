@@ -1,34 +1,41 @@
 ---
+import * as stylex from "@stylexjs/stylex";
 import { Icon } from "astro-icon/components";
 
-import {
-  container,
-  link,
-  type LinkVariant,
-  mobileHidden,
-} from "./SocialLinks.css";
+import { link, type LinkVariant, styles } from "./SocialLinks.stylex";
 
 interface Props {
   hideOnMobile?: boolean | undefined;
   linkColor: LinkVariant;
+  style?: stylex.StyleXStyles;
 }
 
-const { hideOnMobile, linkColor } = Astro.props;
+const { hideOnMobile, linkColor, style } = Astro.props;
 ---
 
-<div class:list={[container, { [mobileHidden]: hideOnMobile }]}>
-  <a class={link[linkColor]} href="https://m.webtoo.ls/@astro" target="_blank">
+<div
+  {...stylex.attrs(
+    styles.container,
+    hideOnMobile && styles.mobileHidden,
+    style,
+  )}
+>
+  <a
+    {...stylex.attrs(link[linkColor])}
+    href="https://m.webtoo.ls/@astro"
+    target="_blank"
+  >
     <Icon height={32} name="mastodon" width={32} />
   </a>
   <a
-    class={link[linkColor]}
+    {...stylex.attrs(link[linkColor])}
     href="https://twitter.com/astrodotbuild"
     target="_blank"
   >
     <Icon height={32} name="twitter" width={32} />
   </a>
   <a
-    class={link[linkColor]}
+    {...stylex.attrs(link[linkColor])}
     href="https://github.com/withastro/astro"
     target="_blank"
   >

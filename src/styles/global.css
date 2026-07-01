@@ -1,0 +1,164 @@
+/*
+ * Global styles. These target bare element selectors (body, headings, links,
+ * etc.) and @font-face, none of which StyleX can express — StyleX only styles
+ * the element a compiled style object is applied to. This file is therefore the
+ * home for everything that must remain global, and the single source of truth
+ * for the palette custom properties that `tokens.stylex.ts` aliases.
+ */
+
+:root {
+  --color-accent: #2337ff;
+  --color-accent-dark: #000d8a;
+  --color-black: #0f1219;
+  --color-gray: #60739f;
+  --color-gray-dark: #222939;
+  --color-gray-light: #e5e9f0;
+  --color-white: #fff;
+
+  --box-shadow:
+    0 2px 6px color-mix(in srgb, var(--color-gray), transparent 75%),
+    0 8px 24px color-mix(in srgb, var(--color-gray), transparent 67%),
+    0 16px 32px color-mix(in srgb, var(--color-gray), transparent 67%);
+
+  /*
+   * Gradient only (no `no-repeat`): consumers set background-repeat
+   * separately, because StyleX drops the `background` shorthand and only
+   * accepts the `background-image` longhand.
+   */
+  --page-bg: linear-gradient(
+    color-mix(in srgb, var(--color-gray-light), transparent 50%),
+    var(--color-white)
+  );
+}
+
+@font-face {
+  font-family: "Atkinson";
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/atkinson-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Atkinson";
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/atkinson-bold.woff") format("woff");
+}
+
+body,
+html {
+  font-size: 20px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: var(--page-bg);
+  background-repeat: no-repeat;
+  background-size: 100% 600px;
+  color: var(--color-gray-dark);
+  font-family: "Atkinson", sans-serif;
+  font-size: 20px;
+  line-height: 1.7;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+@media screen and (max-width: 760px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0.5rem 0;
+  color: var(--color-black);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3.052rem;
+}
+
+h2 {
+  font-size: 2.441rem;
+}
+
+h3 {
+  font-size: 1.953rem;
+}
+
+h4 {
+  font-size: 1.563rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+a,
+a:hover {
+  color: var(--color-accent);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/*
+ * Prose paragraphs are slotted markdown content, so StyleX cannot target them.
+ * The `.prose` semantic class is applied alongside the StyleX class on the
+ * prose container (see Main.stylex.ts consumers).
+ */
+.prose p {
+  margin-bottom: 2rem;
+}
+
+textarea {
+  width: 100%;
+  font-size: 16px;
+}
+
+input {
+  font-size: 16px;
+}
+
+table {
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+code {
+  padding: 2px 5px;
+  background-color: var(--color-gray-light);
+  border-radius: 2px;
+}
+
+pre {
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+pre > code {
+  all: unset;
+}
+
+blockquote {
+  margin: 0;
+  padding: 0 0 0 1rem;
+  border-left: 4px solid var(--color-accent);
+  font-size: 1.333rem;
+}

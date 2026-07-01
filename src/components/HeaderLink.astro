@@ -1,7 +1,9 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-import { active, link } from "./HeaderLink.css";
+import * as stylex from "@stylexjs/stylex";
+
+import { styles } from "./HeaderLink.stylex";
 
 type Props = HTMLAttributes<"a">;
 
@@ -13,6 +15,10 @@ const subpath = pathname.match(/[^/]+/g);
 const isActive = href === pathname || href === "/" + subpath?.[0];
 ---
 
-<a class:list={[link, { [active]: isActive }]} href={href} {...props}>
+<a
+  {...stylex.attrs(styles.link, isActive && styles.active)}
+  href={href}
+  {...props}
+>
   <slot />
 </a>
