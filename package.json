@@ -45,7 +45,7 @@
     "@typescript-eslint/parser": "8.61.1",
     "@vanilla-extract/vite-plugin": "5.2.2",
     "eslint": "10.5.0",
-    "eslint-plugin-astro": "1.7.0",
+    "eslint-plugin-astro": "2.1.1",
     "eslint-plugin-jsdoc": "63.0.6",
     "eslint-plugin-jsx-a11y": "6.10.2",
     "eslint-plugin-markdown": "5.1.0",
