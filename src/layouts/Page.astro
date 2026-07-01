@@ -1,14 +1,18 @@
 ---
+import * as stylex from "@stylexjs/stylex";
+
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import { main, prose } from "../components/Main.css";
+import { styles } from "../components/Main.stylex";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
 interface Props {
   title: string;
 }
 const { title } = Astro.props;
+
+const prose = stylex.attrs(styles.prose);
 ---
 
 <html lang="en">
@@ -18,8 +22,8 @@ const { title } = Astro.props;
 
   <body>
     <Header />
-    <main class={main}>
-      <div class={prose}>
+    <main {...stylex.attrs(styles.main)}>
+      <div class:list={["prose", prose.class]} style={prose.style}>
         <h1>{title}</h1>
         <slot />
       </div>

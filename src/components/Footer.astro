@@ -1,6 +1,8 @@
 ---
+import * as stylex from "@stylexjs/stylex";
+
 import { OWNER_NAME } from "../consts";
-import { footer } from "./Footer.css";
+import { styles } from "./Footer.stylex";
 import SocialLinks from "./SocialLinks.astro";
 
 const year = new Date().getFullYear();
@@ -8,7 +10,7 @@ const copyRightText = `${year} ${OWNER_NAME}. All rights reserved.`;
 const version = import.meta.env.PUBLIC_VERSION ?? "development";
 ---
 
-<footer class={footer}>
+<footer {...stylex.attrs(styles.footer)}>
   {version} &copy; {copyRightText}
   <SocialLinks linkColor="gray" />
 </footer>

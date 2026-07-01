@@ -1,16 +1,20 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
+import * as stylex from "@stylexjs/stylex";
+
 import BaseHead from "../components/BaseHead.astro";
 import { BlogTitle } from "../components/BlogTitle";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import { HeroImage } from "../components/HeroImage";
-import { main, prose } from "../components/Main.css";
+import { styles } from "../components/Main.stylex";
 
 type Props = CollectionEntry<"blog">["data"];
 
 const { description, heroImage, pubDate, title, updatedDate } = Astro.props;
+
+const prose = stylex.attrs(styles.prose);
 ---
 
 <html lang="en">
@@ -20,14 +24,14 @@ const { description, heroImage, pubDate, title, updatedDate } = Astro.props;
 
   <body>
     <Header />
-    <main class={main}>
+    <main {...stylex.attrs(styles.main)}>
       <article>
         {
           heroImage && (
             <HeroImage alt="" height={510} src={heroImage} width={1020} />
           )
         }
-        <div class={prose}>
+        <div class:list={["prose", prose.class]} style={prose.style}>
           <BlogTitle
             pubDate={pubDate}
             title={title}

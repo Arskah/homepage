@@ -1,9 +1,11 @@
 ---
+import * as stylex from "@stylexjs/stylex";
+
 import BaseHead from "../../components/BaseHead.astro";
 import BlogList from "../../components/BlogList.astro";
 import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
-import { main } from "../../components/Main.css";
+import { styles } from "../../components/Main.stylex";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
 ---
 
@@ -19,7 +21,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
   </head>
   <body>
     <Header />
-    <main class={main}>
+    <main {...stylex.attrs(styles.main)}>
       <section>
         <BlogList />
       </section>
