@@ -3,8 +3,6 @@ import * as stylex from "@stylexjs/stylex";
 import { colors } from "../styles/tokens.stylex";
 import { FormattedDate } from "./FormattedDate";
 
-// The old `.titleContainer > div/h1/hr` global selectors are inlined onto each
-// child element here, since StyleX styles only the element it is applied to.
 const styles = stylex.create({
   container: {
     lineHeight: "100%",

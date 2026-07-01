@@ -80,8 +80,6 @@ export default defineConfig([
     },
   },
   {
-    // StyleX correctness: flags invalid props/values and shorthands that
-    // StyleX silently drops (e.g. background, border) before they hit prod.
     files: ["**/*.{ts,tsx}"],
     plugins: {
       "@stylexjs": stylex,

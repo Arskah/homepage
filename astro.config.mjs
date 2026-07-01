@@ -6,9 +6,7 @@ import { defineConfig } from "astro/config";
 import process from "node:process";
 import stylexAstroPlugin from "unplugin-stylex/astro";
 
-// Keep StyleX's readable debug class names in dev, but strip them from
-// production builds to keep the emitted CSS/HTML lean. Passed via `stylex.dev`
-// because the plugin's own `dev` flag can't be forced off.
+// Keep StyleX's readable debug class names
 const isProduction = process.env.NODE_ENV === "production";
 
 // https://astro.build/config

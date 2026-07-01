@@ -27,7 +27,6 @@ export const styles = stylex.create({
     gridColumn: { default: null, [MOBILE]: "1 / -1" },
     textAlign: { default: null, [MOBILE]: "center" },
   },
-  // Replaces the `:first-child` selector; applied to the first item explicitly.
   itemFeatured: {
     gridColumnEnd: "-1",
     gridColumnStart: "1",

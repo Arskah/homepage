@@ -20,7 +20,6 @@ export const styles = stylex.create({
     flexWrap: "wrap",
     gap: "0.3rem",
   },
-  // Replaces the old `nav > a` global selector: applied straight to the logo link.
   logoLink: {
     color: "inherit",
     textDecoration: "none",
@@ -30,8 +29,6 @@ export const styles = stylex.create({
     display: "flex",
     justifyContent: "space-between",
   },
-  // Replaces the old `nav > div:last-child` global selector. Needed for
-  // centering because of HeaderLink's bottom border; passed into SocialLinks.
   socialCentering: {
     borderBottomColor: "transparent",
     borderBottomStyle: "solid",
