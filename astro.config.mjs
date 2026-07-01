@@ -1,7 +1,6 @@
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 import process from "node:process";
@@ -22,7 +21,4 @@ export default defineConfig({
     stylexAstroPlugin({ stylex: { dev: !isProduction } }),
   ],
   site: "https://aarnihalinen.fi",
-  vite: {
-    plugins: [vanillaExtractPlugin()],
-  },
 });
