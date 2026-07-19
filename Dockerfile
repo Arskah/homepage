@@ -10,6 +10,6 @@ RUN pnpm install && \
     pnpm astro check && \
     PUBLIC_VERSION=${VERSION} pnpm astro build
 
-FROM --platform=${PLATFORM} httpd:2.4.68@sha256:b7c88cc3708bab3cc33ed0bc45657165453ba34bc783ba30dd9dc33746d51597 AS runtime
+FROM --platform=${PLATFORM} httpd:2.4.68@sha256:305fd8326a27a137fedb8900f26375699ab233cc37793f35cf5d7c65671fb252 AS runtime
 COPY --from=build /app/dist /usr/local/apache2/htdocs/
 EXPOSE 80
