@@ -61,7 +61,7 @@
     "prettier": "3.9.6",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-packagejson": "3.0.2",
-    "tsx": "4.23.12",
+    "tsx": "4.23.13",
     "typescript": "6.0.3",
     "typescript-eslint": "8.67.0",
     "unplugin-stylex": "0.6.3"
