@@ -109,8 +109,8 @@ importers:
         specifier: 13.0.6
         version: 13.0.6
       globals:
-        specifier: 17.11.0
-        version: 17.11.0
+        specifier: 17.12.0
+        version: 17.12.0
       husky:
         specifier: 9.1.7
         version: 9.1.7
@@ -2162,8 +2162,8 @@ packages:
     resolution: {integrity: sha512-1pgFdhK3J2LeM+dVf2Pd424yHx2ou338lC0ErNP2hPx4j8eW1Sp0XqSjNxtk6Tc4Kr5wlWtSvz8cn2yb7/SG/w==}
     engines: {node: '>=20'}
 
-  globals@17.11.0:
-    resolution: {integrity: sha512-Z2I8hM+PbJDXQDq3Icgpzv+mPdwr68iZUU9d5WW4FuXfDUQfkZaZuvjMv42/5crNyw154+9+VWXbYrUgDXbxNw==}
+  globals@17.12.0:
+    resolution: {integrity: sha512-cezEd/DTyyht9cvSSURyygXPfy04GtWO/5e6ZPvH7fCtjKz9PYOmuawphw1Ctd1f6C+5JypXfGD7ahNMXvevBA==}
     engines: {node: '>=18'}
 
   globalthis@1.0.4:
@@ -5954,7 +5954,7 @@ snapshots:
       astro-eslint-parser: 3.1.0(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(supports-color@7.2.0)
       eslint: 10.9.1(jiti@2.6.1)(supports-color@7.2.0)
       espree: 11.2.0
-      globals: 17.11.0
+      globals: 17.12.0
       postcss: 8.5.26
       postcss-selector-parser: 7.1.5
     optionalDependencies:
@@ -6026,7 +6026,7 @@ snapshots:
   eslint-plugin-playwright@2.11.0(eslint@10.9.1(jiti@2.6.1)(supports-color@7.2.0)):
     dependencies:
       eslint: 10.9.1(jiti@2.6.1)(supports-color@7.2.0)
-      globals: 17.11.0
+      globals: 17.12.0
 
   eslint-plugin-react-hooks@7.1.1(eslint@10.9.1(jiti@2.6.1)(supports-color@7.2.0))(supports-color@7.2.0):
     dependencies:
@@ -6327,7 +6327,7 @@ snapshots:
     dependencies:
       ini: 6.0.0
 
-  globals@17.11.0: {}
+  globals@17.12.0: {}
 
   globalthis@1.0.4:
     dependencies:
