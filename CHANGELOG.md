@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.5](https://github.com/Arskah/homepage/compare/v1.1.4...v1.1.5) (2026-09-12)
+
+
+### Bug Fixes
+
+* **deps:** update astro monorepo ([#1095](https://github.com/Arskah/homepage/issues/1095)) ([adb74ef](https://github.com/Arskah/homepage/commit/adb74ef8a64656fb67ea8988e9652fde2ff4191b))
+* **deps:** update astro monorepo ([#1145](https://github.com/Arskah/homepage/issues/1145)) ([70f1e15](https://github.com/Arskah/homepage/commit/70f1e15a227cc22bebc15f802c5509371593f895))
+* **deps:** update dependency @astrojs/mdx to v8 ([#1157](https://github.com/Arskah/homepage/issues/1157)) ([bcc4091](https://github.com/Arskah/homepage/commit/bcc40911afb38dde1bdece1e9c611165d05773dd))
+* **deps:** update dependency astro to v7.1.0 [security] ([#1116](https://github.com/Arskah/homepage/issues/1116)) ([e6b28b1](https://github.com/Arskah/homepage/commit/e6b28b1a8cae6b9327c5baeb5b0f84970f90b78d))
+* **deps:** update dependency astro to v7.3.2 ([#1167](https://github.com/Arskah/homepage/issues/1167)) ([0f6b653](https://github.com/Arskah/homepage/commit/0f6b6533d828ef6c8076305ac9e6d1761b95ddf1))
+* **deps:** update dependency astro-icon to v1.2.0 ([#1141](https://github.com/Arskah/homepage/issues/1141)) ([6f540d2](https://github.com/Arskah/homepage/commit/6f540d2a80a77efabede3246fe7fb0b7da0d421d))
+* **deps:** update react monorepo ([#1121](https://github.com/Arskah/homepage/issues/1121)) ([51eefd4](https://github.com/Arskah/homepage/commit/51eefd4f3039dec894c94f0271475c9ada60f76f))
+
 ## [1.1.4](https://github.com/Arskah/homepage/compare/v1.1.3...v1.1.4) (2026-07-03)
 
 
