@@ -1,0 +1,38 @@
+# Route through the shared Gateway `public` of the cluster (github.com/Arskah/kube, gateway/).
+# It replaces the Ingress once the router sends traffic to the Gateway.
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: route
+  namespace: homepage-production
+spec:
+  parentRefs:
+    - name: public
+      namespace: gateway
+      sectionName: homepage
+    - name: public
+      namespace: gateway
+      sectionName: homepage-www
+  hostnames:
+    - aarnihalinen.fi
+    - www.aarnihalinen.fi
+  rules:
+    - backendRefs:
+        - name: production-svc
+          port: 80
+---
+# Allow the Gateway to terminate TLS with the certificate of this namespace
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: ReferenceGrant
+metadata:
+  name: gateway-tls
+  namespace: homepage-production
+spec:
+  from:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      namespace: gateway
+  to:
+    - group: ""
+      kind: Secret
+      name: production-cert

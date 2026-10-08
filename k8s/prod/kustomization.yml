@@ -4,6 +4,7 @@ resources:
   - ../base
   - certificate.yml
   - ingress.yml
+  - httproute.yml
 namePrefix: production-
 images:
   - name: homepage-image
