@@ -26,11 +26,9 @@ const prose = stylex.attrs(styles.prose);
     <Header />
     <main {...stylex.attrs(styles.main)}>
       <article>
-        {
-          heroImage && (
-            <HeroImage alt="" height={510} src={heroImage} width={1020} />
-          )
-        }
+        {heroImage && (
+          <HeroImage alt="" height={510} src={heroImage} width={1020} />
+        )}
         <div class:list={["prose", prose.class]} style={prose.style}>
           <BlogTitle
             pubDate={pubDate}
