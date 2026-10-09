@@ -1,5 +1,4 @@
 # Route through the shared Gateway `public` of the cluster (github.com/Arskah/kube, gateway/).
-# It replaces the Ingress once the router sends traffic to the Gateway.
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
