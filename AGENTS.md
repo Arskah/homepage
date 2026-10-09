@@ -8,8 +8,6 @@ Personal homepage + blog for `https://aarnihalinen.fi`, built on **Astro 7** wit
 
 The site is fully static: `.tsx` components are rendered at build time and no component uses a `client:*` directive, so nothing hydrates. Adding interactivity means adding a `client:*` directive at the usage site.
 
-`README.md` is the unmodified Astro blog starter template (npm commands, generic structure) — ignore it in favour of this file.
-
 ## Commands
 
 | Command                                        | Action                                                               |
