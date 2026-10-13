@@ -45,26 +45,29 @@ test("theme toggle switches and persists the theme", async ({ page }) => {
 });
 
 test.describe("life background", () => {
-  test("clicking the background flips three cells", async ({ page }) => {
+  test("clicking the background brings cells to life", async ({ page }) => {
     await page.goto("/blog");
     const canvas = page.locator("[data-life]");
     await expect(canvas).toHaveAttribute("data-generation", "0");
     const before = Number(await canvas.getAttribute("data-alive"));
 
+    // Each click sets three cells alive; some may have been alive already.
     await page.mouse.click(40, 400);
+    await page.mouse.click(600, 500);
+    await page.mouse.click(1100, 300);
 
-    // Three flips change the live count by an odd amount: 1 or 3.
     await expect(canvas).not.toHaveAttribute("data-alive", String(before));
     const after = Number(await canvas.getAttribute("data-alive"));
-    expect([1, 3]).toContain(Math.abs(after - before));
+    expect(after).toBeGreaterThan(before);
+    expect(after).toBeLessThanOrEqual(before + 9);
     await expect(canvas).toHaveAttribute("data-generation", "0");
 
-    // Flipping the same cells again restores the pattern.
+    // Clicking a spot that is already alive changes nothing.
     await page.mouse.click(40, 400);
-    await expect(canvas).toHaveAttribute("data-alive", String(before));
+    await expect(canvas).toHaveAttribute("data-alive", String(after));
   });
 
-  test("clicking a link does not flip a cell", async ({ page }) => {
+  test("clicking a link does not add cells", async ({ page }) => {
     await page.goto("/");
     const canvas = page.locator("[data-life]");
     const before = await canvas.getAttribute("data-alive");
