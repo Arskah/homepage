@@ -9,7 +9,7 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { description, image = "/blog-placeholder-1.jpg", title } = Astro.props;
+const { description, image, title } = Astro.props;
 ---
 
 <link
@@ -51,11 +51,14 @@ const { description, image = "/blog-placeholder-1.jpg", title } = Astro.props;
 <meta content={Astro.url} property="og:url" />
 <meta content={title} property="og:title" />
 <meta content={description} property="og:description" />
-<meta content={new URL(image, Astro.url)} property="og:image" />
+{image && <meta content={new URL(image, Astro.url)} property="og:image" />}
 
 <!-- Twitter -->
-<meta content="summary_large_image" property="twitter:card" />
+<meta
+  content={image ? "summary_large_image" : "summary"}
+  property="twitter:card"
+/>
 <meta content={Astro.url} property="twitter:url" />
 <meta content={title} property="twitter:title" />
 <meta content={description} property="twitter:description" />
-<meta content={new URL(image, Astro.url)} property="twitter:image" />
+{image && <meta content={new URL(image, Astro.url)} property="twitter:image" />}

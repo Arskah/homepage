@@ -13,9 +13,12 @@ import SocialLinks from "./SocialLinks.astro";
       <h2 {...stylex.attrs(styles.h2)}>{SITE_TITLE}</h2>
     </a>
     <div {...stylex.attrs(styles.links)}>
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-      <HeaderLink href="/about">About</HeaderLink>
+      <HeaderLink aria-label="Home" href="/">
+        ~
+      </HeaderLink>
+      <HeaderLink aria-label="Blog" href="/blog">
+        ~/blog
+      </HeaderLink>
     </div>
     <SocialLinks
       hideOnMobile

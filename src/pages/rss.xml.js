@@ -1,7 +1,7 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import { SITE_DESCRIPTION, SITE_TAGLINE, SITE_TITLE } from "../consts";
 
 export async function GET(context) {
   const posts = await getCollection("blog");
@@ -12,6 +12,6 @@ export async function GET(context) {
       link: `/blog/${post.id}/`,
     })),
     site: context.site,
-    title: SITE_TITLE,
+    title: `${SITE_TITLE} · ${SITE_TAGLINE}`,
   });
 }
