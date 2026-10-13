@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.1](https://github.com/Arskah/homepage/compare/v1.2.0...v1.2.1) (2026-10-13)
+
+
+### Bug Fixes
+
+* add favicon ([fbaada5](https://github.com/Arskah/homepage/commit/fbaada51405c943a6ae9c54816477fe2f6a28a55))
+* **deps:** update astro monorepo ([#1196](https://github.com/Arskah/homepage/issues/1196)) ([570f5b6](https://github.com/Arskah/homepage/commit/570f5b68cc838be6cae396ebf481de960ec0af3e))
+* keep blog navigation client-side with trailing-slash links ([f9da8ad](https://github.com/Arskah/homepage/commit/f9da8ad3db90f68491cf836a469ba84549763ed8))
+* send Cache-Control headers from httpd ([#1211](https://github.com/Arskah/homepage/issues/1211)) ([d484f8a](https://github.com/Arskah/homepage/commit/d484f8ac30ed1742145b7ad69c137a4b244fb02b))
+
 ## [1.2.0](https://github.com/Arskah/homepage/compare/v1.1.5...v1.2.0) (2026-10-13)
 
 
