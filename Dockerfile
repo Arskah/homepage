@@ -12,4 +12,6 @@ RUN pnpm install && \
 
 FROM --platform=${PLATFORM} httpd:2.4.69@sha256:c842ac797bd1fe8b3cd26d002ac9d948aa2814097544600600b35aef42e6785a AS runtime
 COPY --from=build /app/dist /usr/local/apache2/htdocs/
+COPY httpd/cache.conf /usr/local/apache2/conf/extra/cache.conf
+RUN echo "Include conf/extra/cache.conf" >> /usr/local/apache2/conf/httpd.conf
 EXPOSE 80
