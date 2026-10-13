@@ -201,6 +201,11 @@ import { styles } from "./LifeBackground.stylex";
 
     resize();
     sync();
+    // This script can run before the stylesheet has applied, in which case the
+    // first paint used the inherited text color. Paint again once it has.
+    if (document.readyState !== "complete") {
+      window.addEventListener("load", draw, { once: true });
+    }
     if (button) {
       button.hidden = false;
     }
