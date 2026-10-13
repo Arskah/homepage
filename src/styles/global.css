@@ -63,6 +63,14 @@ html {
 }
 
 body {
+  /*
+   * Column at least one viewport tall: `main` grows (see Main.stylex.ts), so
+   * the footer sits at the bottom of the window on short pages and after the
+   * content on long ones.
+   */
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
   margin: 0;
   padding: 0;
   background-color: var(--color-bg);
