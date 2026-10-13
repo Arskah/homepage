@@ -73,9 +73,32 @@ test.describe("life background", () => {
     const before = await canvas.getAttribute("data-alive");
 
     await page.getByRole("link", { name: "Blog" }).click();
-    await page.goBack();
+    await expect(page).toHaveURL(/\/blog\/?$/);
 
     await expect(canvas).toHaveAttribute("data-alive", before ?? "");
+  });
+
+  test("the pattern survives navigation", async ({ page }) => {
+    await page.goto("/");
+    const canvas = page.locator("[data-life]");
+    await expect(canvas).toHaveAttribute("data-generation", "0");
+    const seeded = await canvas.getAttribute("data-alive");
+
+    await page.mouse.click(40, 400);
+    await page.mouse.click(600, 500);
+    await page.mouse.click(1100, 300);
+    await expect(canvas).not.toHaveAttribute("data-alive", seeded ?? "");
+    const drawn = await canvas.getAttribute("data-alive");
+
+    // A fresh page load would be back at the seeded count.
+    await page.getByRole("link", { name: "Blog" }).click();
+    await expect(page.getByRole("heading", { name: "Blog" })).toBeVisible();
+    await expect(canvas).toHaveAttribute("data-alive", drawn ?? "");
+
+    await page.goBack();
+    await expect(page.getByRole("heading", { name: "Home" })).toBeVisible();
+    await expect(canvas).toHaveAttribute("data-alive", drawn ?? "");
+    await expect(canvas).toHaveCSS("position", "fixed");
   });
 
   test("play and pause control the animation", async ({ page }) => {

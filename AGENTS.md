@@ -8,6 +8,11 @@ Personal homepage + blog for `https://aarnihalinen.fi`, built on **Astro 7** wit
 
 The site is static: `.tsx` components are rendered at build time and no component uses a `client:*` directive, so no React ships to the browser. The little interactivity there is uses plain scripts in `.astro` components (`ThemeToggle.astro`, `LifeBackground.astro`); prefer that over a `client:*` island for small things.
 
+Navigation is client-side: `<ClientRouter />` in `BaseHead.astro` swaps pages in place, so the Life background keeps running across page changes. Consequences to keep in mind:
+
+- Bundled `<script>`s in components run once per visit, not once per page. An element whose script keeps a reference to it (the canvas, the header buttons) needs `transition:persist`, otherwise it is replaced on navigation and loses its handlers.
+- The router replaces the attributes of `<html>` and every `<head>` element the next page does not declare. That is why the theme is re-applied on `astro:after-swap`, and why `BaseHead.astro` links `/_astro/stylex.css` itself: `unplugin-stylex` only adds that stylesheet from a runtime script, which the router would drop, leaving the page without any StyleX styles.
+
 The page background is Conway's Game of Life on a fixed `<canvas>` (`LifeBackground.astro`): a click on anything that is not a control brings three cells in a row to life under the pointer, and `LifeToggle.astro` is its play/pause button. Cells are drawn in `--color-cell`, which is chosen so that text on top of a live cell still passes WCAG AA; re-check contrast when changing it or the text colors.
 
 ## Commands

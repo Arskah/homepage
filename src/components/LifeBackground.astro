@@ -9,7 +9,12 @@ import { styles } from "./LifeBackground.stylex";
   control brings three cells in a row to life under the pointer. Purely decorative,
   hence `aria-hidden`; LifeToggle.astro renders the play/pause button.
 -->
-<canvas aria-hidden="true" data-life {...stylex.attrs(styles.canvas)}></canvas>
+<canvas
+  aria-hidden="true"
+  data-life
+  transition:persist="life"
+  {...stylex.attrs(styles.canvas)}
+></canvas>
 
 <script>
   const CELL_SIZE = 14;
