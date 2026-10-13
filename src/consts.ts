@@ -4,7 +4,7 @@
 export const SITE_TITLE = "~/aarni";
 export const SITE_TAGLINE = "digital garden";
 export const SITE_DESCRIPTION =
-  "Aarni Halinen's digital garden. Write-ups of hobby projects.";
+  "Personal site of Aarni Halinen, Senior Software Engineer in Helsinki. Sporadic writing about hobby projects.";
 export const OWNER_NAME = "Aarni Halinen";
 
 // Plain text on purpose: a `mailto:` link or a bare address attracts scrapers.
