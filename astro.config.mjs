@@ -26,4 +26,7 @@ export default defineConfig({
     },
   },
   site: "https://aarnihalinen.fi",
+  // The build emits `blog/index.html`, so page URLs end in a slash. Make the
+  // dev server reject links without one: in production those get a redirect.
+  trailingSlash: "always",
 });

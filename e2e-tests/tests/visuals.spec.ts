@@ -14,7 +14,7 @@ test("index page", async ({ page }) => {
 });
 
 test("blog page", async ({ page }) => {
-  await page.goto("/blog");
+  await page.goto("/blog/");
   await expect(page).toHaveScreenshot("blog.png", { fullPage: true });
 });
 
@@ -27,7 +27,7 @@ test.describe("dark theme", () => {
   });
 
   test("blog page", async ({ page }) => {
-    await page.goto("/blog");
+    await page.goto("/blog/");
     await expect(page).toHaveScreenshot("blog-dark.png", { fullPage: true });
   });
 });
@@ -46,7 +46,7 @@ test("theme toggle switches and persists the theme", async ({ page }) => {
 
 test.describe("life background", () => {
   test("clicking the background brings cells to life", async ({ page }) => {
-    await page.goto("/blog");
+    await page.goto("/blog/");
     const canvas = page.locator("[data-life]");
     await expect(canvas).toHaveAttribute("data-generation", "0");
     const before = Number(await canvas.getAttribute("data-alive"));
@@ -76,6 +76,19 @@ test.describe("life background", () => {
     await expect(page).toHaveURL(/\/blog\/?$/);
 
     await expect(canvas).toHaveAttribute("data-alive", before ?? "");
+  });
+
+  test("navigation links end in a slash", async ({ page }) => {
+    // Apache redirects a slashless directory URL, and behind the TLS proxy
+    // that redirect points to http: the client router cannot follow it and
+    // falls back to a full page load.
+    await page.goto("/");
+    await page.getByRole("link", { name: "Blog" }).click();
+    await expect(page).toHaveURL(/\/blog\/$/);
+
+    await page.getByRole("link", { name: "Home" }).click();
+    await page.getByRole("link", { name: "All posts" }).click();
+    await expect(page).toHaveURL(/\/blog\/$/);
   });
 
   test("the pattern survives navigation", async ({ page }) => {

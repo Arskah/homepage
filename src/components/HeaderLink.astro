@@ -11,8 +11,12 @@ const { href, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
 
+// Internal links end in a slash, like the built pages: the server answers a
+// slashless directory URL with a redirect, which the client router may not be
+// able to follow (behind a TLS proxy it points to http) and then falls back
+// to a full page load.
 const subpath = pathname.match(/[^/]+/g);
-const isActive = href === pathname || href === "/" + subpath?.[0];
+const isActive = href === pathname || href === `/${subpath?.[0]}/`;
 ---
 
 <a
