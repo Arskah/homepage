@@ -6,7 +6,9 @@ This file provides guidance to coding agents when working with code in this repo
 
 Personal homepage + blog for `https://aarnihalinen.fi`, built on **Astro 7** with React 19 components. Deployed as a Docker image to `registry.aarnihalinen.fi/homepage`. Package manager is **pnpm** (see `packageManager` in `package.json`) — use `pnpm`, not npm/yarn. Node version comes from `.nvmrc`.
 
-The site is static: `.tsx` components are rendered at build time and no component uses a `client:*` directive, so no React ships to the browser. The little interactivity there is uses plain scripts in `.astro` components (see `ThemeToggle.astro`); prefer that over a `client:*` island for small things.
+The site is static: `.tsx` components are rendered at build time and no component uses a `client:*` directive, so no React ships to the browser. The little interactivity there is uses plain scripts in `.astro` components (`ThemeToggle.astro`, `LifeBackground.astro`); prefer that over a `client:*` island for small things.
+
+The page background is Conway's Game of Life on a fixed `<canvas>` (`LifeBackground.astro`): a click on anything that is not a control flips the cell under the pointer, and `LifeToggle.astro` is its play/pause button. Cells are drawn in `--color-cell`, which is chosen so that text on top of a live cell still passes WCAG AA; re-check contrast when changing it or the text colors.
 
 ## Commands
 
@@ -39,7 +41,7 @@ Blog posts are an Astro content collection in `src/content/blog/` (`.md`/`.mdx`,
 
 ## E2E visual regression
 
-`e2e-tests/tests/visuals.spec.ts` does full-page screenshot diffs of `/` and `/blog`, in the light and the dark theme, across chromium/firefox/webkit. The config pins `colorScheme: "light"`; the dark tests override it. Snapshots are **platform-specific**: `*-darwin.png` generated locally, `*-linux.png` used in CI. Config is `e2e-tests/playwright.config.ts` (note `testDir: ./tests` is relative to that folder).
+`e2e-tests/tests/visuals.spec.ts` does full-page screenshot diffs of `/` and `/blog`, in the light and the dark theme, across chromium/firefox/webkit. The config pins `colorScheme: "light"`; the dark tests override it. It also sets `reducedMotion: "reduce"`, under which the Life background stays paused on its first generation. That generation is a pure function of the cell coordinates, so screenshots are deterministic. The canvas is viewport-sized, so in full-page screenshots the cells cover only the first viewport height. Snapshots are **platform-specific**: `*-darwin.png` generated locally, `*-linux.png` used in CI. Config is `e2e-tests/playwright.config.ts` (note `testDir: ./tests` is relative to that folder).
 
 - Locally the config has `reuseExistingServer: true`: if anything is already listening on `:4321` (e.g. `pnpm dev`), tests screenshot _that_ instead of the built site. Stop the dev server before running tests.
 - Update darwin baselines with `pnpm test --update-snapshots`.

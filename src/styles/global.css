@@ -17,6 +17,8 @@
   --color-accent: light-dark(#b0127f, #ff6ad5);
   --color-bg: light-dark(#f6f2f8, #17121b);
   --color-border: light-dark(#d3c8da, #3a2f43);
+  /* Live cells of the background; faint enough that text on top stays AA. */
+  --color-cell: light-dark(#e6dcea, #2a2032);
   --color-muted: light-dark(#6a5b74, #a596b0);
   --color-surface: light-dark(#ebe4ef, #211a27);
   --color-text: light-dark(#221a28, #e9e2ee);

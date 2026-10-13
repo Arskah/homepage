@@ -1,0 +1,201 @@
+---
+import * as stylex from "@stylexjs/stylex";
+
+import { styles } from "./LifeBackground.stylex";
+---
+
+<!--
+  Conway's Game of Life as the page background. A click anywhere that is not a
+  control flips the cell under the pointer. Purely decorative, hence
+  `aria-hidden`; LifeToggle.astro renders the play/pause button.
+-->
+<canvas aria-hidden="true" data-life {...stylex.attrs(styles.canvas)}></canvas>
+
+<script>
+  const CELL_SIZE = 14;
+  const DENSITY = 0.2;
+  const TICK_MS = 333;
+  const STORAGE_KEY = "life";
+  const INTERACTIVE =
+    "a, button, input, textarea, select, summary, label, [contenteditable]";
+
+  const canvas = document.querySelector<HTMLCanvasElement>("[data-life]");
+  const button =
+    document.querySelector<HTMLButtonElement>("[data-life-toggle]");
+  const context = canvas?.getContext("2d");
+
+  if (canvas && context) {
+    let cols = 0;
+    let rows = 0;
+    let cells = new Uint8Array(0);
+    let scratch = new Uint8Array(0);
+    let generation = 0;
+    let frame = 0;
+    let lastTick = 0;
+
+    // The first generation is a pure function of the coordinates, so the same
+    // viewport always starts from the same pattern, whatever the resize order.
+    const seeded = (x: number, y: number) => {
+      let hash = Math.imul(x, 374761393) ^ Math.imul(y, 668265263);
+      hash = Math.imul(hash ^ (hash >>> 13), 1274126177);
+      return ((hash ^ (hash >>> 16)) >>> 0) / 2 ** 32 < DENSITY ? 1 : 0;
+    };
+
+    const draw = () => {
+      context.clearRect(0, 0, cols * CELL_SIZE, rows * CELL_SIZE);
+      context.fillStyle = getComputedStyle(canvas).color;
+      let alive = 0;
+      for (let y = 0; y < rows; y++) {
+        for (let x = 0; x < cols; x++) {
+          if (cells[y * cols + x]) {
+            alive++;
+            context.fillRect(
+              x * CELL_SIZE,
+              y * CELL_SIZE,
+              CELL_SIZE - 1,
+              CELL_SIZE - 1,
+            );
+          }
+        }
+      }
+      // Read by the end-to-end tests.
+      canvas.dataset.alive = String(alive);
+      canvas.dataset.generation = String(generation);
+    };
+
+    // One generation on a torus: the grid wraps around at every edge.
+    const step = () => {
+      for (let y = 0; y < rows; y++) {
+        const up = ((y + rows - 1) % rows) * cols;
+        const here = y * cols;
+        const down = ((y + 1) % rows) * cols;
+        for (let x = 0; x < cols; x++) {
+          const left = (x + cols - 1) % cols;
+          const right = (x + 1) % cols;
+          const neighbours =
+            cells[up + left]! +
+            cells[up + x]! +
+            cells[up + right]! +
+            cells[here + left]! +
+            cells[here + right]! +
+            cells[down + left]! +
+            cells[down + x]! +
+            cells[down + right]!;
+          scratch[here + x] =
+            neighbours === 3 || (neighbours === 2 && cells[here + x]) ? 1 : 0;
+        }
+      }
+      [cells, scratch] = [scratch, cells];
+      generation++;
+    };
+
+    // Fit the grid to the viewport, keeping the cells that are still on it.
+    const resize = () => {
+      const newCols = Math.ceil(window.innerWidth / CELL_SIZE);
+      const newRows = Math.ceil(window.innerHeight / CELL_SIZE);
+      const resized = new Uint8Array(newCols * newRows);
+      for (let y = 0; y < newRows; y++) {
+        for (let x = 0; x < newCols; x++) {
+          resized[y * newCols + x] =
+            x < cols && y < rows ? cells[y * cols + x]! : seeded(x, y);
+        }
+      }
+      cols = newCols;
+      rows = newRows;
+      cells = resized;
+      scratch = new Uint8Array(cols * rows);
+
+      const ratio = window.devicePixelRatio || 1;
+      canvas.width = Math.round(window.innerWidth * ratio);
+      canvas.height = Math.round(window.innerHeight * ratio);
+      context.setTransform(ratio, 0, 0, ratio, 0, 0);
+      draw();
+    };
+
+    const tick = (now: number) => {
+      if (now - lastTick >= TICK_MS) {
+        lastTick = now;
+        step();
+        draw();
+      }
+      frame = requestAnimationFrame(tick);
+    };
+
+    const readStored = () => {
+      try {
+        return localStorage.getItem(STORAGE_KEY);
+      } catch {
+        return null;
+      }
+    };
+
+    // A stored choice wins; otherwise the animation only starts by itself when
+    // the visitor has not asked for reduced motion.
+    const stored = readStored();
+    let paused =
+      stored === null
+        ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        : stored === "paused";
+
+    // Runs only while unpaused and visible.
+    const sync = () => {
+      cancelAnimationFrame(frame);
+      if (!paused && !document.hidden) {
+        frame = requestAnimationFrame(tick);
+      }
+      if (button) {
+        const action = paused ? "play" : "pause";
+        button.textContent = action;
+        button.setAttribute(
+          "aria-label",
+          `${paused ? "Play" : "Pause"} background animation`,
+        );
+      }
+    };
+
+    button?.addEventListener("click", () => {
+      paused = !paused;
+      try {
+        localStorage.setItem(STORAGE_KEY, paused ? "paused" : "running");
+      } catch {
+        // Storage unavailable: the choice lasts for this page view only.
+      }
+      sync();
+    });
+
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Element) || target.closest(INTERACTIVE)) {
+        return;
+      }
+      // Do not flip a cell at the end of a text selection drag.
+      if (window.getSelection()?.toString()) {
+        return;
+      }
+      const x = Math.floor(event.clientX / CELL_SIZE);
+      const y = Math.floor(event.clientY / CELL_SIZE);
+      if (x < 0 || x >= cols || y < 0 || y >= rows) {
+        return;
+      }
+      cells[y * cols + x] = cells[y * cols + x] ? 0 : 1;
+      draw();
+    });
+
+    window.addEventListener("resize", resize);
+    document.addEventListener("visibilitychange", sync);
+
+    // The cell color follows the theme, so repaint when it changes.
+    new MutationObserver(draw).observe(document.documentElement, {
+      attributeFilter: ["data-theme"],
+    });
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", draw);
+
+    resize();
+    sync();
+    if (button) {
+      button.hidden = false;
+    }
+  }
+</script>

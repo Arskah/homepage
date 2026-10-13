@@ -11,6 +11,7 @@ export const colors = stylex.defineVars({
   accent: "var(--color-accent)",
   bg: "var(--color-bg)",
   border: "var(--color-border)",
+  cell: "var(--color-cell)",
   muted: "var(--color-muted)",
   surface: "var(--color-surface)",
   text: "var(--color-text)",

@@ -8,6 +8,7 @@ import { BlogTitle } from "../components/BlogTitle";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import { HeroImage } from "../components/HeroImage";
+import LifeBackground from "../components/LifeBackground.astro";
 import { styles } from "../components/Main.stylex";
 import { SITE_TITLE } from "../consts";
 
@@ -28,6 +29,7 @@ const prose = stylex.attrs(styles.prose);
   </head>
 
   <body>
+    <LifeBackground />
     <Header />
     <main {...stylex.attrs(styles.main)}>
       <article>

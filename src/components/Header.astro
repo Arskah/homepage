@@ -4,6 +4,7 @@ import * as stylex from "@stylexjs/stylex";
 import { SITE_TITLE } from "../consts";
 import { styles } from "./Header.stylex";
 import HeaderLink from "./HeaderLink.astro";
+import LifeToggle from "./LifeToggle.astro";
 import SocialLinks from "./SocialLinks.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 ---
@@ -23,6 +24,7 @@ import ThemeToggle from "./ThemeToggle.astro";
       </HeaderLink>
     </div>
     <div {...stylex.attrs(styles.tools)}>
+      <LifeToggle />
       <ThemeToggle />
       <SocialLinks hideOnMobile linkColor="text" />
     </div>
