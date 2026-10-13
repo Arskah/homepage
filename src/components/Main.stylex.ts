@@ -2,6 +2,7 @@ import * as stylex from "@stylexjs/stylex";
 
 export const styles = stylex.create({
   main: {
+    flexGrow: 1,
     marginBlock: "0",
     marginInline: "auto",
     padding: {

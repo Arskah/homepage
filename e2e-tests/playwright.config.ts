@@ -65,6 +65,13 @@ export default defineConfig({
     /* The site follows the system color scheme, so pin it for stable screenshots. */
     colorScheme: "light",
 
+    /*
+     * With reduced motion the Game of Life background starts paused on its
+     * first generation. The tests also pin its random seed, which together
+     * keeps screenshots deterministic.
+     */
+    contextOptions: { reducedMotion: "reduce" },
+
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
   },

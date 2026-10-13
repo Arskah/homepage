@@ -6,7 +6,14 @@ This file provides guidance to coding agents when working with code in this repo
 
 Personal homepage + blog for `https://aarnihalinen.fi`, built on **Astro 7** with React 19 components. Deployed as a Docker image to `registry.aarnihalinen.fi/homepage`. Package manager is **pnpm** (see `packageManager` in `package.json`) — use `pnpm`, not npm/yarn. Node version comes from `.nvmrc`.
 
-The site is static: `.tsx` components are rendered at build time and no component uses a `client:*` directive, so no React ships to the browser. The little interactivity there is uses plain scripts in `.astro` components (see `ThemeToggle.astro`); prefer that over a `client:*` island for small things.
+The site is static: `.tsx` components are rendered at build time and no component uses a `client:*` directive, so no React ships to the browser. The little interactivity there is uses plain scripts in `.astro` components (`ThemeToggle.astro`, `LifeBackground.astro`); prefer that over a `client:*` island for small things.
+
+Navigation is client-side: `<ClientRouter />` in `BaseHead.astro` swaps pages in place, so the Life background keeps running across page changes. Consequences to keep in mind:
+
+- Bundled `<script>`s in components run once per visit, not once per page. An element whose script keeps a reference to it (the canvas, the header buttons) needs `transition:persist`, otherwise it is replaced on navigation and loses its handlers.
+- The router replaces the attributes of `<html>` and every `<head>` element the next page does not declare. That is why the theme is re-applied on `astro:after-swap`, and why `BaseHead.astro` links `/_astro/stylex.css` itself: `unplugin-stylex` only adds that stylesheet from a runtime script, which the router would drop, leaving the page without any StyleX styles.
+
+The page background is Conway's Game of Life on a fixed `<canvas>` (`LifeBackground.astro`): a click on anything that is not a control brings three cells in a row to life under the pointer, and `LifeToggle.astro` is its play/pause button. Cells are drawn in `--color-cell`, which is chosen so that text on top of a live cell still passes WCAG AA; re-check contrast when changing it or the text colors.
 
 ## Commands
 
@@ -37,9 +44,13 @@ Always run Playwright through `pnpm test` (it passes `--config e2e-tests/playwri
 
 Blog posts are an Astro content collection in `src/content/blog/` (`.md`/`.mdx`, files starting `_` ignored). Frontmatter schema (`title`, `description`, `pubDate`, optional `heroImage`, `updatedDate`) enforced in `src/content.config.ts`. Retrieve with `getCollection("blog")`.
 
+Fenced code blocks in posts are not linted (`globalIgnores` in `eslint.config.mjs`): they are illustrations and may be fragments or deliberately bad code. Code blocks in other Markdown files are linted, without type information, since they belong to no tsconfig. Highlighting uses Shiki with the `rose-pine` / `rose-pine-dawn` themes (`astro.config.mjs`).
+
+The dev server keeps collection entries in `.astro/data-store.json`. If a deleted post still shows up in `pnpm dev`, restart it with `pnpm dev --force`.
+
 ## E2E visual regression
 
-`e2e-tests/tests/visuals.spec.ts` does full-page screenshot diffs of `/` and `/blog`, in the light and the dark theme, across chromium/firefox/webkit. The config pins `colorScheme: "light"`; the dark tests override it. Snapshots are **platform-specific**: `*-darwin.png` generated locally, `*-linux.png` used in CI. Config is `e2e-tests/playwright.config.ts` (note `testDir: ./tests` is relative to that folder).
+`e2e-tests/tests/visuals.spec.ts` does full-page screenshot diffs of `/` and `/blog`, in the light and the dark theme, across chromium/firefox/webkit. The config pins `colorScheme: "light"`; the dark tests override it. It also sets `reducedMotion: "reduce"`, under which the Life background stays paused on its first generation. The start pattern is seeded from `Math.random()`, which `visuals.spec.ts` pins in a `beforeEach`, so screenshots are deterministic. The canvas is viewport-sized, so in full-page screenshots the cells cover only the first viewport height. Snapshots are **platform-specific**: `*-darwin.png` generated locally, `*-linux.png` used in CI. Config is `e2e-tests/playwright.config.ts` (note `testDir: ./tests` is relative to that folder).
 
 - Locally the config has `reuseExistingServer: true`: if anything is already listening on `:4321` (e.g. `pnpm dev`), tests screenshot _that_ instead of the built site. Stop the dev server before running tests.
 - Update darwin baselines with `pnpm test --update-snapshots`.

@@ -1,7 +1,7 @@
 ---
 import * as stylex from "@stylexjs/stylex";
 
-import { styles } from "./ThemeToggle.stylex";
+import { styles } from "./ToolButton.stylex";
 ---
 
 <!--
@@ -13,6 +13,7 @@ import { styles } from "./ThemeToggle.stylex";
 <button
   data-theme-toggle
   hidden
+  transition:persist="theme-toggle"
   type="button"
   {...stylex.attrs(styles.button)}
 ></button>

@@ -18,6 +18,9 @@ import tseslint from "typescript-eslint";
 
 export default defineConfig([
   globalIgnores([".astro/", "coverage/", "dist/"]),
+  // Code blocks in blog posts are illustrations: they may be fragments, show
+  // deliberately bad code, or order things for the sake of the explanation.
+  globalIgnores(["src/content/**/*.md/**", "src/content/**/*.mdx/**"]),
   {
     languageOptions: {
       globals: {
@@ -68,6 +71,18 @@ export default defineConfig([
     },
     rules: {
       ...reactHooks.configs["recommended-latest"].rules,
+    },
+  },
+  {
+    // Fenced code blocks in Markdown are linted as virtual files
+    // (`post.md/0_0.ts`). They belong to no tsconfig, so typed linting cannot
+    // parse them and has to be switched off for them.
+    files: ["**/*.md/**"],
+    extends: [tseslint.configs.disableTypeChecked],
+    languageOptions: {
+      parserOptions: {
+        project: false,
+      },
     },
   },
   {

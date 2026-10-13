@@ -4,6 +4,7 @@ import * as stylex from "@stylexjs/stylex";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import LifeBackground from "../components/LifeBackground.astro";
 import { styles } from "../components/Main.stylex";
 import { SITE_DESCRIPTION, SITE_TAGLINE, SITE_TITLE } from "../consts";
 
@@ -26,6 +27,7 @@ const prose = stylex.attrs(styles.prose);
   </head>
 
   <body>
+    <LifeBackground />
     <Header />
     <main {...stylex.attrs(styles.main)}>
       <div class:list={["prose", prose.class]} style={prose.style}>

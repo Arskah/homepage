@@ -5,6 +5,8 @@ import "modern-normalize/modern-normalize.css";
 
 import "../styles/global.css";
 
+import { ClientRouter } from "astro:transitions";
+
 interface Props {
   description: string;
   image?: string;
@@ -15,6 +17,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { description, image, title } = Astro.props;
 ---
+
+<!--
+  unplugin-stylex only adds its stylesheet from a runtime script. A real link
+  keeps it across client-side navigations (the router drops head elements the
+  next page does not declare), makes it render-blocking, and works without
+  JavaScript. The path is the plugin's default output file.
+-->
+<link href="/_astro/stylex.css" rel="stylesheet" />
+
+<ClientRouter />
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
@@ -27,14 +39,19 @@ const { description, image, title } = Astro.props;
   the system color scheme. Without a stored choice the system one is used.
 -->
 <script is:inline>
-  try {
-    const theme = localStorage.getItem("theme");
-    if (theme === "light" || theme === "dark") {
-      document.documentElement.dataset.theme = theme;
+  const applyStoredTheme = () => {
+    try {
+      const theme = localStorage.getItem("theme");
+      if (theme === "light" || theme === "dark") {
+        document.documentElement.dataset.theme = theme;
+      }
+    } catch {
+      // Storage unavailable: follow the system color scheme.
     }
-  } catch {
-    // Storage unavailable: follow the system color scheme.
-  }
+  };
+  applyStoredTheme();
+  // The client router replaces the attributes of <html> on every navigation.
+  document.addEventListener("astro:after-swap", applyStoredTheme);
 </script>
 
 <!-- Font preloads -->

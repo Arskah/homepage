@@ -1,0 +1,17 @@
+---
+import * as stylex from "@stylexjs/stylex";
+
+import { styles } from "./ToolButton.stylex";
+---
+
+<!--
+  Play/pause control for the Game of Life background. Rendered hidden and
+  wired up by the script in LifeBackground.astro.
+-->
+<button
+  data-life-toggle
+  hidden
+  transition:persist="life-toggle"
+  type="button"
+  {...stylex.attrs(styles.button)}
+></button>
