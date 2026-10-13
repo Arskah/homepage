@@ -44,6 +44,10 @@ Always run Playwright through `pnpm test` (it passes `--config e2e-tests/playwri
 
 Blog posts are an Astro content collection in `src/content/blog/` (`.md`/`.mdx`, files starting `_` ignored). Frontmatter schema (`title`, `description`, `pubDate`, optional `heroImage`, `updatedDate`) enforced in `src/content.config.ts`. Retrieve with `getCollection("blog")`.
 
+Fenced code blocks in posts are not linted (`globalIgnores` in `eslint.config.mjs`): they are illustrations and may be fragments or deliberately bad code. Code blocks in other Markdown files are linted, without type information, since they belong to no tsconfig. Highlighting uses Shiki with the `rose-pine` / `rose-pine-dawn` themes (`astro.config.mjs`).
+
+The dev server keeps collection entries in `.astro/data-store.json`. If a deleted post still shows up in `pnpm dev`, restart it with `pnpm dev --force`.
+
 ## E2E visual regression
 
 `e2e-tests/tests/visuals.spec.ts` does full-page screenshot diffs of `/` and `/blog`, in the light and the dark theme, across chromium/firefox/webkit. The config pins `colorScheme: "light"`; the dark tests override it. It also sets `reducedMotion: "reduce"`, under which the Life background stays paused on its first generation. The start pattern is seeded from `Math.random()`, which `visuals.spec.ts` pins in a `beforeEach`, so screenshots are deterministic. The canvas is viewport-sized, so in full-page screenshots the cells cover only the first viewport height. Snapshots are **platform-specific**: `*-darwin.png` generated locally, `*-linux.png` used in CI. Config is `e2e-tests/playwright.config.ts` (note `testDir: ./tests` is relative to that folder).
