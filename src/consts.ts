@@ -7,6 +7,9 @@ export const SITE_DESCRIPTION =
   "Personal site of Aarni Halinen, Senior Software Engineer in Helsinki. Sporadic writing about hobby projects.";
 export const OWNER_NAME = "Aarni Halinen";
 
+// Time zone that post dates are read in; see FormattedDate.tsx.
+export const SITE_TIME_ZONE = "Europe/Helsinki";
+
 // Plain text on purpose: a `mailto:` link or a bare address attracts scrapers.
 export const CONTACT_EMAIL = "contact (at) aarnihalinen.fi";
 export const GITHUB_URL = "https://github.com/Arskah";
