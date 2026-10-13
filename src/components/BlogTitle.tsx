@@ -1,19 +1,17 @@
 import * as stylex from "@stylexjs/stylex";
 
-import { colors } from "../styles/tokens.stylex";
+import { colors, fonts } from "../styles/tokens.stylex";
 import { FormattedDate } from "./FormattedDate";
 
 const styles = stylex.create({
   container: {
-    lineHeight: "100%",
     paddingBottom: "1rem",
-    textAlign: "center",
   },
   divider: {
     borderBottomStyle: "none",
     borderLeftStyle: "none",
     borderRightStyle: "none",
-    borderTopColor: colors.grayLight,
+    borderTopColor: colors.border,
     borderTopStyle: "solid",
     borderTopWidth: "1px",
   },
@@ -24,7 +22,9 @@ const styles = stylex.create({
     marginTop: "0",
   },
   meta: {
-    color: colors.gray,
+    color: colors.muted,
+    fontFamily: fonts.mono,
+    fontSize: "0.8rem",
     marginBottom: "0.5rem",
   },
 });
@@ -40,9 +40,9 @@ export const BlogTitle = ({ pubDate, title, updatedDate }: BlogTitleProps) => (
     <div {...stylex.props(styles.meta)}>
       <FormattedDate date={pubDate} />
       {updatedDate && (
-        <i>
-          Last updated on <FormattedDate date={updatedDate} />
-        </i>
+        <>
+          , updated <FormattedDate date={updatedDate} />
+        </>
       )}
     </div>
     <h1 {...stylex.props(styles.heading)}>{title}</h1>

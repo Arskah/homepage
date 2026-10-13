@@ -2,15 +2,12 @@ import type { ImgHTMLAttributes } from "react";
 
 import * as stylex from "@stylexjs/stylex";
 
-import { theme } from "../styles/tokens.stylex";
-
 const styles = stylex.create({
   heroContainer: {
     width: "100%",
   },
   heroImage: {
-    borderRadius: 12,
-    boxShadow: theme.boxShadow,
+    borderRadius: 4,
     display: "block",
     marginBlock: "1rem",
     marginInline: "auto",

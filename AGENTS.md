@@ -6,7 +6,7 @@ This file provides guidance to coding agents when working with code in this repo
 
 Personal homepage + blog for `https://aarnihalinen.fi`, built on **Astro 7** with React 19 components. Deployed as a Docker image to `registry.aarnihalinen.fi/homepage`. Package manager is **pnpm** (see `packageManager` in `package.json`) — use `pnpm`, not npm/yarn. Node version comes from `.nvmrc`.
 
-The site is fully static: `.tsx` components are rendered at build time and no component uses a `client:*` directive, so nothing hydrates. Adding interactivity means adding a `client:*` directive at the usage site.
+The site is static: `.tsx` components are rendered at build time and no component uses a `client:*` directive, so no React ships to the browser. The little interactivity there is uses plain scripts in `.astro` components (see `ThemeToggle.astro`); prefer that over a `client:*` island for small things.
 
 ## Commands
 
@@ -26,7 +26,9 @@ Always run Playwright through `pnpm test` (it passes `--config e2e-tests/playwri
 
 - Per-component styles live in a sibling `Component.stylex.ts` exporting `stylex.create({...})` (`.tsx` components may define `stylex.create` inline instead, as `BlogTitle.tsx` does).
 - Apply with `{...stylex.attrs(...)}` in `.astro` files and `{...stylex.props(...)}` in `.tsx` files. To combine a StyleX style with a plain global class in `.astro`, split the result: `class:list={["prose", prose.class]} style={prose.style}` (see `src/layouts/Page.astro`).
-- **Palette single source of truth is `src/styles/global.css`** `:root` custom properties. `src/styles/tokens.stylex.ts` only _aliases_ them (`var(--color-...)`) into typed `colors`/`theme` vars. Add a new color to the CSS `:root` first, then alias it in `tokens.stylex.ts`.
+- **Palette single source of truth is `src/styles/global.css`** `:root` custom properties. `src/styles/tokens.stylex.ts` only _aliases_ them (`var(--color-...)`) into typed `colors`/`fonts` vars. Add a new color to the CSS `:root` first, then alias it in `tokens.stylex.ts`.
+- **Theming:** every palette color is a `light-dark(<light>, <dark>)` pair and names are semantic (`bg`, `surface`, `border`, `text`, `muted`, `accent`), so a new color needs both values and nothing else. The theme follows the system `color-scheme`; `ThemeToggle.astro` overrides it through `data-theme` on `<html>` (stored in `localStorage`, applied before paint by the inline script in `BaseHead.astro`).
+- Write media queries without a media type: `@media (max-width: 760px)`. StyleX compiles `@media screen and (...)` to `@media (screen) and (...)`, which never matches.
 - `global.css` owns everything StyleX can't express: bare element selectors (`body`, headings, links), `@font-face`, the palette vars. Do not try to move these into StyleX.
 - Prefer longhands (`borderTopWidth`, `marginBottom`, …). `background` is not usable — use `backgroundImage` plus a separate `backgroundRepeat`. Simple `padding`/`margin` shorthands do pass (see `Main.stylex.ts`); the `@stylexjs/valid-shorthands` and `@stylexjs/valid-styles` lint rules are the arbiter, so run `pnpm lint` after touching styles.
 - Wired via `unplugin-stylex/astro` in `astro.config.mjs`; readable debug class names kept outside production (`dev: !isProduction`).
@@ -37,7 +39,7 @@ Blog posts are an Astro content collection in `src/content/blog/` (`.md`/`.mdx`,
 
 ## E2E visual regression
 
-`e2e-tests/tests/visuals.spec.ts` does full-page screenshot diffs of `/` and `/blog` across chromium/firefox/webkit. Snapshots are **platform-specific**: `*-darwin.png` generated locally, `*-linux.png` used in CI. Config is `e2e-tests/playwright.config.ts` (note `testDir: ./tests` is relative to that folder).
+`e2e-tests/tests/visuals.spec.ts` does full-page screenshot diffs of `/` and `/blog`, in the light and the dark theme, across chromium/firefox/webkit. The config pins `colorScheme: "light"`; the dark tests override it. Snapshots are **platform-specific**: `*-darwin.png` generated locally, `*-linux.png` used in CI. Config is `e2e-tests/playwright.config.ts` (note `testDir: ./tests` is relative to that folder).
 
 - Locally the config has `reuseExistingServer: true`: if anything is already listening on `:4321` (e.g. `pnpm dev`), tests screenshot _that_ instead of the built site. Stop the dev server before running tests.
 - Update darwin baselines with `pnpm test --update-snapshots`.

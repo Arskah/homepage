@@ -5,17 +5,17 @@ import { colors } from "../styles/tokens.stylex";
 export const styles = stylex.create({
   active: {
     borderBottomColor: colors.accent,
-    fontWeight: "bolder",
+    color: colors.text,
   },
   link: {
     borderBottomColor: "transparent",
     borderBottomStyle: "solid",
-    borderBottomWidth: "4px",
+    borderBottomWidth: "2px",
     color: {
-      ":hover": colors.black,
-      default: colors.black,
+      ":hover": colors.text,
+      default: colors.muted,
     },
-    paddingBlock: "1rem",
+    paddingBlock: "0.9rem",
     paddingInline: "0.5rem",
     textDecoration: "none",
   },

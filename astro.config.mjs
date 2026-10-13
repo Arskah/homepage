@@ -18,5 +18,12 @@ export default defineConfig({
     icon(),
     stylexAstroPlugin({ stylex: { dev: !isProduction } }),
   ],
+  markdown: {
+    // Emit both themes as CSS variables; global.css picks one per color scheme.
+    shikiConfig: {
+      defaultColor: false,
+      themes: { dark: "rose-pine", light: "rose-pine-dawn" },
+    },
+  },
   site: "https://aarnihalinen.fi",
 });

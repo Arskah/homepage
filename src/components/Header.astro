@@ -5,12 +5,14 @@ import { SITE_TITLE } from "../consts";
 import { styles } from "./Header.stylex";
 import HeaderLink from "./HeaderLink.astro";
 import SocialLinks from "./SocialLinks.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <header {...stylex.attrs(styles.header)}>
   <nav {...stylex.attrs(styles.nav)}>
     <a href="/" {...stylex.attrs(styles.logoLink)}>
-      <h2 {...stylex.attrs(styles.h2)}>{SITE_TITLE}</h2>
+      {SITE_TITLE}
+      <span aria-hidden="true" {...stylex.attrs(styles.cursor)} />
     </a>
     <div {...stylex.attrs(styles.links)}>
       <HeaderLink aria-label="Home" href="/">
@@ -20,10 +22,9 @@ import SocialLinks from "./SocialLinks.astro";
         ~/blog
       </HeaderLink>
     </div>
-    <SocialLinks
-      hideOnMobile
-      linkColor="black"
-      style={styles.socialCentering}
-    />
+    <div {...stylex.attrs(styles.tools)}>
+      <ThemeToggle />
+      <SocialLinks hideOnMobile linkColor="text" />
+    </div>
   </nav>
 </header>

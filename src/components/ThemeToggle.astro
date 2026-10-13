@@ -1,0 +1,56 @@
+---
+import * as stylex from "@stylexjs/stylex";
+
+import { styles } from "./ThemeToggle.stylex";
+---
+
+<!--
+  Rendered hidden and revealed by the script below, so there is no dead button
+  without JavaScript; the site then simply follows the system color scheme.
+  The stored choice is applied before first paint by the inline script in
+  BaseHead.astro.
+-->
+<button
+  data-theme-toggle
+  hidden
+  type="button"
+  {...stylex.attrs(styles.button)}
+></button>
+
+<script>
+  const root = document.documentElement;
+  const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+  const button = document.querySelector<HTMLButtonElement>(
+    "[data-theme-toggle]",
+  );
+
+  const nextTheme = () => {
+    const current =
+      root.dataset.theme ?? (systemDark.matches ? "dark" : "light");
+    return current === "dark" ? "light" : "dark";
+  };
+
+  if (button) {
+    // The label names the theme a click switches to.
+    const render = () => {
+      const next = nextTheme();
+      button.textContent = next;
+      button.setAttribute("aria-label", `Switch to ${next} theme`);
+    };
+
+    button.addEventListener("click", () => {
+      const next = nextTheme();
+      root.dataset.theme = next;
+      try {
+        localStorage.setItem("theme", next);
+      } catch {
+        // Storage unavailable: the choice lasts for this page view only.
+      }
+      render();
+    });
+
+    systemDark.addEventListener("change", render);
+    render();
+    button.hidden = false;
+  }
+</script>

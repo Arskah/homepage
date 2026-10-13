@@ -2,10 +2,12 @@ CHANGELOG.md
 .astro/
 .dockerignore
 .gitattributes
+.gitignore
 .husky/
 .prettierignore
 .release-please-manifest.json
 *Dockerfile
+*.jpg
 *.png
 *.svg
 pnpm-lock.yaml

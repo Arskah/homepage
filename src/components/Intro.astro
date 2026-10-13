@@ -1,0 +1,29 @@
+---
+import type { ImageMetadata } from "astro";
+
+import * as stylex from "@stylexjs/stylex";
+import { Image } from "astro:assets";
+
+import { styles } from "./Intro.stylex";
+
+interface Props {
+  alt: string;
+  photo: ImageMetadata;
+}
+
+const { alt, photo } = Astro.props;
+---
+
+<div {...stylex.attrs(styles.intro)}>
+  <Image
+    alt={alt}
+    densities={[1, 2]}
+    height={160}
+    src={photo}
+    width={160}
+    {...stylex.attrs(styles.photo)}
+  />
+  <div>
+    <slot />
+  </div>
+</div>

@@ -1,5 +1,7 @@
 ---
+import photo from "../assets/photos/portrait.jpg";
 import BlogList from "../components/BlogList.astro";
+import Intro from "../components/Intro.astro";
 import {
   CONTACT_EMAIL,
   GITHUB_URL,
@@ -10,17 +12,19 @@ import Layout from "../layouts/Page.astro";
 ---
 
 <Layout title="Home">
-  <p>
-    I'm Aarni. Senior Software Engineer, based in Helsinki, Finland. Welcome to
-    my “home directory”!
-  </p>
-  <p>
-    This corner of the internet is a creative outlet where I write about my
-    hobby projects, and possibly about other topics that interest me. These
-    include snowboarding, tinkering with my home lab and small software
-    projects, video games, and music (going to gigs; I can't play). Writing is
-    not one of them, so posts will pop up sporadically, if ever.
-  </p>
+  <Intro alt="Aarni smiling, in a black hoodie" photo={photo}>
+    <p>
+      I'm Aarni. Senior Software Engineer, based in Helsinki, Finland. Welcome
+      to my “home directory”!
+    </p>
+    <p>
+      This corner of the internet is a creative outlet where I write about my
+      hobby projects, and possibly about other topics that interest me. These
+      include snowboarding, tinkering with my home lab and small software
+      projects, video games, and music (going to gigs; I can't play). Writing is
+      not one of them, so posts will pop up sporadically, if ever.
+    </p>
+  </Intro>
   <h2>Latest posts</h2>
   <BlogList limit={3} />
   <p>
