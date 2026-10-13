@@ -1,37 +1,49 @@
 import * as stylex from "@stylexjs/stylex";
 
-import { colors } from "../styles/tokens.stylex";
+import { colors, fonts } from "../styles/tokens.stylex";
 
 export const styles = stylex.create({
-  h2: {
-    fontSize: "1rem",
-    margin: 0,
+  // Static block cursor after the wordmark.
+  cursor: {
+    backgroundColor: colors.accent,
+    display: "inline-block",
+    height: "1em",
+    marginLeft: "0.15em",
+    verticalAlign: "text-bottom",
+    width: "0.55em",
   },
   header: {
-    backgroundColor: colors.white,
-    boxShadow: `0 2px 8px color-mix(in srgb, ${colors.black}, transparent 95%)`,
+    borderBottomColor: colors.border,
+    borderBottomStyle: "solid",
+    borderBottomWidth: "1px",
     margin: 0,
     paddingBlock: "0",
-    paddingInline: "1.5rem",
+    paddingInline: {
+      "@media (max-width: 760px)": "1rem",
+      default: "1.5rem",
+    },
   },
   links: {
     display: "flex",
     flexDirection: "row",
-    flexWrap: "wrap",
-    gap: "0.3rem",
+    gap: "0.25rem",
   },
   logoLink: {
-    color: "inherit",
+    color: colors.text,
+    fontWeight: 600,
     textDecoration: "none",
   },
   nav: {
     alignItems: "center",
     display: "flex",
-    justifyContent: "space-between",
+    fontFamily: fonts.mono,
+    fontSize: "0.9rem",
+    gap: "1.25rem",
   },
-  socialCentering: {
-    borderBottomColor: "transparent",
-    borderBottomStyle: "solid",
-    borderBottomWidth: "4px",
+  tools: {
+    alignItems: "center",
+    display: "flex",
+    gap: "1rem",
+    marginLeft: "auto",
   },
 });

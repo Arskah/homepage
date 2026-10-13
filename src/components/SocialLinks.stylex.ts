@@ -5,13 +5,13 @@ import { colors } from "../styles/tokens.stylex";
 export const styles = stylex.create({
   container: {
     display: "flex",
-    gap: "1rem",
+    gap: "0.75rem",
     justifyContent: "center",
   },
   // TODO: more like a utility class, move somewhere
   mobileHidden: {
     display: {
-      "@media screen and (max-width: 760px)": "none",
+      "@media (max-width: 760px)": "none",
       // Preserve the flex layout it's layered over; `null` here would unset
       // the container's `display: flex` (StyleX is last-write-wins per prop).
       default: "flex",
@@ -20,15 +20,18 @@ export const styles = stylex.create({
 });
 
 export const link = stylex.create({
-  black: {
-    color: colors.black,
+  muted: {
+    color: {
+      ":hover": colors.accent,
+      default: colors.muted,
+    },
     display: "flex",
     textDecoration: "none",
   },
-  gray: {
+  text: {
     color: {
-      ":hover": colors.grayDark,
-      default: colors.gray,
+      ":hover": colors.accent,
+      default: colors.text,
     },
     display: "flex",
     textDecoration: "none",

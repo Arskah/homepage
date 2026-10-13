@@ -1,19 +1,27 @@
 import * as stylex from "@stylexjs/stylex";
 
-import { colors } from "../styles/tokens.stylex";
+import { colors, fonts } from "../styles/tokens.stylex";
+
+const MOBILE = "@media (max-width: 760px)";
 
 export const styles = stylex.create({
   date: {
-    color: colors.gray,
+    color: colors.muted,
+    fontFamily: fonts.mono,
     fontSize: "0.8rem",
   },
   description: {
-    color: colors.gray,
+    color: colors.muted,
+    fontSize: "0.9rem",
+    gridColumnStart: { default: "2", [MOBILE]: "1" },
   },
+  // Date in a fixed first column, title and description stacked in the second.
   item: {
-    display: "flex",
-    flexDirection: "column",
-    marginBottom: "1.5rem",
+    alignItems: "baseline",
+    columnGap: "1rem",
+    display: "grid",
+    gridTemplateColumns: { default: "6.5rem 1fr", [MOBILE]: "1fr" },
+    marginBottom: "1.25rem",
   },
   list: {
     listStyleType: "none",
@@ -21,7 +29,6 @@ export const styles = stylex.create({
     padding: 0,
   },
   title: {
-    fontSize: "1.25rem",
     fontWeight: 700,
   },
 });

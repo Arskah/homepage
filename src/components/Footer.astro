@@ -11,6 +11,8 @@ const version = import.meta.env.PUBLIC_VERSION ?? "development";
 ---
 
 <footer {...stylex.attrs(styles.footer)}>
-  {version} &copy; {copyRightText}
-  <SocialLinks linkColor="gray" />
+  <span>
+    {version} &copy; {copyRightText}
+  </span>
+  <SocialLinks linkColor="muted" />
 </footer>

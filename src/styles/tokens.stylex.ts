@@ -9,15 +9,14 @@ import * as stylex from "@stylexjs/stylex";
  */
 export const colors = stylex.defineVars({
   accent: "var(--color-accent)",
-  accentDark: "var(--color-accent-dark)",
-  black: "var(--color-black)",
-  gray: "var(--color-gray)",
-  grayDark: "var(--color-gray-dark)",
-  grayLight: "var(--color-gray-light)",
-  white: "var(--color-white)",
+  bg: "var(--color-bg)",
+  border: "var(--color-border)",
+  muted: "var(--color-muted)",
+  surface: "var(--color-surface)",
+  text: "var(--color-text)",
 });
 
-export const theme = stylex.defineVars({
-  boxShadow: "var(--box-shadow)",
-  pageBg: "var(--page-bg)",
+export const fonts = stylex.defineVars({
+  body: "var(--font-body)",
+  mono: "var(--font-mono)",
 });
