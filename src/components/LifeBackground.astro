@@ -4,6 +4,11 @@ import * as stylex from "@stylexjs/stylex";
 import { styles } from "./LifeBackground.stylex";
 ---
 
+<!--
+  The Game of Life as the page background. A click anywhere that is not a
+  control flips three cells in a row under the pointer. Purely decorative,
+  hence `aria-hidden`; LifeToggle.astro renders the play/pause button.
+-->
 <canvas aria-hidden="true" data-life {...stylex.attrs(styles.canvas)}></canvas>
 
 <script>
@@ -174,7 +179,13 @@ import { styles } from "./LifeBackground.stylex";
       if (x < 0 || x >= cols || y < 0 || y >= rows) {
         return;
       }
-      cells[y * cols + x] = cells[y * cols + x] ? 0 : 1;
+      // Flip a horizontal row of three centred on the pointer. One cell alone
+      // dies in the next generation; three in a row on empty ground form a
+      // blinker, which keeps oscillating.
+      for (const offset of [-1, 0, 1]) {
+        const index = y * cols + ((x + offset + cols) % cols);
+        cells[index] = cells[index] ? 0 : 1;
+      }
       draw();
     });
 

@@ -45,7 +45,7 @@ test("theme toggle switches and persists the theme", async ({ page }) => {
 });
 
 test.describe("life background", () => {
-  test("clicking the background flips one cell", async ({ page }) => {
+  test("clicking the background flips three cells", async ({ page }) => {
     await page.goto("/blog");
     const canvas = page.locator("[data-life]");
     await expect(canvas).toHaveAttribute("data-generation", "0");
@@ -53,10 +53,15 @@ test.describe("life background", () => {
 
     await page.mouse.click(40, 400);
 
+    // Three flips change the live count by an odd amount: 1 or 3.
     await expect(canvas).not.toHaveAttribute("data-alive", String(before));
     const after = Number(await canvas.getAttribute("data-alive"));
-    expect(Math.abs(after - before)).toBe(1);
+    expect([1, 3]).toContain(Math.abs(after - before));
     await expect(canvas).toHaveAttribute("data-generation", "0");
+
+    // Flipping the same cells again restores the pattern.
+    await page.mouse.click(40, 400);
+    await expect(canvas).toHaveAttribute("data-alive", String(before));
   });
 
   test("clicking a link does not flip a cell", async ({ page }) => {
