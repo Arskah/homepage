@@ -18,4 +18,4 @@ My original idea was to have it function as a base where I could test out differ
 
 ## What next?
 
-For this page, not sure. There's a lot more to discuss on the hosting side of things, so a post about my server and Kubernetes cluster is a viable next step. The "agentic revolution" also encouraged me to try and replace one piece of Romanian abandonware that became familiar to me through my hobbies at university. After that, who knows?
+For this page, not sure. There's a lot more to discuss on the hosting side of things, so a post about my server and Kubernetes cluster is a viable next step. Writing code with agents instead of by hand has also saved me enough time to finally try replacing one piece of Romanian abandonware that became familiar to me through my hobbies at university. After that, who knows?
