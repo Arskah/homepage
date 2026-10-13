@@ -67,7 +67,8 @@ export default defineConfig({
 
     /*
      * With reduced motion the Game of Life background starts paused on its
-     * seeded first generation, which keeps screenshots deterministic.
+     * first generation. The tests also pin its random seed, which together
+     * keeps screenshots deterministic.
      */
     contextOptions: { reducedMotion: "reduce" },
 

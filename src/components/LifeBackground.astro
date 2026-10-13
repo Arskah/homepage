@@ -4,11 +4,6 @@ import * as stylex from "@stylexjs/stylex";
 import { styles } from "./LifeBackground.stylex";
 ---
 
-<!--
-  Conway's Game of Life as the page background. A click anywhere that is not a
-  control flips the cell under the pointer. Purely decorative, hence
-  `aria-hidden`; LifeToggle.astro renders the play/pause button.
--->
 <canvas aria-hidden="true" data-life {...stylex.attrs(styles.canvas)}></canvas>
 
 <script>
@@ -33,10 +28,12 @@ import { styles } from "./LifeBackground.stylex";
     let frame = 0;
     let lastTick = 0;
 
-    // The first generation is a pure function of the coordinates, so the same
-    // viewport always starts from the same pattern, whatever the resize order.
+    // Every page load starts from a different pattern. Within one load a
+    // cell's first state depends only on its coordinates and this seed, so
+    // cells revealed by a resize continue the same pattern.
+    const seed = Math.floor(Math.random() * 2 ** 32);
     const seeded = (x: number, y: number) => {
-      let hash = Math.imul(x, 374761393) ^ Math.imul(y, 668265263);
+      let hash = Math.imul(x, 374761393) ^ Math.imul(y, 668265263) ^ seed;
       hash = Math.imul(hash ^ (hash >>> 13), 1274126177);
       return ((hash ^ (hash >>> 16)) >>> 0) / 2 ** 32 < DENSITY ? 1 : 0;
     };

@@ -1,5 +1,13 @@
 import { expect, test } from "@playwright/test";
 
+// The Game of Life background seeds its start pattern from `Math.random()`.
+// Pin it so every run draws the same first generation.
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => {
+    Math.random = () => 0;
+  });
+});
+
 test("index page", async ({ page }) => {
   await page.goto("/");
   await expect(page).toHaveScreenshot("index.png", { fullPage: true });
