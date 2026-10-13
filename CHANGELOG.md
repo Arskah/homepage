@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.0](https://github.com/Arskah/homepage/compare/v1.1.5...v1.2.0) (2026-10-13)
+
+
+### Features
+
+* game of life page background ([#1209](https://github.com/Arskah/homepage/issues/1209)) ([9eef811](https://github.com/Arskah/homepage/commit/9eef8116a41684a22805a62d6542d4ac332bfbad))
+* **post:** initial hello world blog post ([#1210](https://github.com/Arskah/homepage/issues/1210)) ([d11635b](https://github.com/Arskah/homepage/commit/d11635b3961d80db84bed0013fb59750f725f520))
+* replace template content with real site content ([#1206](https://github.com/Arskah/homepage/issues/1206)) ([55336e8](https://github.com/Arskah/homepage/commit/55336e8e59b885ab12e730a4c47a8011cd44efe1))
+* terminal look with light and dark themes ([#1208](https://github.com/Arskah/homepage/issues/1208)) ([aa863e8](https://github.com/Arskah/homepage/commit/aa863e8c95cd9bbb42ffea3adc03a2b01a9acf67))
+
 ## [1.1.5](https://github.com/Arskah/homepage/compare/v1.1.4...v1.1.5) (2026-10-09)
 
 
