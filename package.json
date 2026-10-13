@@ -31,7 +31,8 @@
     "astro-icon": "1.2.0",
     "modern-normalize": "3.0.1",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "sharp": "0.35.5"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "1.10.12",
