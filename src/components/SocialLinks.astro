@@ -2,6 +2,7 @@
 import * as stylex from "@stylexjs/stylex";
 import { Icon } from "astro-icon/components";
 
+import { GITHUB_URL, LINKEDIN_URL } from "../consts";
 import { link, type LinkVariant, styles } from "./SocialLinks.stylex";
 
 interface Props {
@@ -22,23 +23,18 @@ const { hideOnMobile, linkColor, style } = Astro.props;
 >
   <a
     {...stylex.attrs(link[linkColor])}
-    href="https://m.webtoo.ls/@astro"
-    target="_blank"
-  >
-    <Icon height={32} name="mastodon" width={32} />
-  </a>
-  <a
-    {...stylex.attrs(link[linkColor])}
-    href="https://twitter.com/astrodotbuild"
-    target="_blank"
-  >
-    <Icon height={32} name="twitter" width={32} />
-  </a>
-  <a
-    {...stylex.attrs(link[linkColor])}
-    href="https://github.com/withastro/astro"
+    aria-label="GitHub"
+    href={GITHUB_URL}
     target="_blank"
   >
     <Icon height={32} name="github" width={32} />
+  </a>
+  <a
+    {...stylex.attrs(link[linkColor])}
+    aria-label="LinkedIn"
+    href={LINKEDIN_URL}
+    target="_blank"
+  >
+    <Icon height={32} name="linkedin" width={32} />
   </a>
 </div>

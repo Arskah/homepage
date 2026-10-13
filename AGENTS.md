@@ -10,15 +10,15 @@ The site is fully static: `.tsx` components are rendered at build time and no co
 
 ## Commands
 
-| Command                                        | Action                                                               |
-| ---------------------------------------------- | -------------------------------------------------------------------- |
-| `pnpm dev`                                     | Dev server at `localhost:4321`                                       |
-| `pnpm build`                                   | `astro check` (typecheck) **then** `astro build` → `dist/`           |
-| `pnpm lint`                                    | ESLint                                                               |
-| `pnpm exec prettier --check .`                 | Prettier check (CI runs this; `--write` to fix)                      |
-| `pnpm test`                                    | Playwright E2E against `pnpm preview`, so `pnpm build` first         |
-| `pnpm test -g "about page" --project chromium` | Single test by title, single browser                                 |
-| `pnpm snapshots:linux test-results`            | Copy `*-actual.png` from a results dir into the linux snapshot files |
+| Command                                       | Action                                                               |
+| --------------------------------------------- | -------------------------------------------------------------------- |
+| `pnpm dev`                                    | Dev server at `localhost:4321`                                       |
+| `pnpm build`                                  | `astro check` (typecheck) **then** `astro build` → `dist/`           |
+| `pnpm lint`                                   | ESLint                                                               |
+| `pnpm exec prettier --check .`                | Prettier check (CI runs this; `--write` to fix)                      |
+| `pnpm test`                                   | Playwright E2E against `pnpm preview`, so `pnpm build` first         |
+| `pnpm test -g "blog page" --project chromium` | Single test by title, single browser                                 |
+| `pnpm snapshots:linux test-results`           | Copy `*-actual.png` from a results dir into the linux snapshot files |
 
 Always run Playwright through `pnpm test` (it passes `--config e2e-tests/playwright.config.ts`). A bare `pnpm exec playwright test` finds no config, so there is no `baseURL`, web server or browser projects and the tests fail.
 
@@ -37,7 +37,7 @@ Blog posts are an Astro content collection in `src/content/blog/` (`.md`/`.mdx`,
 
 ## E2E visual regression
 
-`e2e-tests/tests/visuals.spec.ts` does full-page screenshot diffs of `/`, `/blog`, `/about` across chromium/firefox/webkit. Snapshots are **platform-specific**: `*-darwin.png` generated locally, `*-linux.png` used in CI. Config is `e2e-tests/playwright.config.ts` (note `testDir: ./tests` is relative to that folder).
+`e2e-tests/tests/visuals.spec.ts` does full-page screenshot diffs of `/` and `/blog` across chromium/firefox/webkit. Snapshots are **platform-specific**: `*-darwin.png` generated locally, `*-linux.png` used in CI. Config is `e2e-tests/playwright.config.ts` (note `testDir: ./tests` is relative to that folder).
 
 - Locally the config has `reuseExistingServer: true`: if anything is already listening on `:4321` (e.g. `pnpm dev`), tests screenshot _that_ instead of the built site. Stop the dev server before running tests.
 - Update darwin baselines with `pnpm test --update-snapshots`.

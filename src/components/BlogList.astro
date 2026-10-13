@@ -5,54 +5,33 @@ import { getCollection } from "astro:content";
 import { styles } from "./BlogList.stylex";
 import { FormattedDate } from "./FormattedDate";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+interface Props {
+  limit?: number;
+}
+
+const { limit } = Astro.props;
+
+const posts = (await getCollection("blog"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, limit);
 ---
 
-<ul {...stylex.attrs(styles.list)}>
-  {posts.map((post, index) => {
-    const featured = index === 0;
-    return (
-      <li {...stylex.attrs(styles.item, featured && styles.itemFeatured)}>
-        <a {...stylex.attrs(styles.anchor)} href={`/blog/${post.id}/`}>
-          <img
-            alt=""
-            height={360}
-            src={post.data.heroImage}
-            width={760}
-            {...stylex.attrs(styles.img, featured && styles.imgFeatured)}
-          />
-          <h4 {...stylex.attrs(styles.title, featured && styles.titleFeatured)}>
-            {post.data.title}
-          </h4>
-          <p {...stylex.attrs(styles.date)}>
-            <FormattedDate date={post.data.pubDate} />
-          </p>
+{posts.length === 0 ? (
+  <p>Nothing here yet.</p>
+) : (
+  <ul {...stylex.attrs(styles.list)}>
+    {posts.map((post) => (
+      <li {...stylex.attrs(styles.item)}>
+        <span {...stylex.attrs(styles.date)}>
+          <FormattedDate date={post.data.pubDate} />
+        </span>
+        <a {...stylex.attrs(styles.title)} href={`/blog/${post.id}/`}>
+          {post.data.title}
         </a>
+        <span {...stylex.attrs(styles.description)}>
+          {post.data.description}
+        </span>
       </li>
-    );
-  })}
-</ul>
-
-<!--
-  Ancestor-hover relationships (`a:hover img/h4/p`) cannot be expressed in
-  StyleX, which only styles the element a compiled style is applied to. Kept as
-  a scoped style, co-located with the markup it targets.
--->
-<style>
-  a:hover img {
-    box-shadow: var(--box-shadow);
-    transition: box-shadow 0.2s ease;
-  }
-
-  a:hover h4 {
-    color: var(--color-accent);
-    transition: color 0.2s ease;
-  }
-
-  a:hover p {
-    color: var(--color-accent);
-    transition: color 0.2s ease;
-  }
-</style>
+    ))}
+  </ul>
+)}
