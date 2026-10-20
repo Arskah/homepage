@@ -12,7 +12,7 @@ permissions:
 jobs:
   release-please:
     name: Release Please
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     outputs:
       release_created: ${{ steps.release-please.outputs.release_created }}
       release_tag: ${{ steps.release-please.outputs.tag_name }}
@@ -45,7 +45,7 @@ jobs:
     name: Promote to production
     needs: [release-please, docker-build]
     if: ${{ needs.release-please.outputs.release_created }}
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     steps:
       - name: Login to Docker registry
         uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
