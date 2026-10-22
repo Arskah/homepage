@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.2](https://github.com/Arskah/homepage/compare/v1.2.1...v1.2.2) (2026-10-22)
+
+
+### Bug Fixes
+
+* **deps:** update astro monorepo ([#1222](https://github.com/Arskah/homepage/issues/1222)) ([1a29f8f](https://github.com/Arskah/homepage/commit/1a29f8f4e60f979d750b47091c608272e2a6834f))
+* **deps:** update dependency temporal-polyfill to v1.0.6 ([#1218](https://github.com/Arskah/homepage/issues/1218)) ([0f94e91](https://github.com/Arskah/homepage/commit/0f94e917c160aca34665b87f6f28547e8b6ab22b))
+* **deps:** update react monorepo to v19.3.1 ([#1221](https://github.com/Arskah/homepage/issues/1221)) ([617b979](https://github.com/Arskah/homepage/commit/617b979bc93e2b0b149da2ed8f88eed60a0397f7))
+
 ## [1.2.1](https://github.com/Arskah/homepage/compare/v1.2.0...v1.2.1) (2026-10-13)
 
 
