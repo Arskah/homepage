@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/Arskah/homepage/compare/v1.2.2...v1.2.3) (2026-10-28)
+
+
+### Bug Fixes
+
+* **deps:** update astro monorepo ([#1231](https://github.com/Arskah/homepage/issues/1231)) ([aefaafb](https://github.com/Arskah/homepage/commit/aefaafbbb2e0b631f049e21247f145686e47e59c))
+
 ## [1.2.2](https://github.com/Arskah/homepage/compare/v1.2.1...v1.2.2) (2026-10-22)
 
 
