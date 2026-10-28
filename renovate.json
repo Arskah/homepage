@@ -22,7 +22,7 @@
     {
       "enabled": false,
       "pinDigests": false,
-      "matchPackageNames": ["/^registry.aarnihalinen.fi/homepage/"]
+      "matchPackageNames": ["/^forge.aarnihalinen.fi/arska/homepage/"]
     },
     {
       "groupName": "playwright",

@@ -13,8 +13,6 @@ spec:
         run: homepage
     spec:
       automountServiceAccountToken: false
-      imagePullSecrets:
-        - name: regcred-homepage
       containers:
         - name: homepage
           image: homepage-image

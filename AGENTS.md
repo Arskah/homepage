@@ -4,7 +4,7 @@ This file provides guidance to coding agents when working with code in this repo
 
 ## What this is
 
-Personal homepage + blog for `https://aarnihalinen.fi`, built on **Astro 7** with React 19 components. Deployed as a Docker image to `registry.aarnihalinen.fi/homepage`. Package manager is **pnpm** (see `packageManager` in `package.json`) — use `pnpm`, not npm/yarn. Node version comes from `.nvmrc`.
+Personal homepage + blog for `https://aarnihalinen.fi`, built on **Astro 7** with React 19 components. Deployed as a Docker image to `forge.aarnihalinen.fi/arska/homepage`. Package manager is **pnpm** (see `packageManager` in `package.json`) — use `pnpm`, not npm/yarn. Node version comes from `.nvmrc`.
 
 The site is static: `.tsx` components are rendered at build time and no component uses a `client:*` directive, so no React ships to the browser. The little interactivity there is uses plain scripts in `.astro` components (`ThemeToggle.astro`, `LifeBackground.astro`); prefer that over a `client:*` island for small things.
 
