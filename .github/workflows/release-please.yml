@@ -35,8 +35,8 @@ jobs:
     uses: ./.github/workflows/docker-build.yml
     with:
       tags: |
-        forge.aarnihalinen.fi/arska/homepage:${{ github.sha }}
-        forge.aarnihalinen.fi/arska/homepage:staging
+        forge.aarnihalinen.fi/public/homepage:${{ github.sha }}
+        forge.aarnihalinen.fi/public/homepage:staging
       build-args: |
         VERSION=${{ needs.release-please.outputs.release_tag || github.sha }}
     secrets: inherit
@@ -57,7 +57,7 @@ jobs:
 
       - name: Tag image with latest
         env:
-          IMAGE: forge.aarnihalinen.fi/arska/homepage
+          IMAGE: forge.aarnihalinen.fi/public/homepage
           SHA: ${{ github.sha }}
           RELEASE_TAG: ${{ needs.release-please.outputs.release_tag }}
         run: |
