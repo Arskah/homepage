@@ -1,7 +1,3 @@
-// Node 24 does not ship `Temporal` yet; drop this import for the global once
-// the Node version in `.nvmrc` and the Dockerfile does.
-import { Temporal } from "temporal-polyfill";
-
 import { SITE_TIME_ZONE } from "../consts";
 
 interface Props {

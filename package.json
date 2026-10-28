@@ -17,7 +17,7 @@
       "prettier --write",
       "eslint"
     ],
-    "!(*.ts)": "prettier --write"
+    "!(*.ts)": "prettier --write --ignore-unknown"
   },
   "dependencies": {
     "@astrojs/check": "0.9.12",
@@ -32,8 +32,7 @@
     "modern-normalize": "3.0.1",
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "sharp": "0.35.5",
-    "temporal-polyfill": "1.0.6"
+    "sharp": "0.35.5"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "1.10.12",
@@ -43,7 +42,7 @@
     "@eslint/js": "10.0.1",
     "@playwright/test": "1.64.1",
     "@stylexjs/eslint-plugin": "0.19.1",
-    "@types/node": "24.19.2",
+    "@types/node": "26.6.5",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@typescript-eslint/parser": "8.72.0",
