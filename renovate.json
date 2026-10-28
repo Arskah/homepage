@@ -32,5 +32,15 @@
         "/@playwright/test/"
       ]
     }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "The Renovate version that validates this config in the lint workflow",
+      "managerFilePatterns": ["/^\\.github/workflows/lint\\.yml$/"],
+      "matchStrings": ["npx --yes --package renovate@(?<currentValue>\\S+)"],
+      "depNameTemplate": "renovate",
+      "datasourceTemplate": "npm"
+    }
   ]
 }
