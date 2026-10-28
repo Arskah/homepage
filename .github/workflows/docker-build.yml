@@ -29,7 +29,7 @@ jobs:
       - name: Login to Docker registry
         uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
         with:
-          registry: registry.aarnihalinen.fi
+          registry: forge.aarnihalinen.fi
           username: ${{ secrets.REGISTRY_USER }}
           password: ${{ secrets.REGISTRY_PWD }}
           logout: true
