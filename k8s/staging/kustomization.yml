@@ -7,5 +7,5 @@ resources:
 namePrefix: staging-
 images:
   - name: homepage-image
-    newName: forge.aarnihalinen.fi/arska/homepage
+    newName: forge.aarnihalinen.fi/public/homepage
     newTag: staging

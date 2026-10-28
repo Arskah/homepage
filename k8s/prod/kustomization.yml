@@ -7,5 +7,5 @@ resources:
 namePrefix: production-
 images:
   - name: homepage-image
-    newName: forge.aarnihalinen.fi/arska/homepage
+    newName: forge.aarnihalinen.fi/public/homepage
     newTag: v1.2.2
