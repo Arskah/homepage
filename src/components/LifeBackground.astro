@@ -2,12 +2,14 @@
 import * as stylex from "@stylexjs/stylex";
 
 import { styles } from "./LifeBackground.stylex";
+import LifeBrushes from "./LifeBrushes.astro";
 ---
 
 <!--
   The Game of Life as the page background. A click anywhere that is not a
-  control brings three cells in a row to life under the pointer. Purely decorative,
-  hence `aria-hidden`; LifeToggle.astro renders the play/pause button.
+  control places the brush picked in LifeBrushes.astro under the pointer, which
+  a mouse previews as it moves. Purely decorative, hence `aria-hidden`;
+  LifeToggle.astro renders the play/pause button.
 -->
 <canvas
   aria-hidden="true"
@@ -15,18 +17,30 @@ import { styles } from "./LifeBackground.stylex";
   transition:persist="life"
   {...stylex.attrs(styles.canvas)}
 ></canvas>
+<LifeBrushes />
 
 <script>
+  import { brushCells, BRUSHES, DEFAULT_BRUSH } from "../brushes";
+
   const CELL_SIZE = 14;
   const DENSITY = 0.2;
   const TICK_MS = 333;
   const STORAGE_KEY = "life";
-  const INTERACTIVE =
-    "a, button, input, textarea, select, summary, label, [contenteditable]";
+  const BRUSH_KEY = "life-brush";
+  const EDITABLE = "input, textarea, select, [contenteditable]";
+  const INTERACTIVE = `a, button, summary, label, [data-life-brushes], ${EDITABLE}`;
 
   const canvas = document.querySelector<HTMLCanvasElement>("[data-life]");
   const button =
     document.querySelector<HTMLButtonElement>("[data-life-toggle]");
+  const drawer = document.querySelector<HTMLElement>("[data-life-brushes]");
+  const drawerToggle = document.querySelector<HTMLButtonElement>(
+    "[data-life-brushes-toggle]",
+  );
+  const brushButtons =
+    document.querySelectorAll<HTMLButtonElement>("[data-brush]");
+  const rotateButton =
+    document.querySelector<HTMLButtonElement>("[data-life-rotate]");
   const context = canvas?.getContext("2d");
 
   if (canvas && context) {
@@ -37,6 +51,7 @@ import { styles } from "./LifeBackground.stylex";
     let generation = 0;
     let frame = 0;
     let lastTick = 0;
+    let pendingDraw = 0;
 
     // Every page load starts from a different pattern. Within one load a
     // cell's first state depends only on its coordinates and this seed, so
@@ -47,6 +62,36 @@ import { styles } from "./LifeBackground.stylex";
       hash = Math.imul(hash ^ (hash >>> 13), 1274126177);
       return ((hash ^ (hash >>> 16)) >>> 0) / 2 ** 32 < DENSITY ? 1 : 0;
     };
+
+    const readStored = (key: string) => {
+      try {
+        return localStorage.getItem(key);
+      } catch {
+        return null;
+      }
+    };
+
+    const store = (key: string, value: string) => {
+      try {
+        localStorage.setItem(key, value);
+      } catch {
+        // Storage unavailable: the choice lasts for this page view only.
+      }
+    };
+
+    const storedBrush = readStored(BRUSH_KEY);
+    let brush =
+      BRUSHES.find(({ name }) => name === storedBrush) ??
+      BRUSHES.find(({ name }) => name === DEFAULT_BRUSH)!;
+    let turns = 0;
+    let shape = brushCells(brush, turns);
+    // The cell under the mouse, where the brush is previewed; null while the
+    // mouse is over a control or outside the window, and for touch and pens.
+    let pointer: null | { x: number; y: number } = null;
+
+    // The grid wraps around at every edge, and so do brushes.
+    const wrap = (value: number, size: number) =>
+      ((value % size) + size) % size;
 
     const draw = () => {
       context.clearRect(0, 0, cols * CELL_SIZE, rows * CELL_SIZE);
@@ -64,6 +109,31 @@ import { styles } from "./LifeBackground.stylex";
             );
           }
         }
+      }
+      if (pointer) {
+        // Half the cell color, so that text over the preview stays readable.
+        context.globalAlpha = 0.5;
+        context.strokeStyle = context.fillStyle;
+        for (const [dx, dy] of shape) {
+          const x = wrap(pointer.x + dx, cols);
+          const y = wrap(pointer.y + dy, rows);
+          if (brush.erase) {
+            context.strokeRect(
+              x * CELL_SIZE + 0.5,
+              y * CELL_SIZE + 0.5,
+              CELL_SIZE - 2,
+              CELL_SIZE - 2,
+            );
+          } else if (!cells[y * cols + x]) {
+            context.fillRect(
+              x * CELL_SIZE,
+              y * CELL_SIZE,
+              CELL_SIZE - 1,
+              CELL_SIZE - 1,
+            );
+          }
+        }
+        context.globalAlpha = 1;
       }
       // Read by the end-to-end tests.
       canvas.dataset.alive = String(alive);
@@ -119,6 +189,16 @@ import { styles } from "./LifeBackground.stylex";
       draw();
     };
 
+    // Repaints on the next frame, for changes between generations.
+    const redraw = () => {
+      if (!pendingDraw) {
+        pendingDraw = requestAnimationFrame(() => {
+          pendingDraw = 0;
+          draw();
+        });
+      }
+    };
+
     const tick = (now: number) => {
       if (now - lastTick >= TICK_MS) {
         lastTick = now;
@@ -128,17 +208,9 @@ import { styles } from "./LifeBackground.stylex";
       frame = requestAnimationFrame(tick);
     };
 
-    const readStored = () => {
-      try {
-        return localStorage.getItem(STORAGE_KEY);
-      } catch {
-        return null;
-      }
-    };
-
     // A stored choice wins; otherwise the animation only starts by itself when
     // the visitor has not asked for reduced motion.
-    const stored = readStored();
+    const stored = readStored(STORAGE_KEY);
     let paused =
       stored === null
         ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -162,11 +234,7 @@ import { styles } from "./LifeBackground.stylex";
 
     button?.addEventListener("click", () => {
       paused = !paused;
-      try {
-        localStorage.setItem(STORAGE_KEY, paused ? "paused" : "running");
-      } catch {
-        // Storage unavailable: the choice lasts for this page view only.
-      }
+      store(STORAGE_KEY, paused ? "paused" : "running");
       sync();
     });
 
@@ -184,13 +252,101 @@ import { styles } from "./LifeBackground.stylex";
       if (x < 0 || x >= cols || y < 0 || y >= rows) {
         return;
       }
-      // Bring a horizontal row of three to life, centred on the pointer. One
-      // cell alone dies in the next generation; three in a row on empty ground
-      // form a blinker, which keeps oscillating.
-      for (const offset of [-1, 0, 1]) {
-        cells[y * cols + ((x + offset + cols) % cols)] = 1;
+      for (const [dx, dy] of shape) {
+        cells[wrap(y + dy, rows) * cols + wrap(x + dx, cols)] = brush.erase
+          ? 0
+          : 1;
       }
       draw();
+    });
+
+    document.addEventListener("pointermove", (event) => {
+      const target = event.target;
+      const next =
+        event.pointerType === "mouse" &&
+        target instanceof Element &&
+        !target.closest(INTERACTIVE)
+          ? {
+              x: Math.floor(event.clientX / CELL_SIZE),
+              y: Math.floor(event.clientY / CELL_SIZE),
+            }
+          : null;
+      if (next?.x !== pointer?.x || next?.y !== pointer?.y) {
+        pointer = next;
+        redraw();
+      }
+    });
+
+    // The mouse left the window.
+    document.addEventListener("mouseout", (event) => {
+      if (!event.relatedTarget && pointer) {
+        pointer = null;
+        redraw();
+      }
+    });
+
+    const renderBrushes = () => {
+      for (const button of brushButtons) {
+        button.setAttribute(
+          "aria-pressed",
+          String(button.dataset.brush === brush.name),
+        );
+      }
+    };
+
+    const setOpen = (open: boolean) => {
+      drawer?.toggleAttribute("data-open", open);
+      drawerToggle?.setAttribute("aria-expanded", String(open));
+    };
+
+    const rotate = () => {
+      turns = (turns + 1) % 4;
+      shape = brushCells(brush, turns);
+      redraw();
+    };
+
+    for (const button of brushButtons) {
+      button.addEventListener("click", () => {
+        const picked = BRUSHES.find(
+          ({ name }) => name === button.dataset.brush,
+        );
+        if (picked) {
+          brush = picked;
+          shape = brushCells(brush, turns);
+          store(BRUSH_KEY, brush.name);
+          renderBrushes();
+          // Out of the way of the page, where the brush is used. Hover or
+          // keyboard focus still keep it open.
+          setOpen(false);
+        }
+      });
+    }
+
+    rotateButton?.addEventListener("click", rotate);
+
+    drawerToggle?.addEventListener("click", () => {
+      setOpen(!drawer?.hasAttribute("data-open"));
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        // A focused brush would keep the drawer open.
+        if (drawer?.contains(document.activeElement)) {
+          drawerToggle?.focus();
+        }
+        return;
+      }
+      const target = event.target;
+      if (
+        event.key.toLowerCase() === "r" &&
+        !event.altKey &&
+        !event.ctrlKey &&
+        !event.metaKey &&
+        !(target instanceof Element && target.closest(EDITABLE))
+      ) {
+        rotate();
+      }
     });
 
     window.addEventListener("resize", resize);
@@ -213,6 +369,10 @@ import { styles } from "./LifeBackground.stylex";
     }
     if (button) {
       button.hidden = false;
+    }
+    renderBrushes();
+    if (drawer) {
+      drawer.hidden = false;
     }
   }
 </script>
