@@ -5,7 +5,11 @@ ARG VERSION
 WORKDIR /app
 COPY . .
 
-RUN npm install -g corepack@latest && corepack enable
+# Install the pnpm that package.json pins, checked against the hash pinned with it
+RUN PACKAGE_MANAGER="$(node -p 'require("./package.json").packageManager')" && \
+    TARBALL="$(npm pack --silent --pack-destination /tmp "${PACKAGE_MANAGER%%+*}")" && \
+    echo "${PACKAGE_MANAGER##*sha512.}  /tmp/${TARBALL}" | sha512sum -c - && \
+    npm install -g "/tmp/${TARBALL}"
 RUN pnpm install && \
     pnpm astro check && \
     PUBLIC_VERSION=${VERSION} pnpm astro build
