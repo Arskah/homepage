@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/Arskah/homepage/compare/v1.2.3...v1.3.0) (2026-10-31)
+
+
+### Features
+
+* add a brush picker for the Game of Life background ([#1248](https://github.com/Arskah/homepage/issues/1248)) ([0c1c660](https://github.com/Arskah/homepage/commit/0c1c6603e1fa087faf582af983faf7bd90c17aed))
+
 ## [1.2.3](https://github.com/Arskah/homepage/compare/v1.2.2...v1.2.3) (2026-10-28)
 
 
