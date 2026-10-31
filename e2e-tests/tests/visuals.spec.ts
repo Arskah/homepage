@@ -114,6 +114,59 @@ test.describe("life background", () => {
     await expect(canvas).toHaveCSS("position", "fixed");
   });
 
+  test("the brush picker sets what a click places", async ({ page }) => {
+    await page.goto("/blog/");
+    const canvas = page.locator("[data-life]");
+    const before = Number(await canvas.getAttribute("data-alive"));
+
+    await page.getByRole("button", { name: "Background brushes" }).click();
+    const gun = page.getByRole("button", { name: "Gosper glider gun" });
+    await gun.click();
+    await expect(gun).toHaveAttribute("aria-pressed", "true");
+    await expect(page.getByRole("button", { name: "Blinker" })).toHaveAttribute(
+      "aria-pressed",
+      "false",
+    );
+
+    // The gun has 36 cells, a few of which may have been alive already.
+    await page.mouse.click(600, 400);
+    await expect(canvas).not.toHaveAttribute("data-alive", String(before));
+    const drawn = Number(await canvas.getAttribute("data-alive"));
+    expect(drawn).toBeGreaterThan(before + 9);
+    expect(drawn).toBeLessThanOrEqual(before + 36);
+
+    await page.getByRole("button", { name: "Background brushes" }).click();
+    await page.getByRole("button", { name: "Eraser" }).click();
+    await page.mouse.click(600, 400);
+    await expect(canvas).not.toHaveAttribute("data-alive", String(drawn));
+    expect(Number(await canvas.getAttribute("data-alive"))).toBeLessThan(drawn);
+
+    // The choice is remembered.
+    await page.reload();
+    await expect(page.getByRole("button", { name: "Eraser" })).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
+  });
+
+  test("the brush drawer opens from its tab", async ({ page }) => {
+    await page.goto("/");
+    const tab = page.getByRole("button", { name: "Background brushes" });
+    await expect(tab).toHaveAttribute("aria-expanded", "false");
+    await tab.click();
+    await expect(tab).toHaveAttribute("aria-expanded", "true");
+    await expect(
+      page.getByRole("button", { exact: true, name: "Glider" }),
+    ).toBeInViewport();
+
+    await page.keyboard.press("Escape");
+    await expect(tab).toHaveAttribute("aria-expanded", "false");
+    await page.mouse.move(600, 400);
+    await expect(
+      page.getByRole("button", { exact: true, name: "Glider" }),
+    ).not.toBeInViewport();
+  });
+
   test("play and pause control the animation", async ({ page }) => {
     await page.goto("/");
     const canvas = page.locator("[data-life]");

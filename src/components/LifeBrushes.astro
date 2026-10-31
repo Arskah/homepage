@@ -1,0 +1,86 @@
+---
+import * as stylex from "@stylexjs/stylex";
+
+import { BRUSHES } from "../brushes";
+import { marker, styles } from "./LifeBrushes.stylex";
+
+const thumbnails = BRUSHES.map((brush) => {
+  const height = brush.rows.length;
+  const width = Math.max(...brush.rows.map((row) => row.length));
+  const cells = brush.rows.flatMap((row, y) =>
+    [...row].flatMap((cell, x) => (cell === "O" ? [{ x, y }] : [])),
+  );
+  return { brush, cells, height, wide: width > 3 * height, width };
+});
+---
+
+<!--
+  Brush picker for the Game of Life background: a tab at the left edge that
+  slides out the patterns a click can place. Rendered hidden and wired up by the
+  script in LifeBackground.astro.
+-->
+<div
+  data-life-brushes
+  hidden
+  transition:persist="life-brushes"
+  {...stylex.attrs(styles.drawer, marker)}
+>
+  <div {...stylex.attrs(styles.slider)}>
+    <div
+      aria-label="Background brush"
+      id="life-brushes"
+      role="group"
+      {...stylex.attrs(styles.panel)}
+    >
+      {thumbnails.map(({ brush, cells, height, wide, width }) => (
+        <button
+          aria-label={brush.label}
+          aria-pressed="false"
+          data-brush={brush.name}
+          title={brush.label}
+          type="button"
+          {...stylex.attrs(styles.brush, wide && styles.wide)}
+        >
+          <svg
+            aria-hidden="true"
+            viewBox={`-0.5 -0.5 ${width + 1} ${height + 1}`}
+            {...stylex.attrs(styles.thumbnail)}
+          >
+            {brush.erase ? (
+              <rect
+                fill="none"
+                height={height}
+                stroke="currentColor"
+                stroke-dasharray="0.5"
+                stroke-width="0.25"
+                width={width}
+              />
+            ) : (
+              cells.map(({ x, y }) => (
+                <rect height="0.9" width="0.9" x={x} y={y} />
+              ))
+            )}
+          </svg>
+        </button>
+      ))}
+      <button
+        aria-label="Rotate brush"
+        data-life-rotate
+        type="button"
+        {...stylex.attrs(styles.brush, styles.wide)}
+      >
+        rotate
+      </button>
+    </div>
+    <button
+      aria-controls="life-brushes"
+      aria-expanded="false"
+      aria-label="Background brushes"
+      data-life-brushes-toggle
+      type="button"
+      {...stylex.attrs(styles.tab)}
+    >
+      ›
+    </button>
+  </div>
+</div>
