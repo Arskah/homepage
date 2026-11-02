@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.4.0](https://github.com/Arskah/homepage/compare/v1.3.0...v1.4.0) (2026-11-02)
+
+
+### Features
+
+* **post:** moving my repositories to Forgejo ([#1255](https://github.com/Arskah/homepage/issues/1255)) ([6b6440f](https://github.com/Arskah/homepage/commit/6b6440f7baf80e82d8687bfe0bc5ed52d661bc04))
+
+
+### Bug Fixes
+
+* **deps:** update astro monorepo ([#1254](https://github.com/Arskah/homepage/issues/1254)) ([6f03ac2](https://github.com/Arskah/homepage/commit/6f03ac2d48baa71aec826784e2f5e442de33baff))
+* **post:** tighten the Forgejo runner section ([7717bcf](https://github.com/Arskah/homepage/commit/7717bcf76b0748ec34e9d181d9066acd907ce6fe))
+
 ## [1.3.0](https://github.com/Arskah/homepage/compare/v1.2.3...v1.3.0) (2026-10-31)
 
 
