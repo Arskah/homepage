@@ -1,0 +1,24 @@
+name: Playwright browser cache
+
+# A pull request can only restore caches saved on its own branch or on main, and the tests run
+# only in pull requests. Saving the browsers from main lets every pull request reuse them.
+on:
+  push:
+    branches: [main]
+    paths:
+      - pnpm-lock.yaml
+      - .github/actions/playwright/action.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cache:
+    name: Cache Playwright browsers
+    runs-on: ubuntu-26.04
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: ./.github/actions/setup
+      - uses: ./.github/actions/playwright

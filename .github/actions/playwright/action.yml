@@ -1,0 +1,27 @@
+name: Install Playwright browsers
+description: Restores the Playwright browsers from the cache, or downloads them, and installs their system dependencies
+
+runs:
+  using: "composite"
+  steps:
+    # The browsers only change with the Playwright version, so key on that instead of the whole
+    # lockfile, which every dependency update changes.
+    - name: Read Playwright version
+      id: version
+      shell: bash
+      run: echo "version=$(pnpm exec playwright --version | awk '{print $2}')" >> "$GITHUB_OUTPUT"
+    - name: Cache browsers
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      id: cache
+      with:
+        path: ~/.cache/ms-playwright
+        key: playwright-${{ runner.os }}-${{ runner.arch }}-${{ steps.version.outputs.version }}
+    - name: Install browsers
+      if: steps.cache.outputs.cache-hit != 'true'
+      shell: bash
+      run: pnpm exec playwright install --with-deps
+    # The cache holds the browsers only, their system packages still need installing
+    - name: Install system dependencies
+      if: steps.cache.outputs.cache-hit == 'true'
+      shell: bash
+      run: pnpm exec playwright install-deps
