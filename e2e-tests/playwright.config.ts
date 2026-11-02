@@ -77,7 +77,11 @@ export default defineConfig({
   },
 
   webServer: {
-    command: "pnpm run preview",
+    /*
+     * Run by a coding agent, `astro preview` starts in the background and exits, which
+     * Playwright takes for a crashed server. `--ignore-lock` keeps it in the foreground.
+     */
+    command: "pnpm run preview --ignore-lock",
     reuseExistingServer: !process.env.CI,
     url: "http://localhost:4321",
   },
