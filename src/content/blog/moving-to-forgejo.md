@@ -40,7 +40,7 @@ All images now live in Forgejo's container registry under `forge.aarnihalinen.fi
 
 Forgejo Actions needs a runner of its own, and this was the trickiest part of the whole move.
 
-The first version was a proof of concept modelled on the examples: the runner next to a root `docker:dind` sidecar, privileged, registered for the whole instance. It did not even pick up jobs at first. Runner v13 ignores labels under `container:`, so it registered with no labels at all, and no job matched it. Once the labels were moved to `runner.labels`, the toiletpaper.rent CI finally ran on it. A review of the setup then found plenty to fix:
+The first version was a proof of concept modelled on the examples: the runner next to a root `docker:dind` sidecar, privileged, registered for the whole instance. A review of the setup then found plenty to fix:
 
 - Any job that reached the root, privileged daemon was effectively root on the node.
 - The runner and the daemon started in parallel, so the runner crashlooped until the daemon was up.
@@ -48,7 +48,7 @@ The first version was a proof of concept modelled on the examples: the runner ne
 - An image store with no size limit and no pruning, already at 2.7 GB.
 - Every redeploy killed running jobs after the default 30-second grace period.
 
-### What am I protecting against?
+### Hardening the runner
 
 The first goal was to "make it rootless". That turned out to be the wrong framing. The runner runs my own Node CI and `docker build`s, and the real concern is lateral movement: a compromised job (for example, a malicious npm package) must not get any further than the runner's namespace. Rootless alone does not stop that, since a rootless job can still talk to every Service, the API server, the kubelet, the NAS and the router. A network policy alone means little if the job can step onto the host. It takes both.
 
@@ -60,9 +60,9 @@ Surely others run Forgejo runners on Kubernetes without handing every job the no
 - The [runner chart](https://code.forgejo.org/forgejo-helm/forgejo-runner) in forgejo-helm is privileged by default and not published yet.
 - Gitea's [rootless example](https://gitea.com/gitea/act_runner/src/branch/main/examples/kubernetes/rootless-docker.yaml) uses `dind-rootless`, but is still privileged.
 - The [forum discussion](https://codeberg.org/forgejo/discussions/issues/200) "rootless runner in kubernetes?" has been open since 2024 without an answer.
-- A single-maintainer chart creates a pod per job and builds with BuildKit. It is the closest in spirit, but it needs RBAC to create pods (a new way out of the namespace) and a shared volume between jobs.
+- The [forge-runner-k8s-chart](https://git.aquila-consortium.org/guilhem_lavaux/forge-runner-k8s-chart), a single-maintainer project, creates a pod per job and builds with BuildKit. It is the closest in spirit, but it needs RBAC to create pods (a new way out of the namespace) and a shared volume between jobs.
 
-The alternatives each had a price. User namespaces (`hostUsers: false`) give two real layers, but turn on user namespaces for every pod and break NFS mounts. Daemonless builds with buildah or a kaniko fork mean rewriting the workflows. gVisor and Kata are a Talos extension to carry through every upgrade, and Kata is far too heavy for 2-vCPU nodes. A separate Proxmox VM isolates best, but is not GitOps and is one more machine to patch.
+The alternatives each had a price. User namespaces, turned on per pod with `hostUsers: false` in the pod spec, give two real layers, but break NFS mounts. Daemonless builds with buildah or a kaniko fork mean rewriting the workflows. gVisor and Kata are a Talos extension to carry through every upgrade, and Kata is far too heavy for 2-vCPU nodes. A separate Proxmox VM isolates best, but is not GitOps and is one more machine to patch.
 
 ### What I settled on
 
