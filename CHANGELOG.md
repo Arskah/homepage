@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.4.1](https://github.com/Arskah/homepage/compare/v1.4.0...v1.4.1) (2026-11-18)
+
+
+### Bug Fixes
+
+* **deps:** update astro monorepo ([#1267](https://github.com/Arskah/homepage/issues/1267)) ([ac800cf](https://github.com/Arskah/homepage/commit/ac800cf5b8eac1ce5870276644f9acc2383911f9))
+* **deps:** update astro monorepo ([#1284](https://github.com/Arskah/homepage/issues/1284)) ([35d90d0](https://github.com/Arskah/homepage/commit/35d90d01256189f4e829e149ec762064f254cbdc))
+* **deps:** update dependency @stylexjs/stylex to v0.19.2 ([#1282](https://github.com/Arskah/homepage/issues/1282)) ([82b755b](https://github.com/Arskah/homepage/commit/82b755b7def2ae5021a363aa462dc9c79cc60537))
+* **deps:** update dependency astro to v7.4.12 ([#1290](https://github.com/Arskah/homepage/issues/1290)) ([6730b0b](https://github.com/Arskah/homepage/commit/6730b0bbbcef1ef78f883ef4a568444ddb1f54b1))
+* **deps:** update dependency astro to v7.4.7 [security] ([#1278](https://github.com/Arskah/homepage/issues/1278)) ([db9425c](https://github.com/Arskah/homepage/commit/db9425cffecfeb2a89714841be0eb1f4f67efa57))
+
 ## [1.4.0](https://github.com/Arskah/homepage/compare/v1.3.0...v1.4.0) (2026-11-02)
 
 
