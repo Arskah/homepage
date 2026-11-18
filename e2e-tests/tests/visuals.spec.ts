@@ -79,9 +79,8 @@ test.describe("life background", () => {
   });
 
   test("navigation links end in a slash", async ({ page }) => {
-    // Apache redirects a slashless directory URL, and behind the TLS proxy
-    // that redirect points to http: the client router cannot follow it and
-    // falls back to a full page load.
+    // The server redirects a slashless directory URL, and the client router
+    // cannot follow a redirect: it falls back to a full page load.
     await page.goto("/");
     await page.getByRole("link", { name: "Blog" }).click();
     await expect(page).toHaveURL(/\/blog\/$/);

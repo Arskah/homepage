@@ -14,9 +14,7 @@ RUN pnpm install && \
     pnpm astro check && \
     PUBLIC_VERSION=${VERSION} pnpm astro build
 
-FROM --platform=${PLATFORM} httpd:2.4.69@sha256:a30cd4cd57f3f3c3be9b2d16384d2488839996bb14c67df2b51f1ecbb3e584a1 AS runtime
-COPY --from=build /app/dist /usr/local/apache2/htdocs/
-COPY httpd/cache.conf httpd/proxy.conf /usr/local/apache2/conf/extra/
-RUN echo "Include conf/extra/cache.conf" >> /usr/local/apache2/conf/httpd.conf && \
-    echo "Include conf/extra/proxy.conf" >> /usr/local/apache2/conf/httpd.conf
+FROM --platform=${PLATFORM} caddy:2.11.7-alpine@sha256:d8542f48d34a9cf4e4c11a478865229840e87e4c96ea3f439101f31a5d35f75f AS runtime
+COPY Caddyfile /etc/caddy/Caddyfile
+COPY --from=build /app/dist /srv
 EXPOSE 80
